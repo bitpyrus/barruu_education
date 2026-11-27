@@ -1,0 +1,15 @@
+// Cloudflare Workers deployment for the web app (static assets only, no server code).
+// Cloudflare build settings:  build command `npm run build`  ·  deploy command `npx wrangler deploy`
+// Both run from the repository root; this file tells Wrangler exactly what to deploy, so it
+// doesn't try (and refuse) to auto-detect an app inside the monorepo.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the Worker name in the Cloudflare dashboard.
+  "name": "barruu-education",
+  "compatibility_date": "2026-11-27",
+  "assets": {
+    "directory": "./apps/web/dist",
+    // Client-side routes (/courses/…, /placement) fall back to index.html.
+    "not_found_handling": "single-page-application"
+  }
+}

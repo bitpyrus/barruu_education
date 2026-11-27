@@ -59,6 +59,7 @@ The foundation is in place:
 3. Then start Phase 1 content: the circuit-builder interactive and the *Electric Circuits* course.
 
 ## Handoff notes
+- Deploy: Cloudflare Workers via root `wrangler.jsonc` (static assets from `apps/web/dist`); see docs/LOCAL_AND_OFFLINE.md.
 - Scripts use `tsx` (`npx tsx scripts/...`). Node can't run the extensionless TypeScript imports directly.
 - `vite preview` serves on :4173 by default. The e2e script reads `BASE_URL`.
 - GridBoard rectangles resize from their first authored point (the anchor).

@@ -11,3 +11,4 @@ playwright-report/
 test-results/
 # Local Claude settings are personal
 .claude/settings.local.json
+.wrangler/
