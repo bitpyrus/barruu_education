@@ -3,6 +3,7 @@ import { compile, derivative } from '@barruu/engine';
 import { findRoots, type FunctionExplorerConfig, type FunctionExplorerState } from '@barruu/engine';
 import type { InteractiveProps } from './types';
 import { ParamSlider } from './ParamSlider';
+import { useUiText } from '../UiText';
 
 const W = 640, H = 400;
 
@@ -20,6 +21,7 @@ export function FunctionExplorer({ config, state, onChange, readOnly }: Interact
   const [x0, x1] = xRange, [y0, y1] = yRange;
   const sx = (x: number) => ((x - x0) / (x1 - x0)) * W;
   const sy = (y: number) => H - ((y - y0) / (y1 - y0)) * H;
+  const tx = useUiText();
   const [hoverX, setHoverX] = useState<number | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -48,7 +50,8 @@ export function FunctionExplorer({ config, state, onChange, readOnly }: Interact
   const gridY: number[] = []; for (let v = Math.ceil(y0 / ys) * ys; v <= y1; v += ys) gridY.push(+v.toFixed(10));
 
   const values = names.map((n) => `${n}=${fmt(state.params[n])}`).join(', ');
-  const ariaLabel = `Graph of f(x) = ${expression}${values ? ` with ${values}` : ''}. ${roots.length ? `Crosses the x-axis at ${roots.map(fmt).join(', ')}.` : 'Does not cross the x-axis in view.'}`;
+  const rootsText = roots.length ? tx('ui.fx.roots', { values: roots.map(fmt).join(', ') }) : tx('ui.fx.noRoots');
+  const ariaLabel = `${tx('ui.fx.aria', { expression: values ? `${expression}, ${values}` : expression })} ${rootsText}`;
 
   const onMove = (e: React.PointerEvent<SVGSVGElement>) => {
     const rect = svgRef.current?.getBoundingClientRect();
@@ -84,10 +87,10 @@ export function FunctionExplorer({ config, state, onChange, readOnly }: Interact
           </>}
         </svg>
         <div className="px-3 py-2 border-t border-slate-100 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600">
-          <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full border-2 border-violet-600 bg-white" />roots {roots.length ? roots.map(fmt).join(', ') : 'none in view'}</span>
-          <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-violet-600" />turning point{turning.length !== 1 ? 's' : ''} {turning.length ? turning.map((t) => `(${fmt(t)}, ${fmt(g(t))})`).join(' ') : 'none'}</span>
-          {x0 < 0 && x1 > 0 && <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-sky-500" />y-intercept {fmt(g(0))}</span>}
-          {ref && <span className="inline-flex items-center gap-1.5"><span className="w-4 border-t-2 border-dashed border-slate-300" />reference {reference}</span>}
+          <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full border-2 border-violet-600 bg-white" />{rootsText}</span>
+          <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-violet-600" />{turning.length ? tx('ui.fx.turning', { values: turning.map((t) => `(${fmt(t)}, ${fmt(g(t))})`).join(' ') }) : tx('ui.fx.noTurning')}</span>
+          {x0 < 0 && x1 > 0 && <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-sky-500" />{tx('ui.fx.yIntercept', { value: fmt(g(0)) })}</span>}
+          {ref && <span className="inline-flex items-center gap-1.5"><span className="w-4 border-t-2 border-dashed border-slate-300" />{tx('ui.fx.reference', { expression: reference ?? '' })}</span>}
           {state.showDerivative && <span className="inline-flex items-center gap-1.5"><span className="w-4 border-t-2 border-dotted border-amber-500" />f′(x)</span>}
         </div>
       </div>
@@ -102,13 +105,13 @@ export function FunctionExplorer({ config, state, onChange, readOnly }: Interact
             <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
               <input type="checkbox" className="accent-amber-500 w-4 h-4" checked={state.showDerivative} disabled={readOnly}
                      onChange={(e) => onChange({ ...state, showDerivative: e.target.checked }, e.target.checked ? 'showed the derivative' : 'hid the derivative')} />
-              Show derivative f′(x)
+              {tx('ui.fx.showDerivative')}
             </label>
           )}
           {parameters.length > 0 && !readOnly && (
             <button type="button" className="self-start text-xs text-slate-500 hover:text-violet-700 underline underline-offset-2"
                     onClick={() => onChange({ ...state, params: Object.fromEntries(parameters.map((p) => [p.name, p.default])) }, 'reset the parameters')}>
-              Reset
+              {tx('ui.fx.reset')}
             </button>
           )}
         </div>

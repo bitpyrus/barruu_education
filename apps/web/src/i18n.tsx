@@ -3,6 +3,7 @@
  * browser preference → English), sets <html lang/dir>, and exposes `t`.
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { UiTextProvider } from '@barruu/ui';
 import { createTranslator, localeInfo, MESSAGES, negotiateLocale, isLocale, SOURCE_LOCALE, type LocaleCode, type Translator } from '@barruu/i18n';
 
 const KEY = 'barruu_locale_v1';
@@ -30,7 +31,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = locale;
     document.documentElement.dir = value.dir;
   }, [locale, value.dir]);
-  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+  // @barruu/ui components (interactives) translate through the same catalogs.
+  return <Ctx.Provider value={value}><UiTextProvider t={value.t}>{children}</UiTextProvider></Ctx.Provider>;
 }
 
 export function useI18n(): I18n {

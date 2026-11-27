@@ -13,3 +13,5 @@ export type { InteractiveProps } from './interactives/types';
 export { Rich, RichInline } from './Rich';
 export { renderInlineMarkdown, escapeHtml } from './markdown';
 export { cn } from './cn';
+export { UiTextProvider, useUiText } from './UiText';
+export { UI_DEFAULTS, defaultUiTranslate, type UiTranslate } from './uiMessages';

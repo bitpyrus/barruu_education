@@ -11,10 +11,10 @@ clean and ports what was proven.
 | `src/learn/content/*` | `packages/content/src` | Courses tagged with grades/skills |
 | `src/learn/ui/interactives/*`, `Rich.tsx` | `packages/ui/src` | Markdown renderer re-implemented (stricter links); React 19 lint fixes |
 | `src/learn/site/player/*` | `apps/web/src/player` | Localized; no tutor yet; math blocks only |
+| `public/sw.js`, `offlineManifest()` plugin, `offline-check.cjs` | `apps/web/public/sw.js`, `apps/web/vite.config.ts`, `scripts/e2e/offline-check.cjs` | Whole-app precache instead of per-course downloads (ADR 0006) |
 | Tests | `packages/*/test` | Split into engine (pure) and content (catalog) suites |
 
 ## Not yet ported (still valuable)
-- **Offline**: `src/learn/offline/offline.ts`, `public/sw.js`, `offlineManifest()` Vite plugin, `scripts/e2e/offline-check.cjs`.
 - **Site pages**: Library (local `.bipy` import), My Learning (mistakes to revisit, demonstrated skills).
 - **Homepage live challenge** (build-a-rectangle).
 - **`.bipy` format** (`services/bipy.ts`, `encryption.ts`, `database.ts`): needed for import/compatibility with the

@@ -23,7 +23,9 @@ export const TRANSLATABLE_KEYS = new Set([
 ]);
 
 /** Keys never descended into (machine data). */
-const SKIP_KEYS = new Set(['id', 'kind', 'config', 'answer', 'variables', 'correctOrder', 'concepts', 'skills', 'provenance', 'color', 'illustration', 'block']);
+// Interactive `config` is walked too, so learner-visible labels inside it (slider and shape
+// labels) can be translated; its numbers, expressions and ids are never translatable keys.
+const SKIP_KEYS = new Set(['id', 'kind', 'answer', 'variables', 'correctOrder', 'concepts', 'skills', 'provenance', 'color', 'illustration', 'block']);
 
 export type StringTable = Record<string, string>;
 

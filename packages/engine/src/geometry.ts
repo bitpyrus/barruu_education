@@ -8,6 +8,7 @@
  * Barruu runtime that reads the same `.bipy` content.
  */
 import { z } from 'zod';
+import type { FeedbackMessage } from './assessment';
 
 export type Point = [number, number];
 
@@ -139,20 +140,31 @@ const METRIC_LABEL: Record<Metric, string> = {
   axisAlignedSides: 'number of horizontal or vertical sides', vertexCount: 'number of corners',
 };
 
-export interface GoalResult { goal: Goal; actual: number; met: boolean; message: string }
+export interface GoalResult {
+  goal: Goal;
+  actual: number;
+  met: boolean;
+  /** English text (fallback). */
+  message: string;
+  /** Localizable feedback for an unmet goal. */
+  feedback: FeedbackMessage;
+}
 
 const fmt = (v: number) => Number(v.toFixed(2)).toString();
 
 export function evaluateGoals(goals: Goal[], shapes: Record<string, ShapeState>): { met: boolean; results: GoalResult[] } {
-  const results = goals.map((goal) => {
+  const results = goals.map((goal): GoalResult => {
     const s = shapes[goal.shape];
     if (!s || s.points.length < 3 || !isSimplePolygon(s.points) || area(s.points) < EPS) {
-      return { goal, actual: NaN, met: false, message: 'That shape is flat or crosses itself — spread its corners apart.' };
+      const text = 'That shape is flat or crosses itself — spread its corners apart.';
+      return { goal, actual: NaN, met: false, message: text, feedback: { code: 'goal.degenerate', params: {}, text } };
     }
     const actual = measure(s.points, goal.metric);
     const met = compare(actual, goal.op, goal.value);
-    const message = met ? '' : goal.message ?? `Its ${METRIC_LABEL[goal.metric]} is ${fmt(actual)}, but it needs to be ${opText(goal.op)} ${fmt(goal.value)}.`;
-    return { goal, actual, met, message };
+    if (met) return { goal, actual, met, message: '', feedback: { code: 'correct', params: {}, text: '' } };
+    if (goal.message) return { goal, actual, met, message: goal.message, feedback: { code: 'custom', params: {}, text: goal.message } };
+    const text = `Its ${METRIC_LABEL[goal.metric]} is ${fmt(actual)}, but it needs to be ${opText(goal.op)} ${fmt(goal.value)}.`;
+    return { goal, actual, met, message: text, feedback: { code: 'goal.metric', params: { metric: goal.metric, actual: fmt(actual), op: goal.op, value: fmt(goal.value) }, text } };
   });
   return { met: results.every((r) => r.met), results };
 }

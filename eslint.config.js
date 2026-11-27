@@ -36,6 +36,10 @@ export default tseslint.config(
     rules: { '@typescript-eslint/no-require-imports': 'off' },
   },
   {
+    files: ['apps/web/public/sw.js'],
+    languageOptions: { sourceType: 'script', globals: globals.serviceworker },
+  },
+  {
     // Playwright scripts: callbacks passed to page.evaluate run in the browser.
     files: ['scripts/e2e/**/*.cjs'],
     languageOptions: { sourceType: 'commonjs', globals: { ...globals.node, ...globals.browser } },

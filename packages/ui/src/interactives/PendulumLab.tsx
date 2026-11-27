@@ -4,6 +4,7 @@ import { initialState, PLANET_GRAVITY, smallAnglePeriod, exactPeriod, step, type
 import type { PendulumLabConfig, PendulumLabState } from '@barruu/engine';
 import type { InteractiveProps } from './types';
 import { ParamSlider } from './ParamSlider';
+import { useUiText } from '../UiText';
 import { cn } from '../cn';
 
 const W = 360, H = 250, PIVOT = { x: 180, y: 24 };
@@ -17,6 +18,7 @@ const LABELS: Record<string, { label: string; min: number; max: number; step: nu
 };
 
 export function PendulumLab({ config, state, onChange, readOnly, reducedMotion }: InteractiveProps<PendulumLabConfig, PendulumLabState>) {
+  const tx = useUiText();
   const [running, setRunning] = useState(false);
   const [sim, setSim] = useState<PendulumState>(() => initialState(state));
   const [measured, setMeasured] = useState<number | null>(null);
@@ -86,7 +88,7 @@ export function PendulumLab({ config, state, onChange, readOnly, reducedMotion }
     <div className="grid gap-4 md:grid-cols-[1fr_260px]">
       <div className="rounded-xl border border-slate-200 bg-gradient-to-b from-sky-50 to-white overflow-hidden">
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img"
-             aria-label={`Pendulum, length ${state.length} metres, gravity ${state.gravity} metres per second squared, currently at ${(sim.theta * 180 / Math.PI).toFixed(0)} degrees.`}>
+             aria-label={tx('ui.pend.aria', { length: state.length, gravity: state.gravity, angle: ((sim.theta * 180) / Math.PI).toFixed(0) })}>
           <line x1={PIVOT.x - 60} x2={PIVOT.x + 60} y1={PIVOT.y} y2={PIVOT.y} stroke="#334155" strokeWidth={4} strokeLinecap="round" />
           <path d={`M${PIVOT.x + rod * Math.sin(-amp)},${PIVOT.y + rod * Math.cos(amp)} A${rod},${rod} 0 0 0 ${PIVOT.x + rod * Math.sin(amp)},${PIVOT.y + rod * Math.cos(amp)}`}
                 fill="none" stroke="#cbd5e1" strokeDasharray="4 4" />
@@ -94,19 +96,19 @@ export function PendulumLab({ config, state, onChange, readOnly, reducedMotion }
           <line x1={PIVOT.x} y1={PIVOT.y} x2={bob.x} y2={bob.y} stroke="#475569" strokeWidth={2} />
           <circle cx={PIVOT.x} cy={PIVOT.y} r={4} fill="#334155" />
           <circle cx={bob.x} cy={bob.y} r={14} fill="#0891b2" stroke="#155e75" strokeWidth={2} />
-          {state.length > 1.15 && <text x={12} y={H - 12} fontSize={11} fill="#94a3b8">scaled to fit · {state.length} m rod</text>}
+          {state.length > 1.15 && <text x={12} y={H - 12} fontSize={11} fill="#94a3b8">{tx('ui.pend.scaled', { length: state.length })}</text>}
         </svg>
         <div className="border-t border-slate-100 px-3 py-2">
-          <div className="text-[11px] uppercase tracking-wide text-slate-400 mb-1">angle over time</div>
+          <div className="text-[11px] uppercase tracking-wide text-slate-400 mb-1">{tx('ui.pend.trace')}</div>
           <svg viewBox="0 0 320 80" className="w-full h-14" aria-hidden="true">
             <line x1={0} x2={320} y1={40} y2={40} stroke="#e2e8f0" />
             <path d={tracePath} fill="none" stroke="#0891b2" strokeWidth={2} />
           </svg>
         </div>
         <div className="grid grid-cols-3 divide-x divide-slate-100 border-t border-slate-100 text-center">
-          <Stat label="Formula 2π√(L/g)" value={`${t0.toFixed(2)} s`} />
-          <Stat label="Full model" value={`${tExact.toFixed(2)} s`} highlight={Math.abs(tExact - t0) / t0 > 0.02} />
-          <Stat label="Measured" value={measured ? `${measured.toFixed(2)} s` : running ? 'timing…' : '—'} />
+          <Stat label={tx('ui.pend.formula')} value={`${t0.toFixed(2)} s`} />
+          <Stat label={tx('ui.pend.fullModel')} value={`${tExact.toFixed(2)} s`} highlight={Math.abs(tExact - t0) / t0 > 0.02} />
+          <Stat label={tx('ui.pend.measured')} value={measured ? `${measured.toFixed(2)} s` : running ? tx('ui.pend.timing') : '—'} />
         </div>
       </div>
 
@@ -114,24 +116,24 @@ export function PendulumLab({ config, state, onChange, readOnly, reducedMotion }
         <div className="flex gap-2">
           <button type="button" onClick={() => setRunning((r) => !r)} disabled={readOnly}
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-sm font-semibold py-2 disabled:opacity-50">
-            {running ? <><Pause size={16} /> Pause</> : <><Play size={16} /> {sim.t > 0 ? 'Resume' : 'Release'}</>}
+            {running ? <><Pause size={16} /> {tx('ui.pend.pause')}</> : <><Play size={16} /> {sim.t > 0 ? tx('ui.pend.resume') : tx('ui.pend.release')}</>}
           </button>
-          <button type="button" aria-label="Reset pendulum" onClick={() => { setRunning(false); const s = initialState(state); simRef.current = s; setSim(s); setMeasured(null); setTrace([]); crossings.current = []; }}
+          <button type="button" aria-label={tx('ui.pend.reset')} onClick={() => { setRunning(false); const s = initialState(state); simRef.current = s; setSim(s); setMeasured(null); setTrace([]); crossings.current = []; }}
                   className="rounded-lg border border-slate-200 px-3 text-slate-600 hover:bg-slate-50"><RotateCcw size={16} /></button>
         </div>
-        {reducedMotion && <p className="text-xs text-slate-500">Reduced motion is on — the periods above are still computed exactly.</p>}
+        {reducedMotion && <p className="text-xs text-slate-500">{tx('ui.pend.reducedMotion')}</p>}
         {config.adjustable.map((k) => (
-          <ParamSlider key={k} label={LABELS[k].label} unit={LABELS[k].unit} min={LABELS[k].min} max={LABELS[k].max} step={LABELS[k].step}
+          <ParamSlider key={k} label={tx(`ui.pend.${k}`)} unit={LABELS[k].unit} min={LABELS[k].min} max={LABELS[k].max} step={LABELS[k].step}
                        value={state[k]} disabled={readOnly} onChange={(v) => set(k, v)} />
         ))}
         {config.showPlanetPresets && config.adjustable.includes('gravity') && (
           <div>
-            <div className="text-xs font-medium text-slate-500 mb-1.5">Gravity presets</div>
+            <div className="text-xs font-medium text-slate-500 mb-1.5">{tx('ui.pend.presets')}</div>
             <div className="flex flex-wrap gap-1.5">
               {Object.entries(PLANET_GRAVITY).map(([name, g]) => (
                 <button key={name} type="button" disabled={readOnly} onClick={() => set('gravity', g, `${name} (${g} m/s²)`)}
                         className={cn('rounded-full border px-2.5 py-1 text-xs', planet === name ? 'bg-cyan-600 border-cyan-600 text-white' : 'border-slate-200 text-slate-600 hover:border-cyan-400')}>
-                  {name}
+                  {tx(`ui.planet.${name}`)}
                 </button>
               ))}
             </div>

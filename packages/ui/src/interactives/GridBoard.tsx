@@ -11,6 +11,7 @@ import { Grid3x3 } from 'lucide-react';
 import { area, boundingBox, coveredCells, perimeter, type Point } from '@barruu/engine';
 import { resizeRect, type GridBoardConfig, type GridBoardState, type GridShape } from '@barruu/engine';
 import type { InteractiveProps } from './types';
+import { useUiText } from '../UiText';
 import { cn } from '../cn';
 
 const CELL = 40;
@@ -34,6 +35,7 @@ export function GridBoard({ config, state, onChange, readOnly }: InteractiveProp
   const W = cols * CELL + PAD * 2, H = rows * CELL + PAD * 2;
   const sx = (x: number) => PAD + x * CELL;
   const sy = (y: number) => PAD + (rows - y) * CELL;
+  const tx = useUiText();
   const svgRef = useRef<SVGSVGElement>(null);
   const [drag, setDrag] = useState<Drag | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
@@ -106,7 +108,7 @@ export function GridBoard({ config, state, onChange, readOnly }: InteractiveProp
       <div className="rounded-2xl border border-stone-200 bg-white overflow-hidden">
         <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} className={cn('w-full h-auto touch-none', drag && 'cursor-grabbing')}
              onPointerMove={onPointerMove} onPointerUp={() => setDrag(null)} onPointerCancel={() => setDrag(null)}
-             role="group" aria-label={`Grid board, ${cols} by ${rows} squares`}>
+             role="group" aria-label={tx('ui.grid.aria', { cols, rows })}>
           {/* lattice */}
           {Array.from({ length: cols + 1 }, (_, i) => <line key={`v${i}`} x1={sx(i)} x2={sx(i)} y1={sy(0)} y2={sy(rows)} stroke="#e7e5e4" strokeWidth={1} />)}
           {Array.from({ length: rows + 1 }, (_, i) => <line key={`h${i}`} y1={sy(i)} y2={sy(i)} x1={sx(0)} x2={sx(cols)} stroke="#e7e5e4" strokeWidth={1} />)}
@@ -140,7 +142,7 @@ export function GridBoard({ config, state, onChange, readOnly }: InteractiveProp
                 )}
                 {(s.label || s.showArea || s.showPerimeter) && (
                   <text x={sx(bb.minX + bb.width / 2)} y={Math.max(16, labelY)} textAnchor="middle" fontSize={15} fontWeight={700} fill={c.stroke}>
-                    {[s.label, s.showArea ? `area ${fmt(a)}` : '', s.showPerimeter ? `perimeter ${fmt(per)}` : ''].filter(Boolean).join(' · ')}
+                    {[s.label, s.showArea ? tx('ui.grid.area', { value: fmt(a) }) : '', s.showPerimeter ? tx('ui.grid.perimeter', { value: fmt(per) }) : ''].filter(Boolean).join(' · ')}
                   </text>
                 )}
               </g>
@@ -155,7 +157,7 @@ export function GridBoard({ config, state, onChange, readOnly }: InteractiveProp
             const active = (drag?.shapeId === s.id && drag.vertex === i) || focused === key;
             return (
               <g key={key} tabIndex={0} role="button"
-                 aria-label={`${s.label || 'Shape'} ${s.kind === 'rect' ? 'corner' : `corner ${i + 1}`} at ${p[0]}, ${p[1]}. Use arrow keys to move.`}
+                 aria-label={tx('ui.grid.handle', { shape: s.kind === 'rect' ? (s.label || tx('ui.grid.shape')) : `${s.label || tx('ui.grid.shape')} ${i + 1}`, x: p[0], y: p[1] })}
                  className="cursor-grab outline-none" onKeyDown={(e) => onKey(s, i, e)}
                  onFocus={() => setFocused(key)} onBlur={() => setFocused(null)}
                  onPointerDown={(e) => { svgRef.current?.setPointerCapture(e.pointerId); setDrag({ shapeId: s.id, vertex: i }); }}>
@@ -172,7 +174,7 @@ export function GridBoard({ config, state, onChange, readOnly }: InteractiveProp
                 aria-pressed={state.tilesVisible}
                 className={cn('mt-3 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-colors',
                   state.tilesVisible ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-300 bg-white text-stone-700 hover:border-stone-500')}>
-          <Grid3x3 size={16} /> {state.tilesVisible ? 'Hide unit squares' : 'Show unit squares'}
+          <Grid3x3 size={16} /> {state.tilesVisible ? tx('ui.grid.hideTiles') : tx('ui.grid.showTiles')}
         </button>
       )}
     </div>

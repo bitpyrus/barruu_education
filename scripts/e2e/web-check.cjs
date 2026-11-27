@@ -66,8 +66,17 @@ async function runPlacement(p, mode) {
   await p.getByLabel('Your answer').fill('8');
   await p.getByRole('button', { name: 'Comprobar' }).click();
   await p.getByRole('button', { name: /Continuar/ }).click();
-  await p.getByRole('button', { name: /corner at 3, 3/ }).focus();
+  await p.getByRole('button', { name: /en 3, 3/ }).focus(); // Spanish aria label: "Esquina de la figura en 3, 3…"
   await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowUp');
+  // First a wrong size (4×2 = 8) to see localized engine feedback, then the right one (4×3 = 12).
+  await p.keyboard.press('ArrowDown');
+  await p.getByRole('button', { name: 'Comprobar' }).click();
+  const wrongFb = await p.getByRole('status').first().innerText();
+  console.log('es wrong-construction feedback:', wrongFb.replace(/\s+/g, ' ').slice(0, 90));
+  if (!/Su área es 8, pero debe ser exactamente 12/.test(wrongFb)) throw new Error('expected localized goal feedback');
+  await p.getByRole('button', { name: 'Intentar de nuevo' }).click();
+  await p.getByRole('button', { name: /en 5, 3/ }).focus();
+  await p.keyboard.press('ArrowUp');
   await p.getByRole('button', { name: 'Comprobar' }).click();
   const fb = await p.getByRole('status').first().innerText();
   console.log('es construction feedback:', fb.replace(/\s+/g, ' ').slice(0, 90));
