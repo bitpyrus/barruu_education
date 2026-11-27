@@ -8,6 +8,12 @@
 - **Not yet:** service-worker caching, so a page reload without network fails. (The proven implementation exists
   in `barruu_website` — see MIGRATION.md.)
 
+## Deployment (Cloudflare Workers, static assets)
+`wrangler.jsonc` at the repo root deploys `apps/web/dist` as a static-assets Worker with single-page-app fallback.
+Cloudflare build settings: build command `npm run build`, deploy command `npx wrangler deploy`, both from the
+repository root. The Worker `name` in `wrangler.jsonc` must match the Worker's name in the dashboard. Without this
+file Wrangler tries to auto-detect an app and refuses to in a monorepo root.
+
 ## Plan
 1. **Offline PWA** (port): build-time offline manifest (files + SHA-256), staged atomic downloads, service worker
    with `ignoreVary` cache lookups, offline-reload test with a negative control. Here the whole app is small, so we
