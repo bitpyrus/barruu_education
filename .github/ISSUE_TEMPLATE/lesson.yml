@@ -1,0 +1,22 @@
+name: Lesson or course proposal
+description: Propose a new interactive lesson or course
+labels: [content]
+body:
+  - type: input
+    id: topic
+    attributes: { label: Topic, description: "e.g. Ohm's law, projectile motion, binary search" }
+    validations: { required: true }
+  - type: dropdown
+    id: subject
+    attributes: { label: Subject, options: [Mathematics, Physics, Chemistry, Engineering, Computer Science] }
+    validations: { required: true }
+  - type: input
+    id: grades
+    attributes: { label: Grade band, description: "e.g. 10–11" }
+  - type: textarea
+    id: activity
+    attributes: { label: What will the learner do?, description: "The interaction that carries the idea — what do they build, drag, run or predict?" }
+    validations: { required: true }
+  - type: textarea
+    id: skills
+    attributes: { label: Curriculum skills, description: "Skill ids from packages/curriculum/src/skills.ts, or new ones" }

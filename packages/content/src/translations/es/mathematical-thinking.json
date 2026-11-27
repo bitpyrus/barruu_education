@@ -1,0 +1,267 @@
+{
+ "locale": "es",
+ "contentId": "mathematical-thinking",
+ "status": "machine-draft",
+ "strings": {
+  "title": {
+   "text": "Pensamiento matemático",
+   "source": "Mathematical Thinking"
+  },
+  "tagline": {
+   "text": "Razona con figuras, números y patrones, construyéndolos.",
+   "source": "Reason with shapes, numbers and patterns — by building them."
+  },
+  "summary": {
+   "text": "Una introducción práctica a pensar como un matemático. En lugar de memorizar fórmulas, construyes figuras, pones a prueba ideas y descubres por qué funcionan las reglas.",
+   "source": "A hands-on introduction to thinking like a mathematician. Instead of memorising formulas, you build shapes, test ideas and discover why the rules work."
+  },
+  "outcomes.0": {
+   "text": "Medir el área cubriendo figuras con cuadrados unitarios",
+   "source": "Measure area by covering shapes with unit squares"
+  },
+  "outcomes.1": {
+   "text": "Explicar por qué el área de un rectángulo es ancho × alto",
+   "source": "Explain why a rectangle's area is width × height"
+  },
+  "outcomes.2": {
+   "text": "Distinguir área y perímetro, y predecir cómo cambian",
+   "source": "Tell area and perimeter apart, and predict how they change"
+  },
+  "outcomes.3": {
+   "text": "Calcular el área de cualquier triángulo en una cuadrícula",
+   "source": "Find the area of any triangle on a grid"
+  },
+  "prerequisites.0": {
+   "text": "Contar y multiplicar números enteros",
+   "source": "Counting and multiplying whole numbers"
+  },
+  "chapters.0.title": {
+   "text": "Área y forma",
+   "source": "Area and shape"
+  },
+  "chapters.0.summary": {
+   "text": "Qué significa que una figura sea «más grande» que otra.",
+   "source": "What it means for one shape to be \"bigger\" than another."
+  },
+  "chapters.0.lessons.0.title": {
+   "text": "¿Qué jardín es más grande?",
+   "source": "Which garden is bigger?"
+  },
+  "chapters.0.lessons.0.summary": {
+   "text": "Descubre qué mide el área cubriendo figuras con cuadrados unitarios.",
+   "source": "Discover what area measures by covering shapes with unit squares."
+  },
+  "chapters.0.lessons.0.objectives.0": {
+   "text": "Medir el área contando cuadrados unitarios",
+   "source": "Measure area by counting unit squares"
+  },
+  "chapters.0.lessons.0.objectives.1": {
+   "text": "Calcular el área de un rectángulo sin contar cada cuadrado",
+   "source": "Find the area of a rectangle without counting every square"
+  },
+  "chapters.0.lessons.0.steps.0.title": {
+   "text": "Dos jardines",
+   "source": "Two gardens"
+  },
+  "chapters.0.lessons.0.steps.0.body": {
+   "text": "Necesitas semillas de césped para dos jardines. Las semillas se venden según cuánto terreno cubren.",
+   "source": "You need grass seed for two gardens. Seed is sold by how much ground it covers."
+  },
+  "chapters.0.lessons.0.steps.0.question.prompt": {
+   "text": "¿Qué jardín necesita **más** semillas?",
+   "source": "Which garden needs **more** seed?"
+  },
+  "chapters.0.lessons.0.steps.0.question.options.0.text": {
+   "text": "El jardín A",
+   "source": "Garden A"
+  },
+  "chapters.0.lessons.0.steps.0.question.options.0.feedback": {
+   "text": "A desde luego parece más grande. Vamos a medirlo.",
+   "source": "A certainly looks bigger. Let's measure."
+  },
+  "chapters.0.lessons.0.steps.0.question.options.1.text": {
+   "text": "El jardín B",
+   "source": "Garden B"
+  },
+  "chapters.0.lessons.0.steps.0.question.options.1.feedback": {
+   "text": "Vamos a medir y averiguarlo.",
+   "source": "Let's measure and find out."
+  },
+  "chapters.0.lessons.0.steps.0.question.options.2.text": {
+   "text": "Necesitan la misma cantidad",
+   "source": "They need the same amount"
+  },
+  "chapters.0.lessons.0.steps.0.question.options.2.feedback": {
+   "text": "Comprobemos tu intuición.",
+   "source": "Let's check your hunch."
+  },
+  "chapters.0.lessons.0.steps.1.title": {
+   "text": "Cúbrelos con cuadrados",
+   "source": "Cover them with squares"
+  },
+  "chapters.0.lessons.0.steps.1.body": {
+   "text": "Los matemáticos miden cuánta superficie cubre una figura contando cuántos **cuadrados unitarios** caben dentro. Muestra los cuadrados y cuenta cada jardín.",
+   "source": "Mathematicians measure how much surface a shape covers by counting how many **unit squares** fit inside it. Reveal the squares and count each garden."
+  },
+  "chapters.0.lessons.0.steps.1.interactive.goal": {
+   "text": "Muestra los cuadrados unitarios y cuenta los dos jardines.",
+   "source": "Show the unit squares and count both gardens."
+  },
+  "chapters.0.lessons.0.steps.2.title": {
+   "text": "Ese número es el área",
+   "source": "That count is the area"
+  },
+  "chapters.0.lessons.0.steps.2.body": {
+   "text": "Ambos jardines cubren exactamente **9 cuadrados unitarios**, así que tienen la misma **área**: 9 unidades cuadradas.\n\nEl jardín A *parece* más grande porque se extiende más: su contorno es mucho más largo. La longitud del contorno es otra medida, llamada **perímetro**. Volverás a verla en la siguiente lección.",
+   "source": "Both gardens cover exactly **9 unit squares**, so they have the same **area**: 9 square units.\n\nGarden A *looks* bigger because it stretches further — its outline is much longer. The length of the outline is a different measurement called the **perimeter**. You'll meet it again in the next lesson."
+  },
+  "chapters.0.lessons.0.steps.3.title": {
+   "text": "Cuenta sin los cuadrados",
+   "source": "Count without the squares"
+  },
+  "chapters.0.lessons.0.steps.3.body": {
+   "text": "Esta vez no hay botón para «mostrar cuadrados». Usa las líneas de la cuadrícula.",
+   "source": "This time there's no \"show squares\" button. Use the grid lines."
+  },
+  "chapters.0.lessons.0.steps.3.question.prompt": {
+   "text": "¿Cuántos cuadrados unitarios cubre esta figura?",
+   "source": "How many unit squares does this shape cover?"
+  },
+  "chapters.0.lessons.0.steps.3.question.hints.0": {
+   "text": "Divide la figura en dos rectángulos: la barra de arriba y el tronco.",
+   "source": "Split the shape into two rectangles: the bar across the top and the stem."
+  },
+  "chapters.0.lessons.0.steps.3.question.hints.1": {
+   "text": "La barra de arriba tiene 5 cuadrados. ¿Cuántos hay en el tronco de abajo?",
+   "source": "The top bar is 5 squares. How many are in the stem below it?"
+  },
+  "chapters.0.lessons.0.steps.3.question.explanation": {
+   "text": "La barra de arriba cubre 5 cuadrados y el tronco cubre 3 más: $5 + 3 = 8$. Dividir figuras en rectángulos es un truco muy útil.",
+   "source": "The top bar covers 5 squares and the stem covers 3 more: $5 + 3 = 8$. Splitting shapes into rectangles is a powerful trick."
+  },
+  "chapters.0.lessons.0.steps.4.title": {
+   "text": "Construye un área",
+   "source": "Build an area"
+  },
+  "chapters.0.lessons.0.steps.4.body": {
+   "text": "Arrastra el control redondo para cambiar el tamaño del rectángulo.",
+   "source": "Drag the round handle to resize the rectangle."
+  },
+  "chapters.0.lessons.0.steps.4.question.prompt": {
+   "text": "Haz un rectángulo que cubra exactamente **12** cuadrados unitarios.",
+   "source": "Make a rectangle that covers exactly **12** unit squares."
+  },
+  "chapters.0.lessons.0.steps.4.question.hints.0": {
+   "text": "Un rectángulo está formado por filas iguales de cuadrados.",
+   "source": "A rectangle is made of equal rows of squares."
+  },
+  "chapters.0.lessons.0.steps.4.question.hints.1": {
+   "text": "¿Cuántas filas de 4 cuadrados forman 12? ¿Y filas de 6?",
+   "source": "How many rows of 4 squares make 12? Or rows of 6?"
+  },
+  "chapters.0.lessons.0.steps.4.question.explanation": {
+   "text": "Sirve cualquier rectángulo cuyo ancho × alto sea 12: 1 × 12, 2 × 6, 3 × 4 (o girado).",
+   "source": "Any rectangle whose width × height is 12 works: 1 × 12, 2 × 6, 3 × 4 (or turned on its side)."
+  },
+  "chapters.0.lessons.0.steps.4.question.successFeedback": {
+   "text": "Exactamente 12. Un rectángulo son filas × columnas de cuadrados, así que su área es **ancho × alto**: no hace falta contarlos uno a uno.",
+   "source": "Exactly 12. A rectangle is rows × columns of squares, so its area is **width × height** — no need to count one by one."
+  },
+  "chapters.0.lessons.0.steps.5.title": {
+   "text": "Comprobación rápida",
+   "source": "Quick check"
+  },
+  "chapters.0.lessons.0.steps.5.body": {
+   "text": "Esta vez no hay cuadrícula.",
+   "source": "No grid this time."
+  },
+  "chapters.0.lessons.0.steps.5.question.prompt": {
+   "text": "Una alfombra rectangular mide 7 unidades de largo y 3 de ancho. ¿Cuál es su área, en unidades cuadradas?",
+   "source": "A rectangular rug is 7 units long and 3 units wide. What is its area, in square units?"
+  },
+  "chapters.0.lessons.0.steps.5.question.explanation": {
+   "text": "$7 \\times 3 = 21$ unidades cuadradas: 3 filas de 7 cuadrados.",
+   "source": "$7 \\times 3 = 21$ square units: 3 rows of 7 squares."
+  },
+  "chapters.1.title": {
+   "text": "Las fracciones como áreas",
+   "source": "Fractions as areas"
+  },
+  "chapters.1.summary": {
+   "text": "Corta figuras en partes iguales y compara las piezas.",
+   "source": "Cut shapes into equal parts and compare pieces."
+  },
+  "chapters.1.plannedLessons.0": {
+   "text": "Repartos justos",
+   "source": "Fair shares"
+  },
+  "chapters.1.plannedLessons.1": {
+   "text": "Comparar fracciones por su área",
+   "source": "Comparing fractions by area"
+  },
+  "chapters.1.plannedLessons.2": {
+   "text": "Sumar piezas",
+   "source": "Adding pieces"
+  },
+  "chapters.2.title": {
+   "text": "Patrones y crecimiento",
+   "source": "Patterns and growth"
+  },
+  "chapters.2.summary": {
+   "text": "Predice lo que viene después y demuéstralo.",
+   "source": "Predict what comes next — and prove it."
+  },
+  "chapters.2.plannedLessons.0": {
+   "text": "Patrones que crecen",
+   "source": "Growing patterns"
+  },
+  "chapters.2.plannedLessons.1": {
+   "text": "Contar sin contar",
+   "source": "Counting without counting"
+  },
+  "chapters.2.plannedLessons.2": {
+   "text": "Números cuadrados y triangulares",
+   "source": "Square and triangular numbers"
+  },
+  "chapters.3.title": {
+   "text": "Álgebra a partir de dibujos",
+   "source": "Algebra from pictures"
+  },
+  "chapters.3.summary": {
+   "text": "Convierte figuras y patrones en ecuaciones.",
+   "source": "Turn shapes and patterns into equations."
+  },
+  "chapters.3.plannedLessons.0": {
+   "text": "Equilibrar",
+   "source": "Balancing"
+  },
+  "chapters.3.plannedLessons.1": {
+   "text": "Incógnitas como cajas",
+   "source": "Unknowns as boxes"
+  },
+  "chapters.3.plannedLessons.2": {
+   "text": "Modelos de área para multiplicar",
+   "source": "Area models for multiplication"
+  },
+  "chapters.4.title": {
+   "text": "Resolución lógica de problemas",
+   "source": "Logical problem-solving"
+  },
+  "chapters.4.summary": {
+   "text": "Acertijos que premian el razonamiento cuidadoso.",
+   "source": "Puzzles that reward careful reasoning."
+  },
+  "chapters.4.plannedLessons.0": {
+   "text": "Trabajar hacia atrás",
+   "source": "Working backwards"
+  },
+  "chapters.4.plannedLessons.1": {
+   "text": "Invariantes",
+   "source": "Invariants"
+  },
+  "chapters.4.plannedLessons.2": {
+   "text": "Demostración con un dibujo",
+   "source": "Proof by picture"
+  }
+ }
+}

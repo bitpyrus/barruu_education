@@ -1,0 +1,38 @@
+{
+  "name": "barruu-education",
+  "private": true,
+  "description": "Barruu \u2014 interactive science & engineering learning (open-source alternative to Brilliant; source release planned, not yet licensed).",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "npm run dev -w @barruu/web",
+    "build": "npm run build -w @barruu/web",
+    "preview": "npm run preview -w @barruu/web",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "content:check": "tsx scripts/content-check.ts",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run content:check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/katex": "^0.16.7",
+    "@types/node": "^22.16.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "eslint": "^10.15.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^16.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.74.0",
+    "vitest": "^5.1.2"
+  }
+}
