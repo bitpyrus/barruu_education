@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+/* Tailwind must also scan the shared UI package. */
+@source '../../../packages/ui/src';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+
+:root {
+  --edu-paper: #faf8f4;
+  --edu-accent: #0f766e;
+  --edu-correct-bg: #ecfdf3;
+  --edu-wrong-bg: #fff7ed;
+}
+
+html { background: var(--edu-paper); }
+body {
+  font-family: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  color: #1c1917;
+  -webkit-font-smoothing: antialiased;
+}
+/* Arabic has no glyphs in Inter/Fraunces: fall back to good system fonts. */
+html[lang='ar'] body { font-family: 'Inter Variable', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif; }
+
+h1, h2, h3, .display {
+  font-family: 'Fraunces Variable', ui-serif, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-variation-settings: 'opsz' 72;
+}
+html[lang='ar'] h1, html[lang='ar'] h2, html[lang='ar'] h3, html[lang='ar'] .display { font-family: 'Noto Naskh Arabic', 'Segoe UI', Tahoma, serif; letter-spacing: 0; }
+
+:focus-visible { outline: 3px solid #0f766e; outline-offset: 2px; border-radius: 6px; }
+
+/* Maths and interactive boards stay left-to-right inside right-to-left pages. */
+.katex, svg[role='group'], svg[role='img'], .ltr-island { direction: ltr; unicode-bidi: isolate; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise 0.35s cubic-bezier(.2,.8,.2,1) both; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.prose-lesson p + p { margin-top: 0.85em; }
+.prose-lesson strong { font-weight: 650; }

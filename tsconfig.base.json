@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@barruu/engine": ["packages/engine/src/index.ts"],
+      "@barruu/i18n": ["packages/i18n/src/index.ts"],
+      "@barruu/curriculum": ["packages/curriculum/src/index.ts"],
+      "@barruu/content": ["packages/content/src/index.ts"],
+      "@barruu/ui": ["packages/ui/src/index.ts"]
+    }
+  }
+}
