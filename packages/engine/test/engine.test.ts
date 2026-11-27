@@ -246,3 +246,36 @@ describe('content lint (engine)', () => {
     expect(lintLesson(mk(6))).toEqual([]);
   });
 });
+
+describe('localizable feedback codes', () => {
+  it('returns a code + params for every engine-generated message, and `custom` for author text', () => {
+    const num = QuestionSchema.parse({ kind: 'numeric', prompt: 'p', answer: 4.937, tolerance: 0.05 });
+    expect(checkAnswer(num, { kind: 'numeric', value: '4.94' }).message).toMatchObject({ code: 'correct' });
+    expect(checkAnswer(num, { kind: 'numeric', value: '-4.937' }).message.code).toBe('numeric.sign');
+    expect(checkAnswer(num, { kind: 'numeric', value: '49.37' }).message.code).toBe('numeric.magnitude');
+    expect(checkAnswer(num, { kind: 'numeric', value: '' }).message.code).toBe('numeric.empty');
+    const choice = QuestionSchema.parse({ kind: 'choice', prompt: 'p', options: [{ id: 'a', text: 'A', correct: true }, { id: 'b', text: 'B', feedback: 'Author says no' }, { id: 'c', text: 'C' }] });
+    expect(checkAnswer(choice, { kind: 'choice', selected: ['b'] }).message).toEqual({ code: 'custom', params: {}, text: 'Author says no' });
+    expect(checkAnswer(choice, { kind: 'choice', selected: ['c'] }).message.code).toBe('choice.incorrect');
+    const order = QuestionSchema.parse({ kind: 'order', prompt: 'p', items: ['a', 'b', 'c'], correctOrder: [1, 2, 0] });
+    expect(checkAnswer(order, { kind: 'order', order: [1, 0, 2] }).message).toMatchObject({ code: 'order.partial', params: { inPlace: 1, total: 3 } });
+    const cons = QuestionSchema.parse({ kind: 'construction', prompt: 'p', goals: [{ shape: 'r', metric: 'area', value: 12 }] });
+    expect(checkAnswer(cons, { kind: 'construction', shapes: { r: { points: rectPoints(0, 0, 3, 3) } } }).message)
+      .toMatchObject({ code: 'goal.metric', params: { metric: 'area', actual: '9', op: 'eq', value: '12' } });
+    expect(checkAnswer(cons, { kind: 'construction', shapes: { r: { points: [[0, 0], [1, 1], [2, 2]] } } }).message.code).toBe('goal.degenerate');
+  });
+
+  it('every message keeps an English fallback identical to `feedback`', () => {
+    const num = QuestionSchema.parse({ kind: 'numeric', prompt: 'p', answer: 1 });
+    const r = checkAnswer(num, { kind: 'numeric', value: '2' });
+    expect(r.feedback).toBe(r.message.text);
+  });
+
+  it('sorting traces carry narration codes', () => {
+    const t = traceSort([3, 1, 2], 'bubble');
+    expect(t.frames[0].noteCode).toBe('sort.start');
+    expect(t.frames[1]).toMatchObject({ noteCode: 'sort.swap', noteParams: { a: 3, b: 1 } });
+    expect(t.frames.at(-1)!.noteCode).toBe('sort.done');
+    for (const alg of ['bubble', 'insertion', 'selection'] as const) for (const f of traceSort([4, 2, 5, 1], alg).frames) expect(f.noteCode).toMatch(/^sort\./);
+  });
+});

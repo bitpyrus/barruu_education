@@ -16,6 +16,7 @@ import { InteractiveHost, Rich, RichInline, cn } from '@barruu/ui';
 import { AnswerArea } from './AnswerArea';
 import { draftReady, emptyDraft, type Draft } from './draft';
 import { useI18n } from '../i18n';
+import { formatFeedback } from '../feedback';
 import { Link } from '../components/Link';
 import { navigate, paths } from '../router';
 
@@ -98,16 +99,17 @@ export function LessonPlayer({ course, lesson, nextLesson, profile, onProfileCha
     const built = buildAnswer();
     if (!question || !built) return;
     const r: CheckResult = checkAnswer(question, built.answer);
-    if (r.invalid) { setSheet({ tone: 'neutral', title: t('lesson.almost'), message: r.feedback }); return; }
+    const fb = formatFeedback(t, r.message);
+    if (r.invalid) { setSheet({ tone: 'neutral', title: t('lesson.almost'), message: fb }); return; }
     const attempt = runtime.attempts.length + 1;
     updateRuntime(step.id, (rt) => ({ ...rt, attempts: [...rt.attempts, { answer: built.display, correct: r.correct, feedback: r.feedback }], solved: rt.solved || isPredict || r.correct }));
     onProfileChange(recordEvidence(profileRef.current, isPredict
       ? { concepts: [], correct: false, weight: 0, misconceptions: r.misconceptions }
       : { concepts: question.concepts, correct: r.correct, weight: evidenceWeight(runtime.hintsRevealed, question.hints.length, attempt), misconceptions: r.misconceptions }));
-    if (isPredict) setSheet({ tone: 'neutral', title: t('lesson.predicted'), message: r.feedback });
-    else if (r.correct) setSheet({ tone: 'correct', title: attempt === 1 ? t('lesson.correct') : t('lesson.gotIt'), message: r.feedback });
-    else if (isAssess) setSheet({ tone: 'wrong', title: t('lesson.notQuite'), message: `${r.feedback}${question.explanation ? `\n\n${question.explanation}` : ''}` });
-    else setSheet({ tone: 'wrong', title: t('lesson.notYet'), message: r.feedback });
+    if (isPredict) setSheet({ tone: 'neutral', title: t('lesson.predicted'), message: fb });
+    else if (r.correct) setSheet({ tone: 'correct', title: attempt === 1 ? t('lesson.correct') : t('lesson.gotIt'), message: fb });
+    else if (isAssess) setSheet({ tone: 'wrong', title: t('lesson.notQuite'), message: `${fb}${question.explanation ? `\n\n${question.explanation}` : ''}` });
+    else setSheet({ tone: 'wrong', title: t('lesson.notYet'), message: fb });
   };
 
   const revealHint = () => {

@@ -14,7 +14,11 @@ export interface SortFrame {
   swapped: boolean;
   /** Indices known to be in final position. */
   sorted: number[];
+  /** English narration (fallback). */
   note: string;
+  /** Localizable narration: `sort.*` code + params. */
+  noteCode: string;
+  noteParams: Record<string, number>;
   comparisons: number;
   swaps: number;
 }
@@ -26,10 +30,10 @@ export function traceSort(input: number[], algorithm: SortAlgorithm): SortTrace 
   const frames: SortFrame[] = [];
   let comparisons = 0, swaps = 0;
   const sorted = new Set<number>();
-  const push = (compare: [number, number] | null, swapped: boolean, note: string) =>
-    frames.push({ array: [...a], compare, swapped, sorted: [...sorted].sort((x, y) => x - y), note, comparisons, swaps });
+  const push = (compare: [number, number] | null, swapped: boolean, note: string, noteCode: string, noteParams: Record<string, number> = {}) =>
+    frames.push({ array: [...a], compare, swapped, sorted: [...sorted].sort((x, y) => x - y), note, noteCode, noteParams, comparisons, swaps });
 
-  push(null, false, 'Start');
+  push(null, false, 'Start', 'sort.start');
   const n = a.length;
 
   if (algorithm === 'bubble') {
@@ -39,11 +43,11 @@ export function traceSort(input: number[], algorithm: SortAlgorithm): SortTrace 
         comparisons++;
         if (a[i] > a[i + 1]) {
           [a[i], a[i + 1]] = [a[i + 1], a[i]]; swaps++; any = true;
-          push([i, i + 1], true, `${a[i + 1]} > ${a[i]}, so swap them`);
-        } else push([i, i + 1], false, `${a[i]} ≤ ${a[i + 1]}, leave them`);
+          push([i, i + 1], true, `${a[i + 1]} > ${a[i]}, so swap them`, 'sort.swap', { a: a[i + 1], b: a[i] });
+        } else push([i, i + 1], false, `${a[i]} ≤ ${a[i + 1]}, leave them`, 'sort.keep', { a: a[i], b: a[i + 1] });
       }
       sorted.add(end);
-      if (!any) { for (let k = 0; k <= end; k++) sorted.add(k); push(null, false, 'No swaps in this pass — the array is sorted'); break; }
+      if (!any) { for (let k = 0; k <= end; k++) sorted.add(k); push(null, false, 'No swaps in this pass — the array is sorted', 'sort.noSwaps'); break; }
     }
     sorted.add(0);
   } else if (algorithm === 'insertion') {
@@ -54,9 +58,9 @@ export function traceSort(input: number[], algorithm: SortAlgorithm): SortTrace 
         comparisons++;
         if (a[j - 1] > a[j]) {
           [a[j - 1], a[j]] = [a[j], a[j - 1]]; swaps++;
-          push([j - 1, j], true, `${a[j]} > ${a[j - 1]}, shift ${a[j]} right`);
+          push([j - 1, j], true, `${a[j]} > ${a[j - 1]}, shift ${a[j]} right`, 'sort.shift', { a: a[j], b: a[j - 1] });
           j--;
-        } else { push([j - 1, j], false, `${a[j - 1]} ≤ ${a[j]}, ${a[j]} is in place`); break; }
+        } else { push([j - 1, j], false, `${a[j - 1]} ≤ ${a[j]}, ${a[j]} is in place`, 'sort.inPlace', { a: a[j - 1], b: a[j] }); break; }
       }
       for (let k = 0; k <= i; k++) sorted.add(k);
     }
@@ -65,16 +69,16 @@ export function traceSort(input: number[], algorithm: SortAlgorithm): SortTrace 
       let min = i;
       for (let j = i + 1; j < n; j++) {
         comparisons++;
-        push([min, j], false, `Is ${a[j]} smaller than current minimum ${a[min]}?`);
+        push([min, j], false, `Is ${a[j]} smaller than current minimum ${a[min]}?`, 'sort.isSmaller', { a: a[j], min: a[min] });
         if (a[j] < a[min]) min = j;
       }
       if (min !== i) { [a[i], a[min]] = [a[min], a[i]]; swaps++; }
       sorted.add(i);
-      push(null, min !== i, `Place minimum ${a[i]} at position ${i}`);
+      push(null, min !== i, `Place minimum ${a[i]} at position ${i}`, 'sort.place', { value: a[i], position: i });
     }
     sorted.add(n - 1);
   }
   for (let k = 0; k < n; k++) sorted.add(k);
-  push(null, false, `Done: ${comparisons} comparisons, ${swaps} swaps`);
+  push(null, false, `Done: ${comparisons} comparisons, ${swaps} swaps`, 'sort.done', { comparisons, swaps });
   return { algorithm, frames, comparisons, swaps };
 }
