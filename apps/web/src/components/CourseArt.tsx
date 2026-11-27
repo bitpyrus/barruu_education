@@ -19,6 +19,23 @@ export function CourseArt({ course, className }: { course: Pick<Course, 'illustr
 const W = '#ffffff';
 
 const ART: Record<string, () => React.ReactNode> = {
+  circuit: () => (
+    <g fill="none" stroke={W} strokeLinecap="round" strokeLinejoin="round">
+      {/* A battery lighting two bulbs in parallel */}
+      <path d="M70 60 H250 V150 H70 V117 M70 93 V60" strokeWidth="4" />
+      <line x1="56" y1="93" x2="84" y2="93" strokeWidth="4" />
+      <line x1="62" y1="117" x2="78" y2="117" strokeWidth="8" />
+      <path d="M180 60 V150" strokeWidth="4" />
+      {[[180, 105], [250, 105]].map(([x, y]) => (
+        <g key={x}>
+          <circle cx={x} cy={y} r="26" fill={W} opacity="0.25" stroke="none" />
+          <circle cx={x} cy={y} r="15" fill="#fde68a" stroke={W} strokeWidth="3" />
+          <path d={`M${x - 9} ${y - 9} L${x + 9} ${y + 9} M${x - 9} ${y + 9} L${x + 9} ${y - 9}`} strokeWidth="2.5" />
+        </g>
+      ))}
+      {[100, 130, 160, 215].map((x) => <circle key={x} cx={x} cy="60" r="4" fill={W} stroke="none" opacity="0.9" />)}
+    </g>
+  ),
   area: () => (
     <g>
       {/* L-shaped garden tiled with unit squares next to an equal-area square */}

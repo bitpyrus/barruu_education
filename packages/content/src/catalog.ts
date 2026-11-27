@@ -5,6 +5,7 @@
  */
 import { ConceptGraph, ConceptSchema, CourseSchema, courseLessons, type Concept, type Course, type Lesson } from '@barruu/engine';
 import { MATHEMATICAL_THINKING } from './courses/mathematicalThinking';
+import { ELECTRIC_CIRCUITS } from './courses/electricCircuits';
 
 const RAW_CONCEPTS: Concept[] = [
   // Mathematics
@@ -18,6 +19,11 @@ const RAW_CONCEPTS: Concept[] = [
   { id: 'periodic-motion', title: 'Periodic motion', subject: 'Physics', summary: 'Motion that repeats with a fixed period.', prerequisites: [] },
   { id: 'gravity', title: 'Gravitational acceleration', subject: 'Physics', summary: 'Why g differs from planet to planet.', prerequisites: [] },
   { id: 'pendulum-period', title: 'Pendulum period', subject: 'Physics', summary: 'T = 2π√(L/g) for small swings.', prerequisites: ['periodic-motion', 'gravity', 'square-root-scaling'] },
+  { id: 'closed-circuit', title: 'Closed circuits', subject: 'Physics', summary: 'Current flows only around a complete loop.', prerequisites: [] },
+  { id: 'short-circuit', title: 'Short circuits', subject: 'Physics', summary: 'A path of wire alone lets current bypass everything else.', prerequisites: ['closed-circuit'] },
+  { id: 'series-circuits', title: 'Series circuits', subject: 'Physics', summary: 'One path: the same current everywhere, voltage shared.', prerequisites: ['closed-circuit'] },
+  { id: 'parallel-circuits', title: 'Parallel circuits', subject: 'Physics', summary: 'Separate branches: full voltage each, currents add.', prerequisites: ['series-circuits'] },
+  { id: 'ohms-law', title: "Ohm's law", subject: 'Physics', summary: 'Current equals voltage divided by resistance: I = V/R.', prerequisites: ['series-circuits'] },
   { id: 'model-assumptions', title: 'Models & assumptions', subject: 'Physics', summary: 'When a simplified model stops being accurate.', prerequisites: ['pendulum-period'] },
   // Computer science
   { id: 'arrays', title: 'Arrays', subject: 'Computer Science', summary: 'Ordered collections indexed by position.', prerequisites: [] },
@@ -32,6 +38,7 @@ const RAW_CONCEPTS: Concept[] = [
 
 const RAW_COURSES: unknown[] = [
   MATHEMATICAL_THINKING,
+  ELECTRIC_CIRCUITS,
   {
     id: 'functions-you-can-touch',
     grades: [9, 10],

@@ -11,3 +11,4 @@ one; mark superseded ADRs.
 | [0004](0004-rasch-placement.md) | Rasch/EAP adaptive placement anchored to grade | Accepted |
 | [0005](0005-private-until-owner-licenses.md) | No licence until the owner decides; develop privately | Accepted |
 | [0006](0006-whole-app-precache.md) | Precache the whole app on first visit (service worker) | Accepted |
+| [0007](0007-circuit-builder-model.md) | Circuit builder: lattice edges, gap slots, MNA solver | Accepted |

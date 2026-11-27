@@ -19,6 +19,7 @@ export * from './recommend';
 export * from './progress';
 export * from './sim/pendulum';
 export * from './sim/sorting';
+export * from './sim/circuit';
 export * from './tutor/context';
 export * from './tutor/actions';
 export * from './tutor/prompt';

@@ -8,10 +8,10 @@ adaptive placement · ✅ web app (home, placement, catalog, course, lesson play
 dev setup (AGENTS.md, commands, reviewer agents, ADRs)
 
 ## Phase 1 — A complete science & engineering starter path
-- ⬜ **Offline PWA** (port service worker + verified offline test)
-- ⬜ Engine feedback as message codes → fully localized feedback and aria labels
-- ⬜ New interactives: **circuit builder**, **force/vector diagram**, **projectile launcher**
-- ⬜ Courses: *Electric Circuits* (physics/engineering, grades 10–11), *Forces & Motion* (grades 10–11),
+- ✅ **Offline PWA** (whole-app precache + verified offline test)
+- ✅ Engine feedback as message codes → fully localized feedback and aria labels
+- ✅ **Circuit builder** · ⬜ **force/vector diagram**, **projectile launcher**
+- 🔶 Courses: *Electric Circuits* ✅ chapter 1 (3 lessons; chapter 2 "Power and energy" planned), *Forces & Motion* (grades 10–11),
   *Moles & Reactions* (chemistry, grade 10); upgrade preview courses to the lesson standard
 - ⬜ Placement: translate items; ≥ 3 items per skill; placement → learner-model seeding
 - ⬜ Accessibility audit (keyboard, screen reader, contrast)

@@ -12,6 +12,10 @@ export function formatFeedback(t: T, m: FeedbackMessage): string {
   if (m.code === 'goal.metric') {
     return t('feedback.goal.metric', { ...m.params, metric: t(`metric.${m.params.metric}`), op: t(`op.${m.params.op}`) });
   }
+  if (m.code === 'circuit.metric' || m.code === 'circuit.total' || m.code === 'circuit.litBulbs') {
+    const metric = m.params.metric !== undefined ? t(`metric.${m.params.metric}`) : '';
+    return t(`feedback.${m.code}`, { ...m.params, metric, op: t(`op.${m.params.op}`) });
+  }
   const key = `feedback.${m.code}`;
   const s = t(key, m.params);
   return s === key ? m.text : s;

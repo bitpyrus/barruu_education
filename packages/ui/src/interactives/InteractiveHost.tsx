@@ -12,6 +12,7 @@ import { FunctionExplorer } from './FunctionExplorer';
 import { PendulumLab } from './PendulumLab';
 import { SortingLab } from './SortingLab';
 import { GridBoard } from './GridBoard';
+import { CircuitBoard } from './CircuitBoard';
 import { cn } from '../cn';
 import { useUiText } from '../UiText';
 
@@ -21,6 +22,7 @@ const COMPONENTS: Record<string, ComponentType<InteractiveProps<any, any>>> = {
   pendulumLab: PendulumLab,
   sortingLab: SortingLab,
   gridBoard: GridBoard,
+  circuitBoard: CircuitBoard,
 };
 
 export interface InteractiveHostProps {

@@ -5,13 +5,15 @@
 import type { Question } from './schema';
 import { areEquivalent, evalSafe, ExprError, parseExpr } from './expr';
 import { evaluateGoals, type ShapeState } from './geometry';
+import { evaluateCircuitGoals, type CircuitBoard } from './sim/circuit';
 
 export type Answer =
   | { kind: 'choice'; selected: string[] }
   | { kind: 'numeric'; value: string }
   | { kind: 'expression'; value: string }
   | { kind: 'order'; order: number[] }
-  | { kind: 'construction'; shapes: Record<string, ShapeState> };
+  | { kind: 'construction'; shapes: Record<string, ShapeState> }
+  | { kind: 'circuit'; board: CircuitBoard };
 
 /**
  * Feedback is returned twice: as English `feedback` (fallback, logs, tutor) and as
@@ -27,7 +29,9 @@ export type FeedbackCode =
   | 'expression.empty' | 'expression.unreadable' | 'expression.equivalent' | 'expression.notEquivalent'
   | 'order.empty' | 'order.correct' | 'order.partial'
   | 'construction.empty' | 'construction.correct'
-  | 'goal.degenerate' | 'goal.metric';
+  | 'goal.degenerate' | 'goal.metric'
+  | 'circuit.empty' | 'circuit.correct' | 'circuit.short' | 'circuit.invalid' | 'circuit.dark' | 'circuit.lit'
+  | 'circuit.litBulbs' | 'circuit.total' | 'circuit.metric';
 
 export type MessageParams = Record<string, string | number>;
 
@@ -120,6 +124,13 @@ export function checkAnswer(q: Question, a: Answer): CheckResult {
       const metCount = r.results.filter((x) => x.met).length;
       if (r.met) return result(true, 1, q.successFeedback ? custom(q.successFeedback) : msg('construction.correct', 'That works!'));
       return result(false, metCount / r.results.length, r.results.find((x) => !x.met)!.feedback);
+    }
+    case 'circuit': {
+      if (a.kind !== 'circuit') return result(false, 0, msg('circuit.empty', 'Build your circuit first.'), [], true);
+      const r = evaluateCircuitGoals(q.goals, a.board);
+      const metCount = r.results.filter((x) => x.met).length;
+      if (r.met) return result(true, 1, q.successFeedback ? custom(q.successFeedback) : msg('circuit.correct', 'Your circuit works!'));
+      return result(false, metCount / r.results.length, r.results.find((x) => !x.met)!.feedback, r.solution.status === 'short' ? ['short-circuit'] : []);
     }
   }
 }

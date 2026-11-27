@@ -3,7 +3,7 @@
  *   npm run build && npm run preview   # serves on :4173 (or set BASE_URL)
  *   node scripts/e2e/web-check.cjs
  * Covers: placement (weak vs strong learner), language switching incl. RTL,
- * localized lesson content, a construction answer, mobile layout.
+ * localized lesson content, a construction answer, the circuit builder (incl. a short circuit), mobile layout.
  */
 const { chromium } = require('playwright');
 const { execSync } = require('node:child_process');
@@ -48,6 +48,32 @@ async function runPlacement(p, mode) {
   console.log('placement (answers correctly):', strong);
   const rank = (s) => (/Before/.test(s) ? 8 : /Beyond/.test(s) ? 13 : Number(s.match(/\d+/)?.[0]));
   if (!(rank(strong) > rank(weak))) throw new Error(`strong learner should place higher (${strong} vs ${weak})`);
+
+  // Circuit builder: complete a loop, flip a switch, fall into (and out of) a short circuit.
+  await p.goto(B + '/courses/electric-circuits/complete-the-loop', { waitUntil: 'networkidle' });
+  await p.getByRole('button', { name: /Continue/ }).click();
+  await p.getByRole('radio', { name: /path back/ }).click();
+  await p.getByRole('button', { name: 'Lock in' }).click();
+  await p.getByRole('button', { name: /Continue/ }).click();
+  for (const n of ['1', '2', '3']) await p.getByRole('button', { name: new RegExp(`Gap ${n}:`) }).click();
+  if (!/Bulbs lit: 1/.test(await p.getByRole('status').first().innerText())) throw new Error('closed loop should light the bulb');
+  await p.getByRole('button', { name: /Continue/ }).click();
+  await p.getByRole('button', { name: /Continue/ }).click();
+  await p.getByRole('button', { name: /^Gap:/ }).click();
+  await p.getByRole('button', { name: /^Switch is open/ }).press('Enter'); // keyboard
+  await p.getByRole('button', { name: 'Check' }).click();
+  await p.getByText(/A closed switch completes the loop/).waitFor();
+  await p.getByRole('button', { name: /Continue/ }).click();
+  for (const n of ['1', '2', '3']) await p.getByRole('button', { name: new RegExp(`Gap ${n}:`) }).click();
+  await p.getByRole('button', { name: 'Check' }).click();
+  const shortFb = await p.getByText(/Short circuit! The battery's two ends/).last().innerText();
+  console.log('circuit short-circuit feedback:', shortFb.slice(0, 70));
+  await shot(p, 'w-circuit-short', true);
+  await p.getByRole('button', { name: 'Try again' }).click();
+  await p.getByRole('button', { name: /Gap 2:/ }).click(); // remove the shortcut
+  await p.getByRole('button', { name: 'Check' }).click();
+  await p.getByText(/Gap 2 had to stay empty/).waitFor();
+  console.log('circuit trap solved');
 
   // Spanish: UI + localized course content + construction
   await p.goto(B + '/', { waitUntil: 'networkidle' });
@@ -95,6 +121,15 @@ async function runPlacement(p, mode) {
   const m = await b.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   await m.goto(B + '/placement', { waitUntil: 'networkidle' });
   await shot(m, 'w7-mobile-placement', true);
+  await m.goto(B + '/courses/electric-circuits/series-and-parallel', { waitUntil: 'networkidle' });
+  await m.getByRole('button', { name: /Continue/ }).click();
+  await m.getByRole('radio', { name: /dimmer/ }).click();
+  await m.getByRole('button', { name: 'Lock in' }).click();
+  await m.getByRole('button', { name: /Continue/ }).click();
+  await m.getByRole('button', { name: /Gap B:/ }).tap();
+  await m.waitForTimeout(500);
+  if (!/Bulbs lit: 2/.test(await m.getByRole('status').first().innerText())) throw new Error('mobile: tapping the gap should add bulb B');
+  await shot(m, 'w8-mobile-circuit', true);
 
   console.log(errs.length ? 'ERRORS:\n' + errs.join('\n') : 'no console errors');
   await b.close();
