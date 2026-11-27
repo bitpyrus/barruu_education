@@ -10,3 +10,4 @@ one; mark superseded ADRs.
 | [0003](0003-translation-overlays.md) | Course translations as source-pinned overlays | Accepted |
 | [0004](0004-rasch-placement.md) | Rasch/EAP adaptive placement anchored to grade | Accepted |
 | [0005](0005-private-until-owner-licenses.md) | No licence until the owner decides; develop privately | Accepted |
+| [0006](0006-whole-app-precache.md) | Precache the whole app on first visit (service worker) | Accepted |
