@@ -1,6 +1,6 @@
 # Current state · capabilities · known issues · next task
 
-_Last updated: 2026-11-27 — branch `claude/localized-feedback-offline` (PR to `main`)._
+_Last updated: 2026-11-27 — branch `claude/circuits-course` (PR to `main`)._
 
 ## Snapshot
 The foundation is in place:
@@ -8,7 +8,8 @@ The foundation is in place:
 - A grade 9–12 science and engineering skill map, with an adaptive placement test ("Find your level").
 - Multilingual support: English, plus Spanish and Arabic as machine drafts, including right-to-left layout.
   Translation is overlay-based.
-- Four courses: the flagship *Mathematical Thinking* plus three previews.
+- Five courses: the flagships *Mathematical Thinking* and *Electric Circuits*, plus three previews.
+- A circuit builder (`circuitBoard`): exact DC solver, circuit goals as answers, short-circuit detection (ADR 0007).
 - A web app with home, placement, catalog, course and lesson player pages, and a language switcher.
 - AI-native development setup: `AGENTS.md`, slash commands, reviewer agents, ADRs, CI.
 - Engine feedback, goal messages, sorting notes and interactive labels are localized in en, es and ar. The engine
@@ -19,19 +20,21 @@ The foundation is in place:
 | Capability | State | Evidence |
 |---|---|---|
 | Engine: assessment, geometry/constructions, learner model, sims, tutor contracts | ✅ | `packages/engine/test`, `packages/content/test` |
-| Content lint (solvable constructions, etc.) | ✅ | `npm run content:check`, catalog tests |
+| Content lint (solvable constructions and circuits, etc.) | ✅ | `npm run content:check`, catalog tests |
+| Circuit builder: solver, goals, lint, renderer (keyboard + touch) | ✅ | `circuit.test.ts` (hand-computed values), `circuits.test.ts` (lesson physics), `web-check.cjs` |
+| *Electric Circuits* chapter 1 (3 lessons) + Spanish draft | ✅ en · 🔶 es machine draft (185/185) | content:check, reviewer agents |
 | Skill map valid (DAG, grade order) | ✅ | `curriculum.test.ts` |
 | Adaptive placement | ✅ engine; ⚠ item difficulties estimated | simulation tests; `web-check.cjs` (weak → "Before grade 9", strong → "Beyond grade 12") |
 | UI translations en/es/ar complete, plurals incl. Arabic | ✅ | `i18n.test.ts` |
 | Engine feedback + interactive labels localized (codes + params) | ✅ | `engine.test.ts`, `i18n.test.ts`, `web-check.cjs` (Spanish goal feedback) |
 | Course translation overlays (fallback, stale detection) | ✅ | `i18n.test.ts`, catalog translation test |
-| Spanish course content | 🔶 Mathematical Thinking lesson 1 + course page (65/160 strings) | content:check |
+| Spanish course content | 🔶 Mathematical Thinking lesson 1 + course page (65/164); Electric Circuits complete (185/185) | content:check |
 | RTL layout (Arabic) | ✅ visually checked | `web-check.cjs` screenshots |
 | Web app pages + lesson player + construction answers | ✅ | `web-check.cjs` |
 | Local progress storage | ✅ localStorage via injected store | manual + player |
 | Offline reload, deep links, progress (service worker, whole-app precache) | ✅ Chromium | `offline-check.cjs` (with negative control) |
 | AI provider / tutor in app | ❌ | contracts only (engine) |
-| Chemistry / engineering courses | ❌ | skills + placement items exist |
+| Chemistry / engineering courses | ❌ (Electric Circuits covers `eng.circuit-design` basics) | skills + placement items exist |
 | Accessibility audit | ❌ | keyboard + ARIA basics in place |
 
 ## Baseline checks
@@ -53,15 +56,14 @@ The foundation is in place:
    `.bipy` import, and the homepage live challenge.
 
 ## Next task (do this next)
-**Phase 1 content: the circuit builder and the *Electric Circuits* course.**
-1. Add a `circuitBuilder` interactive (`/new-interactive`):
-   - pure DC solver in `packages/engine/src/sim/circuit.ts` (nodal analysis for series and parallel resistors,
-     batteries, bulbs and switches), with tests against hand-computed values;
-   - React renderer in `packages/ui`, keyboard-operable, with every label through `useUiText()`;
-   - goals checked by the engine (e.g. "current through R2 is 0.5 A").
-2. Author *Electric Circuits* lessons 1–3 (`/new-lesson`), covering what current is, series vs parallel, and Ohm's
-   law. Tag them with curriculum skills, run `content-verifier` and `pedagogy-reviewer`, and draft Spanish (`/translate`).
-3. Then: placement item translations (known issue 2) and seeding the learner model from placement (known issue 5).
+**Connect placement to learning, then the next interactive.**
+1. Make placement items translatable (overlays like courses), and translate them to es/ar. Known issue 2.
+2. Seed the learner model from the placement result (known issue 5), and map lesson `concepts` to curriculum
+   `skills` (known issue 4). Then "Find your level" can recommend a starting lesson, for example *Electric Circuits*
+   for learners who show `phys.circuits` gaps.
+3. Next interactive: the force/vector diagram, for a *Forces & Motion* course (ROADMAP Phase 1).
+4. Electric Circuits chapter 2 (*Power and energy*: P = VI, energy cost, fuses). The circuit board already reports
+   power.
 
 ## Handoff notes
 - Deploy: Cloudflare Workers via root `wrangler.jsonc` (static assets from `apps/web/dist`); see docs/LOCAL_AND_OFFLINE.md.
@@ -74,5 +76,8 @@ The foundation is in place:
 - GridBoard rectangles resize from their first authored point (the anchor).
 - When you change English lesson text, the matching Spanish overlay entries become stale (content check warns).
   Update them, or let them fall back to English.
+- Circuit boards: edge ids are `h:x,y` / `v:x,y` (x right, y down). A battery's `+` is end `a` (top/left) unless
+  `positive: 'b'`. Bulbs are 6 Ω and reach full brightness at 1.5 W (3 V). Authors give learners **slots** (gaps
+  with options) and toggleable switches; content lint enumerates every reachable board to prove a challenge solvable.
 - React-hooks v7 lint flags setState in effects and ref writes during render. Use the derived-state pattern instead
   (see `PendulumLab.tsx` and `SortingLab.tsx`).

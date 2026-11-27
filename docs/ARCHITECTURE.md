@@ -45,8 +45,9 @@ and `tsx` compile them. No build step per package. (ADR 0001.)
 | Parameter sliders + function plots + derivative | ✅ | `ui/FunctionExplorer` |
 | Time-stepped simulation (pendulum, RK4) | ✅ | `ui/PendulumLab`, `engine/sim/pendulum` |
 | Step-through algorithm traces | ✅ | `ui/SortingLab`, `engine/sim/sorting` |
+| Construction answers (`construction` on a grid board, `circuit` on a circuit board) | ✅ | goals checked by the engine; `validate.ts` proves challenges solvable |
 | Choice / numeric / expression / ordering questions | ✅ | `apps/web/player/AnswerArea` |
-| Circuit builder (series/parallel, Ohm's law) | ⬜ high priority for physics/engineering | — |
+| Circuit builder: fill gaps, flip switches, sliders for V/R, live meters, moving-charge animation, short-circuit detection | ✅ | `ui/CircuitBoard`, engine `circuitBoard` kind + `sim/circuit.ts` (MNA solver, circuit goals) |
 | Force/vector diagrams (free-body, vector addition) | ⬜ high priority | — |
 | Projectile launcher with target | ⬜ | — |
 | Molecule / stoichiometry balancer | ⬜ chemistry | — |

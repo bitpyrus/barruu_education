@@ -59,6 +59,7 @@ function answerKey(q: Question): string {
     case 'expression': return q.answer;
     case 'order': return q.correctOrder.map((i) => q.items[i]).join(' → ');
     case 'construction': return 'Any shape meeting: ' + q.goals.map((g) => `${g.shape}.${g.metric} ${g.op} ${g.value}`).join(', ');
+    case 'circuit': return 'Any circuit meeting: ' + q.goals.map((g) => `${g.part ? `${g.part}.` : ''}${g.metric} ${g.op} ${g.value}`).join(', ');
   }
 }
 

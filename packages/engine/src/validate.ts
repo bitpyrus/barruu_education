@@ -5,7 +5,8 @@
  * AI-generated and imported content (see docs/education/AI_CREATION.md).
  */
 import { courseLessons, type Course, type Lesson, type Question } from './schema';
-import { validateConfig, resizeRect, type GridBoardConfig } from './registry';
+import { validateConfig, resizeRect, initialCircuitBoard, placePart, type GridBoardConfig, type CircuitBoardConfig } from './registry';
+import { evaluateCircuitGoals, type CircuitBoard } from './sim/circuit';
 import { evaluateGoals, type Point } from './geometry';
 
 export interface ContentIssue { lesson: string; step: string; message: string }
@@ -48,6 +49,31 @@ export function findConstructionSolution(config: GridBoardConfig, q: Extract<Que
   return null;
 }
 
+const MAX_CIRCUITS = 50_000;
+
+/**
+ * Searches every board the learner can reach (each slot empty or filled with one of
+ * its options; each toggleable switch open or closed) for one meeting every goal.
+ */
+export function findCircuitSolution(config: CircuitBoardConfig, q: Extract<Question, { kind: 'circuit' }>): CircuitBoard | null {
+  const base = initialCircuitBoard(config);
+  for (const s of config.slots) delete base[s.at];
+  type Choice = (b: CircuitBoard) => void;
+  const dims: Choice[][] = [
+    ...config.slots.map((s) => [() => {}, ...s.options.map((o): Choice => (b) => { b[s.at] = placePart(s.id, s.label, o); })]),
+    ...config.parts.filter((p) => p.toggleable).map((p) => [false, true].map((closed): Choice => (b) => { b[p.at] = { ...b[p.at], closed }; })),
+  ];
+  const total = dims.reduce((n, d) => n * d.length, 1);
+  if (total > MAX_CIRCUITS) return null;
+  for (let i = 0; i < total; i++) {
+    const board: CircuitBoard = { ...base };
+    let rest = i;
+    for (const d of dims) { d[rest % d.length](board); rest = Math.floor(rest / d.length); }
+    if (evaluateCircuitGoals(q.goals, board).met) return board;
+  }
+  return null;
+}
+
 /** Problems that would make a lesson unplayable or wrongly assessed. */
 export function lintLesson(lesson: Lesson): ContentIssue[] {
   const issues: ContentIssue[] = [];
@@ -55,10 +81,12 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
     const at = (message: string) => issues.push({ lesson: lesson.id, step: step.id, message });
     const spec = step.type === 'interactive' || step.type === 'question' ? step.interactive : undefined;
     let boardConfig: GridBoardConfig | undefined;
+    let circuitConfig: CircuitBoardConfig | undefined;
     if (spec) {
       const v = validateConfig<GridBoardConfig>(spec.kind, spec.config);
       if (!v.ok) { v.errors.forEach(at); continue; }
       if (spec.kind === 'gridBoard') boardConfig = v.config;
+      if (spec.kind === 'circuitBoard') circuitConfig = v.config as unknown as CircuitBoardConfig;
     }
     if (step.type !== 'question') continue;
     const q = step.question;
@@ -70,6 +98,13 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
         at('the starting board already satisfies every goal');
       }
       if (!findConstructionSolution(boardConfig, q)) at('no reachable construction satisfies every goal');
+    }
+    if (q.kind === 'circuit') {
+      if (!circuitConfig) { at('circuit question needs a circuitBoard interactive'); continue; }
+      const ids = new Set([...circuitConfig.parts.map((p) => p.id), ...circuitConfig.slots.map((s) => s.id)]);
+      q.goals.forEach((g) => { if (g.part && !ids.has(g.part)) at(`goal refers to unknown part "${g.part}"`); });
+      if (evaluateCircuitGoals(q.goals, initialCircuitBoard(circuitConfig)).met) at('the starting circuit already satisfies every goal');
+      if (!findCircuitSolution(circuitConfig, q)) at('no reachable circuit satisfies every goal');
     }
     if (q.kind === 'choice' && !q.options.some((o) => o.correct)) at('choice question has no correct option');
     if (q.kind === 'order' && [...q.correctOrder].sort().join() !== q.items.map((_, i) => i).join()) at('correctOrder is not a permutation of the items');

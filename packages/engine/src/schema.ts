@@ -15,6 +15,7 @@
  */
 import { z } from 'zod';
 import { GoalSchema } from './geometry';
+import { CircuitGoalSchema } from './sim/circuit';
 
 export const SCHEMA_VERSION = 1;
 
@@ -90,6 +91,13 @@ export const QuestionSchema = z.discriminatedUnion('kind', [
     /** The answer is what the learner builds on the step's grid board. */
     kind: z.literal('construction'),
     goals: z.array(GoalSchema).min(1),
+    /** Shown when every goal is met. */
+    successFeedback: z.string().optional(),
+  }),
+  QuestionBase.extend({
+    /** The answer is the circuit the learner builds on the step's circuit board. */
+    kind: z.literal('circuit'),
+    goals: z.array(CircuitGoalSchema).min(1),
     /** Shown when every goal is met. */
     successFeedback: z.string().optional(),
   }),

@@ -101,9 +101,10 @@ describe('UI component strings', () => {
   it('every engine feedback code has a message in every locale', () => {
     const codes = ['correct', 'choice.empty', 'choice.partial', 'choice.incorrect', 'numeric.empty', 'numeric.unreadable', 'numeric.sign',
       'numeric.magnitude', 'numeric.incorrect', 'expression.empty', 'expression.unreadable', 'expression.equivalent', 'expression.notEquivalent',
-      'order.empty', 'order.correct', 'order.partial', 'construction.empty', 'construction.correct', 'goal.degenerate', 'goal.metric'];
+      'order.empty', 'order.correct', 'order.partial', 'construction.empty', 'construction.correct', 'goal.degenerate', 'goal.metric',
+      'circuit.empty', 'circuit.correct', 'circuit.short', 'circuit.invalid', 'circuit.dark', 'circuit.lit', 'circuit.litBulbs', 'circuit.total', 'circuit.metric'];
     for (const l of LOCALES) for (const c of codes) expect(MESSAGES[l.code][`feedback.${c}`], `${l.code} feedback.${c}`).toBeTruthy();
-    for (const l of LOCALES) for (const m of ['area', 'perimeter', 'width', 'height', 'axisAlignedSides', 'vertexCount']) expect(MESSAGES[l.code][`metric.${m}`]).toBeTruthy();
+    for (const l of LOCALES) for (const m of ['area', 'perimeter', 'width', 'height', 'axisAlignedSides', 'vertexCount', 'current', 'voltage', 'power', 'brightness']) expect(MESSAGES[l.code][`metric.${m}`]).toBeTruthy();
   });
 
   it('translations keep every {placeholder} of the English message', () => {
