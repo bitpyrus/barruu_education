@@ -296,7 +296,7 @@ export function evaluateCircuitGoals(goals: CircuitGoal[], board: CircuitBoard, 
     const part = nameOf(goal.part);
     if (goal.metric === 'lit') {
       const shouldLight = goal.value >= 0.5;
-      const text = shouldLight ? `${part} isn't lit yet. Current needs a complete loop through it.` : `${part} is lit, but it should be dark.`;
+      const text = shouldLight ? `Bulb ${part} isn't lit yet. Current needs a complete loop through it.` : `Bulb ${part} is lit, but it should be dark.`;
       return { goal, actual, met, feedback: { code: shouldLight ? 'circuit.dark' : 'circuit.lit', params: { part }, text } };
     }
     if (goal.metric === 'litBulbs') {

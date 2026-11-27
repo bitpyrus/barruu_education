@@ -62,13 +62,13 @@ const ohmLab = board(
 );
 const ohmFixed = board([battery(6), { id: 'R', label: '', at: 'h:1,0', kind: 'resistor', ohms: 3 }, ...loopWires], { showReadings: false });
 const R = (ohms: number) => ({ kind: 'resistor', ohms });
-const pickResistor = board([battery(6), ...loopWires], { slots: [{ id: 'R', label: '', at: 'h:1,0', options: [R(2), R(4), R(8), R(12)] }] });
+const pickResistor = board([battery(6), ...loopWires], { slots: [{ id: 'R', label: 'R', at: 'h:1,0', options: [R(2), R(4), R(8), R(12)] }], showReadings: false });
 const twoResistors = board(
   [battery(6), ...wires('v:0,1', 'h:0,0', 'v:3,0', 'v:3,1', 'h:0,2', 'h:1,2', 'h:2,2')],
   { slots: [
     { id: 'R1', label: '1', at: 'h:1,0', options: [R(2), R(4), R(6)] },
     { id: 'R2', label: '2', at: 'h:2,0', options: [R(2), R(4), R(6)] },
-  ] },
+  ], showReadings: false },
 );
 
 export const ELECTRIC_CIRCUITS = {
@@ -107,7 +107,7 @@ export const ELECTRIC_CIRCUITS = {
           steps: [
             {
               id: 'hook', type: 'narrative', stage: 'motivate', title: 'A torch in the dark',
-              body: 'Press the button on a torch and light appears instantly. Inside there is only a battery, a bulb, some metal strips and a switch.\n\nWhat does the switch actually do? Let\'s build one and find out.',
+              body: 'Press the button on a torch (a flashlight) and light appears instantly. Inside there is only a battery, a bulb, some metal strips and a switch.\n\nWhat does the switch actually do? Let\'s build one and find out.',
             },
             {
               id: 'predict', type: 'question', stage: 'predict', title: 'One wire',
@@ -125,11 +125,11 @@ export const ELECTRIC_CIRCUITS = {
             {
               id: 'loop', type: 'interactive', stage: 'explore', title: 'Complete the loop',
               body: 'Tap a dashed gap to put a wire in it (tap again to take it out). Watch the bulb, and the moving dots that show the current.',
-              interactive: { ...completeTheLoop, goal: 'Light bulb A. How many gaps must you fill before anything happens?' },
+              interactive: { ...completeTheLoop, goal: 'Fill only gap 1 first: that is the one-wire setup from your prediction. Does the bulb light? How many gaps must you fill before it does?' },
             },
             {
               id: 'explain-loop', type: 'narrative', stage: 'explain', title: 'Current goes round, not out',
-              body: 'The bulb only lit once **every** gap was filled. Current is a flow of charge, and it has to travel **all the way round**: out of the battery, through the bulb and back into the battery. That complete path is called a **closed circuit**.\n\nLeave one gap and the whole circuit is **open**: no current flows anywhere, not even in the wires that are connected.\n\nThe dots move from **+** round to **−**. Physicists call this *conventional current*.',
+              body: 'The bulb only lit once **every** gap was filled. Current is a flow of charge, and it has to travel **all the way round**: out of the battery, through the bulb and back into the battery. That complete path is called a **closed circuit**.\n\nLeave one gap and the whole circuit is **open**: no current flows anywhere, not even in the wires that are connected.\n\nThe dots move from **+** round to **−**. This direction is called *conventional current*. (The electrons in the wire actually drift the other way, but every circuit rule works the same.)',
             },
             {
               id: 'switch', type: 'question', stage: 'practice', title: 'Add a switch',
@@ -149,12 +149,26 @@ export const ELECTRIC_CIRCUITS = {
               body: 'This board has an extra gap underneath the bulb.',
               interactive: trapBoard,
               question: {
-                kind: 'circuit', prompt: 'Light bulb A. Careful: not every gap should be filled.',
+                kind: 'circuit', prompt: 'Light bulb A.',
                 goals: [{ part: 'A', metric: 'lit', value: 1 }],
                 hints: ['Follow the path from + to − with your finger. Does the current have to go through the bulb?', 'A wire in gap 2 gives the current a route that skips the bulb.'],
                 successFeedback: 'Gap 2 had to stay empty. A wire there would let the current skip the bulb.',
                 explanation: 'Fill gaps 1 and 3 and leave gap 2 empty. A wire in gap 2 joins both ends of the bulb, so the current takes that path instead: a short circuit.',
                 concepts: ['short-circuit', 'closed-circuit'],
+              },
+            },
+            {
+              id: 'predict-bypass', type: 'question', stage: 'predict', title: 'A switch under the bulb',
+              body: 'On the next board, bulb A is lit and a wire with a switch runs underneath it, from one end of the bulb to the other.',
+              question: {
+                kind: 'choice', prompt: 'You close the switch. What happens to bulb A?',
+                options: [
+                  { id: 'brighter', text: 'It gets brighter', misconception: 'more-wire-more-current', feedback: 'Let\'s test it.' },
+                  { id: 'same', text: 'It stays the same', misconception: 'short-circuit-shares-current', feedback: 'Let\'s test it.' },
+                  { id: 'dimmer', text: 'It gets dimmer but stays lit', misconception: 'short-circuit-shares-current', feedback: 'Let\'s test it.' },
+                  { id: 'dark', text: 'It goes dark', correct: true, feedback: 'Let\'s check your hunch.' },
+                ],
+                concepts: ['short-circuit'],
               },
             },
             {
@@ -164,7 +178,7 @@ export const ELECTRIC_CIRCUITS = {
             },
             {
               id: 'explain-short', type: 'narrative', stage: 'explain', title: 'Why short circuits are dangerous',
-              body: 'With the switch closed, current has a path made of wire alone. Wire has almost no resistance, so nearly all the current takes that path and **the bulb goes dark**.\n\nWith nothing to hold it back, the current becomes very large. A real battery gets hot and drains fast, and in a house the wires could overheat. That is why homes have **fuses** and **circuit breakers**, which cut the power when the current gets too big.',
+              body: 'With the switch closed, current has a path made of wire alone. Wire has almost no resistance, so nearly all the current takes that path and **the bulb goes dark**.\n\nWith nothing to hold it back, the current becomes very large: look at the battery\'s reading, about 30 A instead of 0.5 A. A real battery gets hot and drains fast, and in a house the wires could overheat. That is why homes have **fuses** and **circuit breakers**, which cut the power when the current gets too big.',
             },
             {
               id: 'check', type: 'question', stage: 'assess', title: 'Mastery check',
@@ -193,7 +207,7 @@ export const ELECTRIC_CIRCUITS = {
           steps: [
             {
               id: 'hook', type: 'narrative', stage: 'motivate', title: 'One broken bulb',
-              body: 'In some strings of fairy lights, one broken bulb makes the **whole string** go dark. In others, the rest keep shining.\n\nThe bulbs are the same. The difference is how they are connected.',
+              body: 'In some strings of fairy lights (string lights), one broken bulb makes the **whole string** go dark. In others, the rest keep shining.\n\nThe bulbs are the same. The difference is how they are connected.',
             },
             {
               id: 'predict', type: 'question', stage: 'predict', title: 'A second bulb',
@@ -212,22 +226,27 @@ export const ELECTRIC_CIRCUITS = {
             {
               id: 'series-lab', type: 'interactive', stage: 'explore', title: 'One bulb or two?',
               body: 'Tap the gap to cycle through a wire, bulb B and an empty gap. Compare bulb A\'s brightness and the meter readings below the board.',
-              interactive: { ...seriesBoard(0), goal: 'How does the current through A change when B is added?' },
+              interactive: { ...seriesBoard(0), goal: 'Add bulb B and watch A. Then tap again to leave an empty gap, like a broken bulb. What happens to A?' },
             },
             {
-              id: 'series-current', type: 'question', stage: 'practice', title: 'Read the meter',
-              body: 'Both bulbs are in the loop now. Each bulb has a resistance of 6 Ω, and the battery is 3 V.',
+              id: 'series-current', type: 'question', stage: 'practice', title: 'Is current used up?',
+              body: 'Both bulbs are in the loop now. Look at the meter readings under the board.',
               interactive: seriesBoard(1),
               question: {
-                kind: 'numeric', prompt: 'What current flows through bulb A?', answer: 0.25, tolerance: 0.005, unit: 'A',
-                hints: ['The meter readings under the board show it.', 'On its own, bulb A carried 0.5 A. Two bulbs resist twice as much.'],
-                explanation: 'The two bulbs add up to 12 Ω, so $I = \\dfrac{3\\text{ V}}{12\\ \\Omega} = 0.25$ A. The same 0.25 A flows through both bulbs.',
+                kind: 'choice', prompt: 'Compare the current through bulb B with the current through bulb A.',
+                options: [
+                  { id: 'less', text: 'Less flows through B, because bulb A uses some of it up', misconception: 'current-consumed', feedback: 'The meters show the same current in both. Charge isn\'t used up: it carries energy round and returns to the battery.' },
+                  { id: 'same', text: 'The same current flows through both', correct: true, feedback: 'Right: 0.25 A through each. In a single loop, every part carries the same current.' },
+                  { id: 'more', text: 'More flows through B', misconception: 'current-consumed', feedback: 'The meters show the same current in both.' },
+                ],
+                hints: ['Read the current for bulb A and for bulb B under the board.'],
+                explanation: 'Both meters read 0.25 A. Charge isn\'t used up in a bulb: the same current flows all the way round the loop.',
                 concepts: ['series-circuits'],
               },
             },
             {
               id: 'explain-series', type: 'narrative', stage: 'explain', title: 'In series, current has one path',
-              body: 'Bulbs one after another are **in series**. There is only one path, so:\n\n- the **same current** flows through every part,\n- the resistances **add up**: $6\\ \\Omega + 6\\ \\Omega = 12\\ \\Omega$, so the current halves from 0.5 A to 0.25 A,\n- the battery\'s 3 V is **shared**: 1.5 V across each bulb.\n\nWith half the current and half the voltage, each bulb gets only a quarter of the power, so it glows much more dimly. And if one bulb breaks, the single path is broken and **every** bulb goes out.',
+              body: 'Bulbs one after another are **in series**. There is only one path, so:\n\n- the **same current** flows through every part,\n- each bulb holds the current back (it has **resistance**), and in series these add up, so two bulbs halve the current from 0.5 A to 0.25 A,\n- the battery\'s 3 V is **shared**: 1.5 V across each bulb.\n\nWith half the current and half the voltage, each bulb gets only a quarter of the energy each second, so it glows much more dimly. And if one bulb breaks, the single path is broken and **every** bulb goes out.',
             },
             {
               id: 'parallel', type: 'question', stage: 'challenge', title: 'Two bright bulbs',
@@ -236,10 +255,10 @@ export const ELECTRIC_CIRCUITS = {
               question: {
                 kind: 'circuit', prompt: 'Add one bulb so that **two** bulbs light up, both at **full** brightness.',
                 goals: [
-                  { metric: 'litBulbs', value: 2 },
-                  { part: 'A', metric: 'brightness', op: 'gte', value: 0.99, message: 'Bulb A is no longer at full brightness. It needs the battery\'s full 3 V.' },
+                  { metric: 'litBulbs', op: 'gte', value: 2, message: 'Only bulb A is lit. The middle path has a gap, so no current flows through it.' },
+                  { metric: 'litBulbs', op: 'lte', value: 2, message: 'Three bulbs are lit, but the two in the middle are dim: they share one path and its 3 V. Give one bulb a path of its own.' },
                 ],
-                hints: ['Two bulbs in the middle column would be in series with each other, so they share the 3 V and are dim. The middle column is a separate path from A.', 'Put a bulb in one middle gap and a wire in the other.'],
+                hints: ['The middle column is a second path from the top wire to the bottom wire. Current only uses it if it has no gaps.', 'Two bulbs on the same path share the voltage. Put a bulb in one middle gap and a wire in the other.'],
                 successFeedback: 'Both bulbs shine at full brightness, because each one is connected straight across the battery.',
                 explanation: 'Put a bulb in one middle gap and a wire in the other. Each bulb then has its own path across the full 3 V. Two wires would make a short circuit.',
                 concepts: ['parallel-circuits'],
@@ -247,7 +266,7 @@ export const ELECTRIC_CIRCUITS = {
             },
             {
               id: 'explain-parallel', type: 'narrative', stage: 'explain', title: 'In parallel, each branch gets the full voltage',
-              body: 'Bulbs on separate paths are **in parallel**. Each branch is connected straight across the battery, so:\n\n- every branch gets the **full 3 V**, and each bulb shines as brightly as it would on its own,\n- the branch currents **add up**: $0.5 + 0.5 = 1$ A from the battery (look at the battery\'s reading),\n- if one branch breaks, the others keep working.\n\nThat is why the sockets in a home are wired in parallel. The price: the battery delivers twice the current, so it runs down twice as fast.',
+              body: 'Bulbs on separate paths are **in parallel**. Each branch is connected straight across the battery, so:\n\n- every branch gets the **full 3 V**, and each bulb shines as brightly as it would on its own,\n- the branch currents **add up**: $0.5 + 0.5 = 1$ A from the battery (look at the battery\'s reading),\n- if one branch breaks, the others keep working.\n\nThat is why the power sockets (outlets) in a home are wired in parallel. The price: the battery delivers twice the current, so it runs down twice as fast.',
             },
             {
               id: 'fairy-lights', type: 'question', stage: 'transfer', title: 'Back to the fairy lights',
@@ -263,10 +282,10 @@ export const ELECTRIC_CIRCUITS = {
             },
             {
               id: 'check', type: 'question', stage: 'assess', title: 'Mastery check',
-              body: 'Two identical 6 Ω bulbs are connected in parallel across a 3 V battery.',
+              body: 'On its own, a bulb connected to a 3 V battery carries 0.5 A. Two of these bulbs are connected in parallel across the same battery.',
               question: {
                 kind: 'numeric', prompt: 'What total current does the battery deliver?', answer: 1, tolerance: 0.01, unit: 'A',
-                explanation: 'Each bulb gets the full 3 V, so each carries $3 / 6 = 0.5$ A. The battery delivers the sum: 1 A.',
+                explanation: 'Each bulb gets the full 3 V, so each carries the same 0.5 A it would on its own. The battery delivers the sum: 1 A.',
                 concepts: ['parallel-circuits'],
               },
             },
@@ -299,6 +318,19 @@ export const ELECTRIC_CIRCUITS = {
               },
             },
             {
+              id: 'predict-r', type: 'question', stage: 'predict', title: 'Double the hold-back',
+              body: 'This time you keep the battery and swap in a resistor with **twice** the resistance.',
+              question: {
+                kind: 'choice', prompt: 'What happens to the current?',
+                options: [
+                  { id: 'same', text: 'It stays the same', misconception: 'battery-constant-current', feedback: 'Let\'s test it.' },
+                  { id: 'double', text: 'It doubles', misconception: 'resistance-increases-current', feedback: 'Let\'s test it.' },
+                  { id: 'half', text: 'It halves', correct: true, feedback: 'Let\'s check your hunch.' },
+                ],
+                concepts: ['ohms-law'],
+              },
+            },
+            {
               id: 'lab', type: 'interactive', stage: 'explore', title: 'The Ohm\'s law lab',
               body: 'Use the sliders to change the battery voltage and the resistance. Read the current from the meter.',
               interactive: { ...ohmLab, goal: 'Double the voltage, then double the resistance. What happens to the current each time?' },
@@ -313,14 +345,14 @@ export const ELECTRIC_CIRCUITS = {
               interactive: ohmFixed,
               question: {
                 kind: 'numeric', prompt: 'A 6 V battery is connected to a 3 Ω resistor. What current flows?', answer: 2, tolerance: 0.001, unit: 'A',
-                hints: ['Use $I = V / R$.'],
+                hints: ['Use $I = V / R$.', '$I = 6 / 3$'],
                 explanation: '$I = \\dfrac{6\\text{ V}}{3\\ \\Omega} = 2$ A.',
                 concepts: ['ohms-law'],
               },
             },
             {
               id: 'design', type: 'question', stage: 'challenge', title: 'Design for a target',
-              body: 'A small motor needs exactly **0.5 A** from a 6 V battery. Tap the gap to choose a resistor.',
+              body: 'A 6 V heater pad must draw exactly **0.5 A**. Tap the gap to choose its heating element. The meter is off, so work it out first.',
               interactive: pickResistor,
               question: {
                 kind: 'circuit', prompt: 'Choose the resistor that makes the current exactly 0.5 A.',
@@ -333,7 +365,7 @@ export const ELECTRIC_CIRCUITS = {
             },
             {
               id: 'two', type: 'question', stage: 'challenge', title: 'Two resistors',
-              body: 'Now there are two gaps in series. Each can hold a 2 Ω, 4 Ω or 6 Ω resistor.',
+              body: 'Now there are two gaps in series. Each can hold a 2 Ω, 4 Ω or 6 Ω resistor. The meter is off again.',
               interactive: twoResistors,
               question: {
                 kind: 'circuit', prompt: 'Make the battery deliver exactly **0.75 A**.',
@@ -346,11 +378,11 @@ export const ELECTRIC_CIRCUITS = {
             },
             {
               id: 'headlight', type: 'question', stage: 'transfer', title: 'A car headlight',
-              body: 'A car runs on a 12 V battery. One headlight draws 4 A.',
+              body: 'A car headlight has a resistance of 3 Ω and draws 4 A from the car\'s battery.',
               question: {
-                kind: 'numeric', prompt: 'What is the headlight\'s resistance?', answer: 3, tolerance: 0.001, unit: 'Ω',
-                hints: ['$R = V / I$'],
-                explanation: '$R = \\dfrac{12}{4} = 3\\ \\Omega$.',
+                kind: 'numeric', prompt: 'What voltage does the battery supply?', answer: 12, tolerance: 0.001, unit: 'V',
+                hints: ['Use $V = I R$.', '$V = 4 \\times 3$'],
+                explanation: '$V = I R = 4\\ \\text{A} \\times 3\\ \\Omega = 12$ V.',
                 concepts: ['ohms-law'],
               },
             },

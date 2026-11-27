@@ -55,22 +55,31 @@ describe('Electric Circuits lessons are physically right', () => {
     expect(shorted.readings.A.lit).toBe(false);
   });
 
-  it('lesson 2: series numbers match the solver (0.5 A alone, 0.25 A with two bulbs)', () => {
+  it('lesson 2: series numbers match the solver (0.5 A alone, 0.25 A in both bulbs)', () => {
     const { config, question } = setup('series-and-parallel', 'series-current');
     expect(solveCircuit(fill(config, { B: 0 })).readings.A.current).toBeCloseTo(0.5, 4);
     const two = solveCircuit(fill(config, { B: 1 }));
     expect(two.readings.A.current).toBeCloseTo(0.25, 4);
-    expect(question?.kind === 'numeric' && question.answer).toBe(0.25);
+    // The "is current used up?" question: the correct option must match the meters (same current in A and B).
+    expect(two.readings.B.current).toBeCloseTo(two.readings.A.current, 6);
+    expect(question?.kind === 'choice' && question.options.find((o) => o.correct)?.id).toBe('same');
   });
 
   it('lesson 2: only "one bulb + one wire" in the middle branch passes the parallel challenge', () => {
     const { config, question } = setup('series-and-parallel', 'parallel');
     expect(answer(question, fill(config, { m1: 1, m2: 0 })).correct).toBe(true);
     expect(answer(question, fill(config, { m1: 0, m2: 1 })).correct).toBe(true);
-    expect(answer(question, fill(config, { m1: 1, m2: 1 })).correct).toBe(false); // two dim bulbs in the branch
+    const both = answer(question, fill(config, { m1: 1, m2: 1 })); // two dim bulbs in the branch
+    expect(both.correct).toBe(false);
+    expect(both.message.text).toMatch(/Three bulbs are lit/);
     expect(answer(question, fill(config, { m1: 0, m2: 0 })).message.code).toBe('circuit.short');
-    expect(answer(question, fill(config, { m1: 1 })).correct).toBe(false); // branch left open
+    expect(answer(question, fill(config, { m1: 1 })).message.text).toMatch(/Only bulb A is lit/); // branch left open
     expect(solveCircuit(fill(config, { m1: 1, m2: 0 })).totalCurrent).toBeCloseTo(1, 4); // the assess answer
+  });
+
+  it('lesson 3: the design challenges hide the meter, so they need R = V/I rather than trial and error', () => {
+    expect(setup('ohms-law', 'design').config.showReadings).toBe(false);
+    expect(setup('ohms-law', 'two').config.showReadings).toBe(false);
   });
 
   it("lesson 3: Ohm's law values (6 V / 4 Ω lab, 6 V / 3 Ω, 12 Ω for 0.5 A, 8 Ω total for 0.75 A)", () => {

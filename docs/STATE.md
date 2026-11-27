@@ -52,6 +52,10 @@ The foundation is in place:
 5. The placement result doesn't yet seed the learner model.
 6. No bundled Arabic font. It falls back to system fonts, so rendering varies offline.
 7. Each deploy re-downloads the whole app (~1.3 MB) on the next online visit. That's fine at today's size.
+9. Translation overlay paths use array positions (`steps.3.body`), so inserting a step orphans the entries after it.
+   Workaround used for Electric Circuits: re-map entries by their `source` text. Fix: key paths by step/option ids.
+10. Electric Circuits: no Arabic course overlay yet (UI and feedback are translated); pedagogy-review suggestions
+   still open: a transfer step for lesson 1, a stronger transfer step for lesson 2 (kitchen/house wiring).
 8. Lesson-player features from `barruu_website` not yet ported: My Learning "mistakes to revisit", the Library and
    `.bipy` import, and the homepage live challenge.
 

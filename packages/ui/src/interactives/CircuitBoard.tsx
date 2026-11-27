@@ -226,17 +226,21 @@ export function CircuitBoard({ config, state, onChange, readOnly, reducedMotion 
             {nonWire.map((p) => {
               const r = sol.readings[p.id];
               const name = `${partName(p)}${value(p) ? ` (${value(p)})` : ''}`;
-              let detail: string;
-              if (p.kind === 'switch') detail = tx(p.closed ? 'ui.circuit.closed' : 'ui.circuit.open');
-              else if (p.kind === 'battery') detail = tx('ui.circuit.delivers', { current: fmt(r.current) });
+              // Numbers and units always read left to right; translated words keep their own direction.
+              let meter = '', words = '';
+              if (p.kind === 'switch') words = tx(p.closed ? 'ui.circuit.closed' : 'ui.circuit.open');
+              else if (p.kind === 'battery') words = tx('ui.circuit.delivers', { current: fmt(r.current) });
               else {
-                detail = tx('ui.circuit.reading', { current: fmt(Math.abs(r.current)), voltage: fmt(r.voltage) });
-                if (p.kind === 'bulb') detail += ` · ${r.lit ? tx('ui.circuit.brightness', { value: Math.round(r.brightness * 100) }) : tx('ui.circuit.dark')}`;
+                meter = tx('ui.circuit.reading', { current: fmt(Math.abs(r.current)), voltage: fmt(r.voltage) });
+                if (p.kind === 'bulb') words = r.lit ? tx('ui.circuit.brightness', { value: Math.round(r.brightness * 100) }) : tx('ui.circuit.dark');
               }
               return (
                 <li key={p.id} className="flex justify-between gap-3 rounded-lg bg-stone-50 px-2.5 py-1.5">
                   <span className="font-medium text-stone-700">{name}</span>
-                  <span dir="ltr" className="font-mono tabular-nums text-stone-900">{detail}</span>
+                  <span className="flex flex-wrap justify-end gap-x-2 font-mono tabular-nums text-stone-900">
+                    {meter && <bdi dir="ltr">{meter}</bdi>}
+                    {words && <bdi dir="auto">{words}</bdi>}
+                  </span>
                 </li>
               );
             })}
