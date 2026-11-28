@@ -13,7 +13,8 @@ dev setup (AGENTS.md, commands, reviewer agents, ADRs)
 - ✅ **Circuit builder** · ⬜ **force/vector diagram**, **projectile launcher**
 - 🔶 Courses: *Electric Circuits* ✅ chapter 1 (3 lessons; chapter 2 "Power and energy" planned), *Forces & Motion* (grades 10–11),
   *Moles & Reactions* (chemistry, grade 10); upgrade preview courses to the lesson standard
-- ⬜ Placement: translate items; ≥ 3 items per skill; placement → learner-model seeding
+- ✅ Math curriculum researched and encoded as a skill graph (docs/MATH_CURRICULUM.md)
+- ⬜ Placement: translate items; ≥ 3 items per skill; placement → learner-model seeding; grade 6–8 items
 - ⬜ Accessibility audit (keyboard, screen reader, contrast)
 
 ## Phase 2 — AI & languages

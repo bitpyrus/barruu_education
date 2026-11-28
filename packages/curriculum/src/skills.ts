@@ -1,5 +1,5 @@
 /**
- * Grade 9–12 science & engineering skill map.
+ * Science, engineering and mathematics skill map (grades 6–14).
  *
  * Organised like Brilliant's catalogue — by subject and topic, with US-style
  * grade bands — rather than by any single national syllabus. Each skill has a
@@ -10,6 +10,7 @@
  * Extending downward or upward means adding skills with grades outside 9–12.
  */
 import { z } from 'zod';
+import { mathChapters } from './math';
 
 export const SUBJECTS = ['Mathematics', 'Physics', 'Chemistry', 'Engineering', 'Computer Science'] as const;
 export type Subject = (typeof SUBJECTS)[number];
@@ -27,21 +28,6 @@ export type Skill = z.infer<typeof SkillSchema>;
 const S = (id: string, title: string, subject: Subject, grade: number, prerequisites: string[] = []) => ({ id, title, subject, grade, prerequisites });
 
 const RAW: ReturnType<typeof S>[] = [
-  // Mathematics — the language of science
-  S('math.area-perimeter', 'Area and perimeter', 'Mathematics', 8),
-  S('math.proportional-reasoning', 'Ratios and proportional reasoning', 'Mathematics', 8),
-  S('math.linear-equations', 'Solving linear equations', 'Mathematics', 9, ['math.proportional-reasoning']),
-  S('math.units', 'Units and unit conversion', 'Mathematics', 9, ['math.proportional-reasoning']),
-  S('math.scientific-notation', 'Scientific notation', 'Mathematics', 9),
-  S('math.pythagorean', 'The Pythagorean theorem', 'Mathematics', 9, ['math.area-perimeter']),
-  S('math.linear-functions', 'Linear functions and slope', 'Mathematics', 9, ['math.linear-equations']),
-  S('math.quadratics', 'Quadratic functions', 'Mathematics', 10, ['math.linear-functions']),
-  S('math.statistics', 'Mean, spread and data', 'Mathematics', 10),
-  S('math.trigonometry', 'Right-triangle trigonometry', 'Mathematics', 10, ['math.pythagorean']),
-  S('math.exponents-logs', 'Exponents and logarithms', 'Mathematics', 11, ['math.scientific-notation', 'math.linear-equations']),
-  S('math.vectors', 'Vectors', 'Mathematics', 11, ['math.trigonometry']),
-  S('math.derivatives', 'Rates of change and derivatives', 'Mathematics', 12, ['math.quadratics', 'math.linear-functions']),
-
   // Physics
   S('phys.kinematics', 'Motion: velocity and acceleration', 'Physics', 10, ['math.linear-functions', 'math.units']),
   S('phys.forces', "Forces and Newton's laws", 'Physics', 10, ['phys.kinematics']),
@@ -75,7 +61,10 @@ const RAW: ReturnType<typeof S>[] = [
   S('cs.complexity', 'Counting the cost of algorithms', 'Computer Science', 11, ['cs.algorithms', 'math.exponents-logs']),
 ];
 
-export const SKILLS: Skill[] = RAW.map((s) => SkillSchema.parse(s));
+// Mathematics comes from the curriculum plan (./math.ts): one skill per course chapter.
+const MATH = mathChapters().map((c) => S(c.skill, c.title, 'Mathematics', c.grade, c.prerequisites));
+
+export const SKILLS: Skill[] = [...MATH, ...RAW].map((s) => SkillSchema.parse(s));
 const BY_ID = new Map(SKILLS.map((s) => [s.id, s]));
 
 export function getSkill(id: string): Skill | undefined { return BY_ID.get(id); }
