@@ -13,6 +13,7 @@ import { PendulumLab } from './PendulumLab';
 import { SortingLab } from './SortingLab';
 import { GridBoard } from './GridBoard';
 import { CircuitBoard } from './CircuitBoard';
+import { NumberLine } from './NumberLine';
 import { cn } from '../cn';
 import { useUiText } from '../UiText';
 
@@ -23,6 +24,7 @@ const COMPONENTS: Record<string, ComponentType<InteractiveProps<any, any>>> = {
   sortingLab: SortingLab,
   gridBoard: GridBoard,
   circuitBoard: CircuitBoard,
+  numberLine: NumberLine,
 };
 
 export interface InteractiveHostProps {

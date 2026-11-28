@@ -24,7 +24,7 @@ const LETTERS = 'ABCDEFGH';
 
 export function AnswerArea({ question: q, draft, onDraft, locked, reveal, onSubmit }: Props) {
   const { t } = useI18n();
-  if (q.kind === 'construction' || q.kind === 'circuit') {
+  if (q.kind === 'construction' || q.kind === 'circuit' || q.kind === 'numberLine') {
     if (locked) return null;
     return (
       <p className="flex items-center gap-2 text-[15px] text-stone-500">

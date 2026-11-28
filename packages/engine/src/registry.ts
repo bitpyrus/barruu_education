@@ -19,6 +19,7 @@ import { compile, derivative, parseExpr } from './expr';
 import { exactPeriod, PENDULUM_ASSUMPTIONS, smallAnglePeriod } from './sim/pendulum';
 import type { SortAlgorithm } from './sim/sorting';
 import { area, boundingBox, perimeter, rectPoints, type Point } from './geometry';
+import { FractionValue, formatFraction, type NumberLineFormat, type NumberLinePoints } from './numberLine';
 import {
   CIRCUIT_ASSUMPTIONS, EdgeIdSchema, PART_KINDS, edgeInBounds, solveCircuit, type CircuitBoard, type CircuitPart,
 } from './sim/circuit';
@@ -405,9 +406,87 @@ const circuitBoard: InteractiveDescriptor<CircuitBoardConfig, CircuitBoardState>
   },
 };
 
+
+// ── Number line ─────────────────────────────────────────────────────────────
+
+export const NUMBER_LINE_COLORS = ['violet', 'teal', 'amber', 'rose', 'sky'] as const;
+
+export const NumberLineConfig = z.object({
+  /** One to three stacked lines, e.g. quarters above sixths to compare fractions. */
+  lines: z.array(z.object({
+    id: z.string().regex(/^[a-zA-Z0-9_-]+$/),
+    min: z.number().int().min(-20).max(20).default(0),
+    max: z.number().int().min(-19).max(24).default(1),
+    /** Equal parts per unit; points snap to them. */
+    divisions: z.number().int().min(1).max(24).default(4),
+    /** Tick labels: whole numbers only, or every tick as a fraction. */
+    labels: z.enum(['wholes', 'fractions']).default('wholes'),
+  })).min(1).max(3),
+  points: z.array(z.object({
+    id: z.string().regex(/^[a-zA-Z0-9_-]+$/),
+    label: z.string().default(''),
+    line: z.string(),
+    /** Starting value; omit to start the point off the line. */
+    value: FractionValue.optional(),
+    draggable: z.boolean().default(true),
+    color: z.enum(NUMBER_LINE_COLORS).default('violet'),
+  })).min(1).max(4),
+  /** Show each point's value as a fraction above it. */
+  showValues: z.boolean().default(false),
+  /** Shade the distance from the start of the line to each point (fraction as a length). */
+  showLength: z.boolean().default(true),
+}).superRefine((c, ctx) => {
+  const lines = new Map(c.lines.map((l) => [l.id, l]));
+  c.lines.forEach((l, i) => { if (l.max <= l.min) ctx.addIssue({ code: 'custom', path: ['lines', i, 'max'], message: 'max must be greater than min' });
+    if ((l.max - l.min) * l.divisions > 48) ctx.addIssue({ code: 'custom', path: ['lines', i, 'divisions'], message: 'at most 48 ticks per line' }); });
+  const ids = new Set<string>();
+  c.points.forEach((p, i) => {
+    if (ids.has(p.id)) ctx.addIssue({ code: 'custom', path: ['points', i, 'id'], message: `duplicate point id "${p.id}"` });
+    ids.add(p.id);
+    const l = lines.get(p.line);
+    if (!l) { ctx.addIssue({ code: 'custom', path: ['points', i, 'line'], message: `unknown line "${p.line}"` }); return; }
+    if (p.value !== undefined) {
+      if (p.value < l.min || p.value > l.max) ctx.addIssue({ code: 'custom', path: ['points', i, 'value'], message: 'value lies off the line' });
+      if (Math.abs(p.value * l.divisions - Math.round(p.value * l.divisions)) > 1e-6) ctx.addIssue({ code: 'custom', path: ['points', i, 'value'], message: 'value is not on a tick' });
+    }
+    if (!p.draggable && p.value === undefined) ctx.addIssue({ code: 'custom', path: ['points', i, 'value'], message: 'fixed points need a value' });
+  });
+});
+export type NumberLineConfig = z.infer<typeof NumberLineConfig>;
+export interface NumberLineState extends InteractiveState { points: NumberLinePoints }
+
+/** Labels and divisions per point, so feedback writes values as fractions on the point's own line. */
+export function numberLineFormat(c: NumberLineConfig): NumberLineFormat {
+  const lines = new Map(c.lines.map((l) => [l.id, l]));
+  return {
+    divisions: Object.fromEntries(c.points.map((p) => [p.id, lines.get(p.line)?.divisions ?? 1])),
+    labels: Object.fromEntries(c.points.map((p) => [p.id, p.label || p.id])),
+  };
+}
+
+const numberLine: InteractiveDescriptor<NumberLineConfig, NumberLineState> = {
+  kind: 'numberLine',
+  label: 'Number line',
+  category: 'math',
+  description: 'Drag points onto one or more stacked number lines split into equal parts; positions are checked exactly.',
+  configSchema: NumberLineConfig as z.ZodType<NumberLineConfig>,
+  initialState: (c) => ({ points: Object.fromEntries(c.points.map((p) => [p.id, p.value ?? null])) }),
+  parameters: () => [],
+  describeState(c, s) {
+    const lines = new Map(c.lines.map((l) => [l.id, l]));
+    const lineText = c.lines.map((l) => `a line from ${l.min} to ${l.max} split into ${l.divisions === 1 ? 'wholes' : `${l.divisions} parts per unit`}`).join('; ');
+    const pts = c.points.map((p) => {
+      const v = s.points[p.id];
+      return `${p.label || p.id} ${v === null || v === undefined ? 'is not placed' : `is at ${formatFraction(v, lines.get(p.line)?.divisions ?? 1)}`}`;
+    });
+    return `Number line with ${lineText}. ${pts.join(', ')}.`;
+  },
+  exampleConfig: { lines: [{ id: 'l', min: 0, max: 2, divisions: 4, labels: 'fractions' }], points: [{ id: 'p', label: 'P', line: 'l' }], showValues: true },
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const REGISTRY = new Map<string, InteractiveDescriptor<any, any>>(
-  [functionExplorer, pendulumLab, sortingLab, gridBoard, circuitBoard].map((d) => [d.kind, d]),
+  [functionExplorer, pendulumLab, sortingLab, gridBoard, circuitBoard, numberLine].map((d) => [d.kind, d]),
 );
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -56,7 +56,7 @@ export const MATH_INTERACTIVES = {
   functionExplorer: { status: 'available', rank: 0 },
   pendulumLab: { status: 'available', rank: 0 },
   circuitBoard: { status: 'available', rank: 0 },
-  numberLine: { status: 'planned', rank: 1 },
+  numberLine: { status: 'available', rank: 1 },
   balanceTiles: { status: 'planned', rank: 2 },
   functionLab: { status: 'planned', rank: 3 },
   transformationBoard: { status: 'planned', rank: 4 },
@@ -111,7 +111,7 @@ export const MATH_COURSES: MathCourse[] = [
       ['math.add-fractions', 'Adding and subtracting with a sense of size', 6, ['math.compare-fractions']],
       ['math.scale-fractions', 'Scaling: multiplying and dividing fractions and decimals', 6, ['math.add-fractions']],
       ['math.integers', 'Below zero: integers and their operations', 7, ['math.fractions-on-line']],
-    ]),
+    ], 'numbers-on-the-line'),
   course('F2', 'ratio-rate-proportion', 'Ratio, rate and proportion', ['N'], 'foundations',
     ['numberLine', 'functionExplorer'], { ccss: ['6.RP', '7.RP'], england: ['KS3 Ratio, proportion and rates of change'], singapore: ['Sec 1 Ratio, rate and speed'], cambridge: ['IGCSE E1.11–E1.12'] }, [
       ['math.ratio-tables', 'Ratio tables and double number lines', 6, ['math.scale-fractions']],

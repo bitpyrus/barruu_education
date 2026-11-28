@@ -7,8 +7,9 @@ import { localizeContent, OverlaySchema, SOURCE_LOCALE, type LocaleCode, type Ov
 import type { Course } from '@barruu/engine';
 import esMathematicalThinking from './translations/es/mathematical-thinking.json';
 import esElectricCircuits from './translations/es/electric-circuits.json';
+import esNumbersOnTheLine from './translations/es/numbers-on-the-line.json';
 
-const RAW: unknown[] = [esMathematicalThinking, esElectricCircuits];
+const RAW: unknown[] = [esMathematicalThinking, esElectricCircuits, esNumbersOnTheLine];
 
 export const OVERLAYS: Overlay[] = RAW.map((o) => OverlaySchema.parse(o));
 

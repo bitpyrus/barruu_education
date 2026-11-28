@@ -238,5 +238,18 @@
   "metric.current": "corriente",
   "metric.voltage": "tensión",
   "metric.power": "potencia",
-  "metric.brightness": "brillo"
+  "metric.brightness": "brillo",
+  "ui.nl.aria": "Recta numérica ({count} rectas)",
+  "ui.nl.point": "Punto",
+  "ui.nl.unplaced": "El punto {label} aún no está en la recta. Pulsa una flecha para colocarlo.",
+  "ui.nl.placed": "Punto {label} en {value}. Usa las flechas para moverlo.",
+  "ui.nl.fixed": "Punto {label} en {value}.",
+  "ui.nl.tray": "Arrastra:",
+  "ui.nl.hint": "Arrastra un punto (o usa las flechas). Se ajusta a las marcas.",
+  "feedback.numberLine.empty": "Primero coloca los puntos en la recta.",
+  "feedback.numberLine.correct": "¡Exacto!",
+  "feedback.numberLine.unplaced": "Primero pon {point} en la recta.",
+  "feedback.numberLine.value": "{point} está en {actual}, pero debe estar en {value}.",
+  "feedback.numberLine.bound": "{point} está en {actual}; debe ser {op} {value}.",
+  "feedback.numberLine.compare": "{point} debe ser {op} {other}."
 }

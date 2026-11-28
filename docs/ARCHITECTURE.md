@@ -41,6 +41,7 @@ and `tsx` compile them. No build step per package. (ADR 0001.)
 
 | Primitive | Status | Where |
 |---|---|---|
+| Number line: stacked lines, draggable points snapping to ticks, shaded length, keyboard; point goals | ✅ | `ui/NumberLine`, engine `numberLine` kind + `numberLine.ts` |
 | Lattice board: resize rectangles, drag polygon corners, snapping, keyboard, unit-square tiles, live measures | ✅ | `ui/GridBoard`, engine `gridBoard` kind + `geometry.ts` goals |
 | Parameter sliders + function plots + derivative | ✅ | `ui/FunctionExplorer` |
 | Time-stepped simulation (pendulum, RK4) | ✅ | `ui/PendulumLab`, `engine/sim/pendulum` |

@@ -1,6 +1,6 @@
 # Current state · capabilities · known issues · next task
 
-_Last updated: 2026-11-28 — branch `claude/math-curriculum` (PR to `main`)._
+_Last updated: 2026-11-28 — branch `claude/number-line` (PR to `main`)._
 
 ## Snapshot
 The foundation is in place:
@@ -8,7 +8,9 @@ The foundation is in place:
 - A grade 9–12 science and engineering skill map, with an adaptive placement test ("Find your level").
 - Multilingual support: English, plus Spanish and Arabic as machine drafts, including right-to-left layout.
   Translation is overlay-based.
-- Five courses: the flagships *Mathematical Thinking* and *Electric Circuits*, plus three previews.
+- Six courses: *Numbers on the Line* (new, lesson 1), the flagships *Mathematical Thinking* and *Electric Circuits*, plus
+  three previews.
+- A number line interactive (`numberLine`): stacked lines, snapping points, fraction feedback, keyboard.
 - A researched **mathematics curriculum** (docs/MATH_CURRICULUM.md, research in docs/research/): 27 courses and
   137 chapter skills, grade 6 to university year 1, with alignment tags, a misconception catalogue and a validated skill
   graph (ADR 0008).
@@ -24,6 +26,8 @@ The foundation is in place:
 |---|---|---|
 | Engine: assessment, geometry/constructions, learner model, sims, tutor contracts | ✅ | `packages/engine/test`, `packages/content/test` |
 | Content lint (solvable constructions and circuits, etc.) | ✅ | `npm run content:check`, catalog tests |
+| Number line: point goals, lint search, renderer (keyboard + touch), fraction feedback | ✅ | `numberLine.test.ts`, `web-check.cjs` |
+| *Numbers on the Line* lesson 1 + Spanish draft | ✅ en · 🔶 es machine draft (98/98) | content:check, reviewer agents |
 | Circuit builder: solver, goals, lint, renderer (keyboard + touch) | ✅ | `circuit.test.ts` (hand-computed values), `circuits.test.ts` (lesson physics), `web-check.cjs` |
 | *Electric Circuits* chapter 1 (3 lessons) + Spanish draft | ✅ en · 🔶 es machine draft (185/185) | content:check, reviewer agents |
 | Skill map valid (DAG, grade order) | ✅ incl. 137 math chapter skills (grades 6–14) | `curriculum.test.ts`, `math.test.ts` |
@@ -65,18 +69,22 @@ The foundation is in place:
    `.bipy` import, and the homepage live challenge.
 
 ## Next task (do this next)
-**Phase 1 of the math plan (docs/MATH_CURRICULUM.md → Build order).**
-1. Build the **number line** interactive (`numberLine`, rank 1). It needs:
-   - points, jumps, intervals and stacked lines, with zoom;
-   - engine checkers for a point or interval within tolerance, and for ordering;
-   - keyboard and touch input, with text through `useUiText()`.
-   Then author **F1 Numbers on the line**, chapter 1 *Where fractions live*. Use misconception-tagged distractors from
-   the catalogue, such as `whole-number-bias` and `add-tops-and-bottoms`. Run the reviewer agents.
-2. Build **balance scale → algebra tiles** (`balanceTiles`), then F3 chapter 1 *What "=" means* (`equals-means-compute`).
+**Keep building the hinge (docs/MATH_CURRICULUM.md → Build order, phase 1).**
+1. F1 *Numbers on the Line*, chapter 2 *Comparing and ordering*. It needs:
+   - decimals on the number line (lines with `divisions: 10`);
+   - an ordering task;
+   - the `longer-decimal-is-larger` misconception.
+2. Build **balance scale → algebra tiles** (`balanceTiles`), then F3 chapter 1 *What "=" means*, targeting
+   `equals-means-compute`.
 3. Finish the rest of Phase 0:
    - key translation overlay paths by step and option id (known issue 9);
    - seed the learner model from placement (known issue 5);
-   - add grade 6–8 placement items for the new foundations skills.
+   - add grade 6–8 placement items.
+
+Lesson style the owner asked for: **not verbose, interesting, like Brilliant**. That means:
+- short screens, with the learner acting first;
+- one- or two-line explanations;
+- feedback written in the learner's own answer (for example "P is at 2/4…").
 
 ## Handoff notes
 - Deploy: Cloudflare Workers via root `wrangler.jsonc` (static assets from `apps/web/dist`); see docs/LOCAL_AND_OFFLINE.md.
@@ -92,6 +100,8 @@ The foundation is in place:
 - Circuit boards: edge ids are `h:x,y` / `v:x,y` (x right, y down). A battery's `+` is end `a` (top/left) unless
   `positive: 'b'`. Bulbs are 6 Ω and reach full brightness at 1.5 W (3 V). Authors give learners **slots** (gaps
   with options) and toggleable switches; content lint enumerates every reachable board to prove a challenge solvable.
+- Number line: goal values may be written as fractions (`'3/4'`). Point values must sit on a tick (validated). Feedback
+  writes values on the point's own line (2/4 stays 2/4).
 - Math curriculum: add chapters and skills in `packages/curriculum/src/math.ts`, not in `skills.ts`. Within a course, a
   chapter may only depend on earlier chapters (tested). New distractor tags go in `misconceptions.ts`.
 - React-hooks v7 lint flags setState in effects and ref writes during render. Use the derived-state pattern instead

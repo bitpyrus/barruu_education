@@ -108,6 +108,13 @@ export const UI_DEFAULTS: Record<string, string> = {
   'ui.assumption.circuitBoard.1': 'Bulbs behave like fixed resistors (6 Ω); real filaments change resistance as they heat up',
   'ui.assumption.circuitBoard.2': 'Wires and closed switches have (almost) no resistance',
   'ui.assumption.circuitBoard.3': 'Steady direct current only: no capacitors, inductors or changing signals',
+  'ui.nl.aria': 'Number line ({count} lines)',
+  'ui.nl.point': 'Point',
+  'ui.nl.unplaced': 'Point {label} is not on the line yet. Press an arrow key to place it.',
+  'ui.nl.placed': 'Point {label} at {value}. Use the arrow keys to move it.',
+  'ui.nl.fixed': 'Point {label} at {value}.',
+  'ui.nl.tray': 'Drag:',
+  'ui.nl.hint': 'Drag a point (or use the arrow keys). It snaps to the marks.',
 };
 
 export type UiTranslate = (key: string, params?: Record<string, string | number>) => string;

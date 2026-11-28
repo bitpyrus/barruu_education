@@ -40,7 +40,7 @@ Further decisions:
 - **"Get ready" bridges** (short prerequisite refreshers) will be generated from the graph, not written by hand.
 
 ## Interactives (ranked by reach)
-Available now: grid board, function explorer, pendulum lab and circuit builder.
+Available now: grid board, function explorer, pendulum lab, circuit builder and **number line**.
 
 Planned, in this order:
 1. number line
@@ -88,7 +88,7 @@ These map onto the stages in docs/CONTENT_AND_LESSONS.md.
    - ✅ Math skill graph, course plan, alignment tags, misconception catalogue, lesson concepts mapped to skills.
    - Still to do: key translation paths by id, seed the learner model from placement, extend placement items to grade 6.
 1. **The hinge.**
-   - Number line, then F1 *Numbers on the line*.
+   - ✅ Number line; 🔶 F1 *Numbers on the line* chapter 1 lesson 1 (*Where does ¾ live?*).
    - Balance/tiles, then F3 *Expressions and equations*.
    - Function lab, then H1 *Linear relationships*.
 2. **Geometry spine.** Extend *Mathematical Thinking* (F4). Transformation board for H4/H5. Vector board with physics

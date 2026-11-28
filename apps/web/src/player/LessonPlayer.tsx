@@ -9,7 +9,7 @@ import katex from 'katex';
 import { ArrowLeft, ArrowRight, Check, Lightbulb, RotateCcw, X } from 'lucide-react';
 import {
   checkAnswer, evidenceWeight, getDescriptor, loadProgress, newProgress, recordEvidence, resetProgress, saveProgress,
-  validateConfig, type Answer, type CheckResult, type Course, type GridBoardState, type CircuitBoardState, type InteractiveState, type LearnerProfile,
+  validateConfig, type Answer, type CheckResult, type Course, type GridBoardState, type CircuitBoardState, type NumberLineState, type NumberLineConfig, numberLineFormat, type InteractiveState, type LearnerProfile,
   type Lesson, type LessonProgress, type Question, type StepRuntime,
 } from '@barruu/engine';
 import { InteractiveHost, Rich, RichInline, cn } from '@barruu/ui';
@@ -89,6 +89,11 @@ export function LessonPlayer({ course, lesson, nextLesson, profile, onProfileCha
       case 'circuit': {
         const st = (runtime.interactiveState ?? initial) as CircuitBoardState | null;
         return st ? { answer: { kind: 'circuit', board: st.board }, display: 'circuit' } : null;
+      }
+      case 'numberLine': {
+        const st = (runtime.interactiveState ?? initial) as NumberLineState | null;
+        const v = spec ? validateConfig<NumberLineConfig>(spec.kind, spec.config) : null;
+        return st ? { answer: { kind: 'numberLine', points: st.points, format: v?.ok ? numberLineFormat(v.config) : undefined }, display: JSON.stringify(st.points) } : null;
       }
     }
   };
@@ -208,7 +213,7 @@ export function LessonPlayer({ course, lesson, nextLesson, profile, onProfileCha
           {question && (
             <section className="mt-8" aria-label="Question">
               <p className="mb-4 text-[20px] font-semibold leading-snug"><RichInline text={question.prompt} /></p>
-              <AnswerArea question={question} draft={draft} locked={resolved || (sheet?.tone === 'wrong' && question.kind !== 'construction' && question.kind !== 'circuit')}
+              <AnswerArea question={question} draft={draft} locked={resolved || (sheet?.tone === 'wrong' && question.kind !== 'construction' && question.kind !== 'circuit' && question.kind !== 'numberLine')}
                           reveal={!!question && runtime.solved && !isPredict} onDraft={(d) => setDrafts((m) => ({ ...m, [step.id]: d }))} onSubmit={() => !primary.disabled && primary.action()} />
               {hints.length > 0 && (
                 <div className="mt-5 space-y-2.5">
