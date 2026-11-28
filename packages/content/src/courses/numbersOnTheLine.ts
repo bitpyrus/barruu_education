@@ -202,7 +202,7 @@ export const NUMBERS_ON_THE_LINE = {
                 kind: 'choice', prompt: 'Which is bigger, $\\frac{7}{8}$ or $\\frac{5}{6}$?',
                 options: [
                   { id: 'seven-eighths', text: '$\\frac{7}{8}$', correct: true, feedback: 'Let\'s check.' },
-                  { id: 'five-sixths', text: '$\\frac{5}{6}$', misconception: 'whole-number-bias', feedback: 'Let\'s check.' },
+                  { id: 'five-sixths', text: '$\\frac{5}{6}$', misconception: 'smaller-denominator-bigger', feedback: 'Let\'s check.' },
                   { id: 'same', text: 'The same: both are one part short of 1', misconception: 'one-short-means-equal', feedback: 'Let\'s check.' },
                 ],
                 concepts: ['compare-fractions'],
@@ -233,7 +233,7 @@ export const NUMBERS_ON_THE_LINE = {
                 kind: 'choice', prompt: 'Which is bigger, $\\frac{3}{4}$ or $\\frac{4}{5}$?',
                 options: [
                   { id: 'four-fifths', text: '$\\frac{4}{5}$', correct: true, feedback: 'Yes: its gap is $\\frac{1}{5}$, smaller than $\\frac{1}{4}$.' },
-                  { id: 'three-quarters', text: '$\\frac{3}{4}$', misconception: 'whole-number-bias', feedback: 'Compare the gaps: $\\frac{1}{4}$ is a bigger gap than $\\frac{1}{5}$.' },
+                  { id: 'three-quarters', text: '$\\frac{3}{4}$', misconception: 'smaller-denominator-bigger', feedback: 'Compare the gaps: $\\frac{1}{4}$ is a bigger gap than $\\frac{1}{5}$.' },
                   { id: 'same', text: 'The same', misconception: 'one-short-means-equal', feedback: 'Both are one part short, but the parts are different sizes.' },
                 ],
                 hints: ['What is missing from each to make 1?'],
@@ -261,8 +261,8 @@ export const NUMBERS_ON_THE_LINE = {
               question: {
                 kind: 'choice', prompt: 'Which is closest to 1?',
                 options: [
-                  { id: 'a', text: '$\\frac{4}{5}$', misconception: 'whole-number-bias', feedback: 'Its gap is $\\frac{1}{5}$, the biggest of the three.' },
-                  { id: 'b', text: '$\\frac{5}{6}$', misconception: 'whole-number-bias', feedback: 'Its gap is $\\frac{1}{6}$; $\\frac{1}{7}$ is smaller.' },
+                  { id: 'a', text: '$\\frac{4}{5}$', misconception: 'smaller-denominator-bigger', feedback: 'Its gap is $\\frac{1}{5}$, the biggest of the three.' },
+                  { id: 'b', text: '$\\frac{5}{6}$', misconception: 'smaller-denominator-bigger', feedback: 'Its gap is $\\frac{1}{6}$; $\\frac{1}{7}$ is smaller.' },
                   { id: 'c', text: '$\\frac{6}{7}$', correct: true },
                   { id: 'd', text: 'All equally close', misconception: 'one-short-means-equal', feedback: 'Each is one part short, but sevenths are the smallest parts.' },
                 ],
@@ -287,7 +287,7 @@ export const NUMBERS_ON_THE_LINE = {
                 options: [
                   { id: 'point3', text: '0.3', correct: true, feedback: 'Let\'s check.' },
                   { id: 'point25', text: '0.25', misconception: 'longer-decimal-is-larger', feedback: 'Let\'s check.' },
-                  { id: 'same', text: 'The same', misconception: 'longer-decimal-is-larger', feedback: 'Let\'s check.' },
+                  { id: 'same', text: 'The same', misconception: 'decimal-lengths-equal', feedback: 'Let\'s check.' },
                 ],
                 concepts: ['decimals-as-fractions'],
               },
