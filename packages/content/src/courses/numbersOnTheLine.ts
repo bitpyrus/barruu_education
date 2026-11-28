@@ -47,29 +47,25 @@ export const NUMBERS_ON_THE_LINE = {
           estimatedMinutes: 8,
           steps: [
             {
-              id: 'hook', type: 'narrative', stage: 'motivate', title: 'A number is a place',
-              body: 'Every number has an address on the number line. Whole numbers are easy to find.\n\nBut what lives **between** 0 and 1?',
-            },
-            {
-              id: 'predict', type: 'question', stage: 'predict', title: 'Guess first',
+              id: 'predict', type: 'question', stage: 'predict', title: 'A number is a place',
               question: {
-                kind: 'choice', prompt: 'On a line from 0 to 1, where does $\\frac{1}{3}$ go?',
+                kind: 'choice', prompt: 'Every number has a place on the line. Where does $\\frac{1}{3}$ go?',
                 options: [
                   { id: 'near0', text: 'Closer to 0', correct: true, feedback: 'Let\'s check.' },
-                  { id: 'middle', text: 'In the middle', feedback: 'Let\'s check.' },
-                  { id: 'near1', text: 'Closer to 1, since 3 is a big number', misconception: 'whole-number-bias', feedback: 'Let\'s check.' },
+                  { id: 'middle', text: 'In the middle', misconception: 'fraction-as-halfway', feedback: 'Let\'s check.' },
+                  { id: 'near1', text: 'Closer to 1', misconception: 'whole-number-bias', feedback: 'Let\'s check.' },
                 ],
                 concepts: ['fractions-on-line'],
               },
             },
             {
               id: 'thirds', type: 'interactive', stage: 'explore', title: 'Split it in three',
-              body: 'The line from 0 to 1 is cut into 3 equal parts. Drag **P**.',
-              interactive: { ...nl([{ id: 'l', divisions: 3 }], [{ id: 'P', label: 'P', line: 'l' }], { showValues: true }), goal: 'Put P on 1/3, then on 2/3.' },
+              body: '0 to 1 is cut into 3 equal parts. Drag **P** one jump from 0. Was your guess right?',
+              interactive: { ...nl([{ id: 'l', divisions: 3 }], [{ id: 'P', label: 'P', line: 'l' }], { showValues: true }), goal: 'Put P one jump from 0, then two jumps.' },
             },
             {
               id: 'rule', type: 'narrative', stage: 'explain', title: 'Cut, then count',
-              body: '$\\frac{a}{b}$: cut each whole into **b** equal parts, then take **a** jumps.\n\nSo $\\frac{2}{3}$ is two jumps of $\\frac{1}{3}$.',
+              body: '$\\frac{2}{3}$: cut each whole into **3** equal parts, then take **2** jumps from 0.\n\nThe bottom number cuts; the top number counts.',
             },
             {
               id: 'quarters', type: 'question', stage: 'practice', title: 'Your turn',
@@ -84,7 +80,7 @@ export const NUMBERS_ON_THE_LINE = {
               },
             },
             {
-              id: 'past-one', type: 'question', stage: 'challenge', title: 'Past 1',
+              id: 'past-one', type: 'question', stage: 'practice', title: 'Past 1',
               interactive: nl([{ id: 'l', max: 2, divisions: 4 }], [{ id: 'P', label: 'P', line: 'l' }]),
               question: {
                 kind: 'numberLine', prompt: 'Put P at $\\frac{5}{4}$.',
@@ -93,6 +89,18 @@ export const NUMBERS_ON_THE_LINE = {
                 successFeedback: 'Fractions don\'t stop at 1: $\\frac{5}{4} = 1 + \\frac{1}{4}$.',
                 explanation: '$\\frac{4}{4}$ is 1, so $\\frac{5}{4}$ is one more quarter.',
                 concepts: ['fractions-on-line'],
+              },
+            },
+            {
+              id: 'which-bigger', type: 'question', stage: 'predict', title: 'Guess again',
+              question: {
+                kind: 'choice', prompt: 'Which is bigger, $\\frac{1}{4}$ or $\\frac{1}{6}$?',
+                options: [
+                  { id: 'quarter', text: '$\\frac{1}{4}$', correct: true, feedback: 'Let\'s check.' },
+                  { id: 'sixth', text: '$\\frac{1}{6}$', misconception: 'whole-number-bias', feedback: 'Let\'s check.' },
+                  { id: 'same', text: 'They\'re the same', misconception: 'unit-fractions-equal', feedback: 'Let\'s check.' },
+                ],
+                concepts: ['compare-fractions'],
               },
             },
             {
@@ -105,46 +113,42 @@ export const NUMBERS_ON_THE_LINE = {
               question: {
                 kind: 'numberLine', prompt: 'Put A at $\\frac{1}{4}$ and B at $\\frac{1}{6}$.',
                 goals: [{ point: 'A', value: '1/4' }, { point: 'B', value: '1/6' }],
-                hints: ['One jump on each line.'],
-                successFeedback: 'Look where they landed.',
+                hints: ['How many equal parts does each line have between 0 and 1?', 'One jump on each line.'],
+                successFeedback: 'A is further from 0, so $\\frac{1}{4} > \\frac{1}{6}$. More parts, smaller parts.',
                 explanation: 'One quarter-jump on the top line, one sixth-jump on the bottom.',
-                concepts: ['fractions-on-line'],
-              },
-            },
-            {
-              id: 'which-bigger', type: 'question', stage: 'practice', title: 'Which is bigger?',
-              interactive: nl([{ id: 'q', divisions: 4 }, { id: 's', divisions: 6 }], [
-                { id: 'A', label: 'A', line: 'q', value: '1/4', draggable: false, color: 'violet' },
-                { id: 'B', label: 'B', line: 's', value: '1/6', draggable: false, color: 'teal' },
-              ], { showValues: true }),
-              question: {
-                kind: 'choice', prompt: 'Which is bigger?',
-                options: [
-                  { id: 'quarter', text: '$\\frac{1}{4}$', correct: true, feedback: 'Yes: it\'s further from 0.' },
-                  { id: 'sixth', text: '$\\frac{1}{6}$, because 6 is bigger than 4', misconception: 'whole-number-bias', feedback: 'Look at the lines: B is closer to 0. More parts means smaller parts.' },
-                  { id: 'same', text: 'They\'re the same', feedback: 'Look at the lines: they land in different places.' },
-                ],
-                explanation: 'Cutting into 6 parts makes smaller parts than cutting into 4.',
                 concepts: ['compare-fractions'],
               },
             },
             {
               id: 'big-idea', type: 'narrative', stage: 'explain', title: 'The bottom number',
-              body: 'The bottom number says how **small** each part is. More parts, smaller parts.',
+              body: 'The bottom number (the **denominator**) says how small each part is. More parts, smaller parts.',
             },
             {
               id: 'same-spot', type: 'question', stage: 'transfer', title: 'Two names, one place',
               interactive: nl([{ id: 'h', divisions: 2 }, { id: 'e', divisions: 8 }], [
-                { id: 'A', label: 'A', line: 'h', color: 'amber' },
+                { id: 'A', label: 'A', line: 'h', value: '1/2', draggable: false, color: 'amber' },
                 { id: 'B', label: 'B', line: 'e', color: 'sky' },
               ]),
               question: {
-                kind: 'numberLine', prompt: 'Put A at $\\frac{1}{2}$ and B at $\\frac{4}{8}$.',
-                goals: [{ point: 'A', value: '1/2' }, { point: 'B', value: '4/8' }],
-                hints: ['Count four eighth-jumps on the bottom line.'],
-                successFeedback: 'Same spot, same number: $\\frac{1}{2} = \\frac{4}{8}$.',
-                explanation: 'Both land halfway, so they are equal. These are called equivalent fractions.',
+                kind: 'numberLine', prompt: 'A is at $\\frac{1}{2}$. Put B on the eighths line at exactly the same spot.',
+                goals: [{ point: 'B', other: 'A', message: 'Not the same spot yet. Look straight down from A.' }],
+                hints: ['Look straight down from A.', 'How many eighth-jumps is that from 0?'],
+                successFeedback: 'B is at $\\frac{4}{8}$. Same spot, same number: $\\frac{1}{2} = \\frac{4}{8}$.',
+                explanation: 'Halfway is 4 of the 8 jumps, so $\\frac{1}{2} = \\frac{4}{8}$. These are called equivalent fractions.',
                 concepts: ['equivalent-fractions'],
+              },
+            },
+            {
+              id: 'broken', type: 'question', stage: 'reflect', title: 'Spot the slip',
+              interactive: nl([{ id: 'l', divisions: 6 }], [{ id: 'P', label: 'P', line: 'l', value: '4/6', draggable: false, color: 'rose' }]),
+              question: {
+                kind: 'choice', prompt: 'Kai says P is at $\\frac{4}{5}$: "I counted 5 marks between 0 and 1." What went wrong?',
+                options: [
+                  { id: 'spaces', text: 'Kai counted marks, not spaces. There are 6 spaces, so P is at $\\frac{4}{6}$.', correct: true, feedback: 'Yes. Count the gaps, not the marks.' },
+                  { id: 'fine', text: 'Nothing. P is at $\\frac{4}{5}$.', misconception: 'counts-ticks-not-spaces', feedback: 'Count the gaps between 0 and 1: there are 6, not 5.' },
+                ],
+                explanation: 'The bottom number counts equal **spaces**. 5 marks inside the line make 6 spaces.',
+                concepts: ['fractions-on-line'],
               },
             },
             {
@@ -154,12 +158,25 @@ export const NUMBERS_ON_THE_LINE = {
                 kind: 'choice', prompt: 'Which number is at P?',
                 options: [
                   { id: 'a', text: '$\\frac{3}{5}$', correct: true },
-                  { id: 'b', text: '$\\frac{3}{4}$', misconception: 'counts-ticks-not-spaces' },
-                  { id: 'c', text: '$\\frac{3}{6}$', misconception: 'counts-ticks-not-spaces' },
-                  { id: 'd', text: '$\\frac{2}{5}$' },
+                  { id: 'b', text: '$\\frac{3}{4}$', misconception: 'counts-ticks-not-spaces', feedback: 'You counted the 4 marks inside the line. Count the spaces: there are 5.' },
+                  { id: 'c', text: '$\\frac{3}{6}$', misconception: 'counts-ticks-not-spaces', feedback: 'You counted all 6 marks. Count the spaces between them: there are 5.' },
+                  { id: 'd', text: '$\\frac{2}{5}$', misconception: 'counts-from-wrong-end', feedback: 'P is 3 spaces from 0, not 2. Count from 0.' },
                 ],
-                explanation: 'There are 5 equal **spaces** between 0 and 1 (not 4 or 6 marks). P is 3 spaces along: $\\frac{3}{5}$.',
+                explanation: 'There are 5 equal **spaces** between 0 and 1. P is 3 spaces along: $\\frac{3}{5}$.',
                 concepts: ['fractions-on-line'],
+              },
+            },
+            {
+              id: 'check-equal', type: 'question', stage: 'assess', title: 'One more',
+              interactive: nl([{ id: 't', divisions: 3 }, { id: 's', divisions: 6 }], [
+                { id: 'A', label: 'A', line: 't', value: '2/3', draggable: false, color: 'violet' },
+                { id: 'B', label: 'B', line: 's', color: 'teal' },
+              ]),
+              question: {
+                kind: 'numberLine', prompt: 'Put B at the sixth that equals $\\frac{2}{3}$.',
+                goals: [{ point: 'B', value: '4/6' }],
+                explanation: '$\\frac{2}{3} = \\frac{4}{6}$: each third is two sixths.',
+                concepts: ['equivalent-fractions', 'compare-fractions'],
               },
             },
           ],

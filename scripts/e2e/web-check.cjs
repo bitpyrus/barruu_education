@@ -51,7 +51,6 @@ async function runPlacement(p, mode) {
 
   // Number line: place a point by keyboard, get fraction feedback, fix it.
   await p.goto(B + '/courses/numbers-on-the-line/where-does-three-quarters-live', { waitUntil: 'networkidle' });
-  await p.getByRole('button', { name: /Continue/ }).click();
   await p.getByRole('radio', { name: /Closer to 0/ }).click();
   await p.getByRole('button', { name: 'Lock in' }).click();
   for (let i = 0; i < 3; i++) await p.getByRole('button', { name: /Continue/ }).click();

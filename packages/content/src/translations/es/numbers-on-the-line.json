@@ -63,121 +63,145 @@
    "text": "Un número es un lugar",
    "source": "A number is a place"
   },
-  "chapters.0.lessons.0.steps.0.body": {
-   "text": "Cada número tiene una dirección en la recta numérica. Los enteros son fáciles de encontrar.\n\nPero ¿qué vive **entre** 0 y 1?",
-   "source": "Every number has an address on the number line. Whole numbers are easy to find.\n\nBut what lives **between** 0 and 1?"
+  "chapters.0.lessons.0.steps.0.question.prompt": {
+   "text": "Cada número tiene un lugar en la recta. ¿Dónde va $\\frac{1}{3}$?",
+   "source": "Every number has a place on the line. Where does $\\frac{1}{3}$ go?"
   },
-  "chapters.0.lessons.0.steps.1.title": {
-   "text": "Primero, adivina",
-   "source": "Guess first"
-  },
-  "chapters.0.lessons.0.steps.1.question.prompt": {
-   "text": "En una recta de 0 a 1, ¿dónde va $\\frac{1}{3}$?",
-   "source": "On a line from 0 to 1, where does $\\frac{1}{3}$ go?"
-  },
-  "chapters.0.lessons.0.steps.1.question.options.0.text": {
+  "chapters.0.lessons.0.steps.0.question.options.0.text": {
    "text": "Más cerca del 0",
    "source": "Closer to 0"
   },
-  "chapters.0.lessons.0.steps.1.question.options.0.feedback": {
+  "chapters.0.lessons.0.steps.0.question.options.0.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.1.question.options.1.text": {
+  "chapters.0.lessons.0.steps.0.question.options.1.text": {
    "text": "En el medio",
    "source": "In the middle"
   },
-  "chapters.0.lessons.0.steps.1.question.options.1.feedback": {
+  "chapters.0.lessons.0.steps.0.question.options.1.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.1.question.options.2.text": {
-   "text": "Más cerca del 1, porque 3 es un número grande",
-   "source": "Closer to 1, since 3 is a big number"
+  "chapters.0.lessons.0.steps.0.question.options.2.text": {
+   "text": "Más cerca del 1",
+   "source": "Closer to 1"
   },
-  "chapters.0.lessons.0.steps.1.question.options.2.feedback": {
+  "chapters.0.lessons.0.steps.0.question.options.2.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.2.title": {
+  "chapters.0.lessons.0.steps.1.title": {
    "text": "Divídela en tres",
    "source": "Split it in three"
   },
-  "chapters.0.lessons.0.steps.2.body": {
-   "text": "La recta de 0 a 1 está cortada en 3 partes iguales. Arrastra **P**.",
-   "source": "The line from 0 to 1 is cut into 3 equal parts. Drag **P**."
+  "chapters.0.lessons.0.steps.1.body": {
+   "text": "De 0 a 1 está cortada en 3 partes iguales. Arrastra **P** un salto desde el 0. ¿Acertaste?",
+   "source": "0 to 1 is cut into 3 equal parts. Drag **P** one jump from 0. Was your guess right?"
   },
-  "chapters.0.lessons.0.steps.2.interactive.config.points.0.label": {
+  "chapters.0.lessons.0.steps.1.interactive.config.points.0.label": {
    "text": "P",
    "source": "P"
   },
-  "chapters.0.lessons.0.steps.2.interactive.goal": {
-   "text": "Pon P en 1/3 y luego en 2/3.",
-   "source": "Put P on 1/3, then on 2/3."
+  "chapters.0.lessons.0.steps.1.interactive.goal": {
+   "text": "Pon P a un salto del 0 y luego a dos saltos.",
+   "source": "Put P one jump from 0, then two jumps."
   },
-  "chapters.0.lessons.0.steps.3.title": {
+  "chapters.0.lessons.0.steps.2.title": {
    "text": "Corta y cuenta",
    "source": "Cut, then count"
   },
-  "chapters.0.lessons.0.steps.3.body": {
-   "text": "$\\frac{a}{b}$: corta cada unidad en **b** partes iguales y da **a** saltos.\n\nAsí, $\\frac{2}{3}$ son dos saltos de $\\frac{1}{3}$.",
-   "source": "$\\frac{a}{b}$: cut each whole into **b** equal parts, then take **a** jumps.\n\nSo $\\frac{2}{3}$ is two jumps of $\\frac{1}{3}$."
+  "chapters.0.lessons.0.steps.2.body": {
+   "text": "$\\frac{2}{3}$: corta cada unidad en **3** partes iguales y da **2** saltos desde el 0.\n\nEl número de abajo corta; el de arriba cuenta.",
+   "source": "$\\frac{2}{3}$: cut each whole into **3** equal parts, then take **2** jumps from 0.\n\nThe bottom number cuts; the top number counts."
   },
-  "chapters.0.lessons.0.steps.4.title": {
+  "chapters.0.lessons.0.steps.3.title": {
    "text": "Tu turno",
    "source": "Your turn"
   },
-  "chapters.0.lessons.0.steps.4.question.prompt": {
+  "chapters.0.lessons.0.steps.3.question.prompt": {
    "text": "Pon P en $\\frac{3}{4}$.",
    "source": "Put P at $\\frac{3}{4}$."
   },
-  "chapters.0.lessons.0.steps.4.question.hints.0": {
+  "chapters.0.lessons.0.steps.3.question.hints.0": {
    "text": "¿Cuántas partes iguales hay entre 0 y 1?",
    "source": "How many equal parts between 0 and 1?"
   },
-  "chapters.0.lessons.0.steps.4.question.hints.1": {
+  "chapters.0.lessons.0.steps.3.question.hints.1": {
    "text": "Da 3 de los 4 saltos.",
    "source": "Take 3 of the 4 jumps."
   },
-  "chapters.0.lessons.0.steps.4.question.explanation": {
+  "chapters.0.lessons.0.steps.3.question.explanation": {
    "text": "La recta está cortada en 4 partes; $\\frac{3}{4}$ son 3 de ellas.",
    "source": "The line is cut into 4 parts; $\\frac{3}{4}$ is 3 of them."
   },
-  "chapters.0.lessons.0.steps.4.question.successFeedback": {
+  "chapters.0.lessons.0.steps.3.question.successFeedback": {
    "text": "Tres saltos de un cuarto.",
    "source": "Three jumps of a quarter."
+  },
+  "chapters.0.lessons.0.steps.3.interactive.config.points.0.label": {
+   "text": "P",
+   "source": "P"
+  },
+  "chapters.0.lessons.0.steps.4.title": {
+   "text": "Más allá del 1",
+   "source": "Past 1"
+  },
+  "chapters.0.lessons.0.steps.4.question.prompt": {
+   "text": "Pon P en $\\frac{5}{4}$.",
+   "source": "Put P at $\\frac{5}{4}$."
+  },
+  "chapters.0.lessons.0.steps.4.question.hints.0": {
+   "text": "¿Dónde está $\\frac{4}{4}$?",
+   "source": "Where is $\\frac{4}{4}$?"
+  },
+  "chapters.0.lessons.0.steps.4.question.hints.1": {
+   "text": "Sigue saltando: un cuarto más después del 1.",
+   "source": "Keep jumping: one more quarter after 1."
+  },
+  "chapters.0.lessons.0.steps.4.question.explanation": {
+   "text": "$\\frac{4}{4}$ es 1, así que $\\frac{5}{4}$ es un cuarto más.",
+   "source": "$\\frac{4}{4}$ is 1, so $\\frac{5}{4}$ is one more quarter."
+  },
+  "chapters.0.lessons.0.steps.4.question.successFeedback": {
+   "text": "Las fracciones no se detienen en el 1: $\\frac{5}{4} = 1 + \\frac{1}{4}$.",
+   "source": "Fractions don't stop at 1: $\\frac{5}{4} = 1 + \\frac{1}{4}$."
   },
   "chapters.0.lessons.0.steps.4.interactive.config.points.0.label": {
    "text": "P",
    "source": "P"
   },
   "chapters.0.lessons.0.steps.5.title": {
-   "text": "Más allá del 1",
-   "source": "Past 1"
+   "text": "Adivina otra vez",
+   "source": "Guess again"
   },
   "chapters.0.lessons.0.steps.5.question.prompt": {
-   "text": "Pon P en $\\frac{5}{4}$.",
-   "source": "Put P at $\\frac{5}{4}$."
+   "text": "¿Cuál es mayor, $\\frac{1}{4}$ o $\\frac{1}{6}$?",
+   "source": "Which is bigger, $\\frac{1}{4}$ or $\\frac{1}{6}$?"
   },
-  "chapters.0.lessons.0.steps.5.question.hints.0": {
-   "text": "¿Dónde está $\\frac{4}{4}$?",
-   "source": "Where is $\\frac{4}{4}$?"
+  "chapters.0.lessons.0.steps.5.question.options.0.text": {
+   "text": "$\\frac{1}{4}$",
+   "source": "$\\frac{1}{4}$"
   },
-  "chapters.0.lessons.0.steps.5.question.hints.1": {
-   "text": "Sigue saltando: un cuarto más después del 1.",
-   "source": "Keep jumping: one more quarter after 1."
+  "chapters.0.lessons.0.steps.5.question.options.0.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.5.question.explanation": {
-   "text": "$\\frac{4}{4}$ es 1, así que $\\frac{5}{4}$ es un cuarto más.",
-   "source": "$\\frac{4}{4}$ is 1, so $\\frac{5}{4}$ is one more quarter."
+  "chapters.0.lessons.0.steps.5.question.options.1.text": {
+   "text": "$\\frac{1}{6}$",
+   "source": "$\\frac{1}{6}$"
   },
-  "chapters.0.lessons.0.steps.5.question.successFeedback": {
-   "text": "Las fracciones no se detienen en el 1: $\\frac{5}{4} = 1 + \\frac{1}{4}$.",
-   "source": "Fractions don't stop at 1: $\\frac{5}{4} = 1 + \\frac{1}{4}$."
+  "chapters.0.lessons.0.steps.5.question.options.1.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.5.interactive.config.points.0.label": {
-   "text": "P",
-   "source": "P"
+  "chapters.0.lessons.0.steps.5.question.options.2.text": {
+   "text": "Son iguales",
+   "source": "They're the same"
+  },
+  "chapters.0.lessons.0.steps.5.question.options.2.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
   },
   "chapters.0.lessons.0.steps.6.title": {
    "text": "Cuartos contra sextos",
@@ -192,6 +216,10 @@
    "source": "Put A at $\\frac{1}{4}$ and B at $\\frac{1}{6}$."
   },
   "chapters.0.lessons.0.steps.6.question.hints.0": {
+   "text": "¿Cuántas partes iguales tiene cada recta entre 0 y 1?",
+   "source": "How many equal parts does each line have between 0 and 1?"
+  },
+  "chapters.0.lessons.0.steps.6.question.hints.1": {
    "text": "Un salto en cada recta.",
    "source": "One jump on each line."
   },
@@ -200,8 +228,8 @@
    "source": "One quarter-jump on the top line, one sixth-jump on the bottom."
   },
   "chapters.0.lessons.0.steps.6.question.successFeedback": {
-   "text": "Fíjate dónde han caído.",
-   "source": "Look where they landed."
+   "text": "A está más lejos del 0, así que $\\frac{1}{4} > \\frac{1}{6}$. Más partes, partes más pequeñas.",
+   "source": "A is further from 0, so $\\frac{1}{4} > \\frac{1}{6}$. More parts, smaller parts."
   },
   "chapters.0.lessons.0.steps.6.interactive.config.points.0.label": {
    "text": "A",
@@ -212,84 +240,80 @@
    "source": "B"
   },
   "chapters.0.lessons.0.steps.7.title": {
-   "text": "¿Cuál es mayor?",
-   "source": "Which is bigger?"
-  },
-  "chapters.0.lessons.0.steps.7.question.prompt": {
-   "text": "¿Cuál es mayor?",
-   "source": "Which is bigger?"
-  },
-  "chapters.0.lessons.0.steps.7.question.explanation": {
-   "text": "Cortar en 6 partes da partes más pequeñas que cortar en 4.",
-   "source": "Cutting into 6 parts makes smaller parts than cutting into 4."
-  },
-  "chapters.0.lessons.0.steps.7.question.options.0.text": {
-   "text": "$\\frac{1}{4}$",
-   "source": "$\\frac{1}{4}$"
-  },
-  "chapters.0.lessons.0.steps.7.question.options.0.feedback": {
-   "text": "Sí: está más lejos del 0.",
-   "source": "Yes: it's further from 0."
-  },
-  "chapters.0.lessons.0.steps.7.question.options.1.text": {
-   "text": "$\\frac{1}{6}$, porque 6 es mayor que 4",
-   "source": "$\\frac{1}{6}$, because 6 is bigger than 4"
-  },
-  "chapters.0.lessons.0.steps.7.question.options.1.feedback": {
-   "text": "Mira las rectas: B está más cerca del 0. Más partes significa partes más pequeñas.",
-   "source": "Look at the lines: B is closer to 0. More parts means smaller parts."
-  },
-  "chapters.0.lessons.0.steps.7.question.options.2.text": {
-   "text": "Son iguales",
-   "source": "They're the same"
-  },
-  "chapters.0.lessons.0.steps.7.question.options.2.feedback": {
-   "text": "Mira las rectas: caen en lugares distintos.",
-   "source": "Look at the lines: they land in different places."
-  },
-  "chapters.0.lessons.0.steps.7.interactive.config.points.0.label": {
-   "text": "A",
-   "source": "A"
-  },
-  "chapters.0.lessons.0.steps.7.interactive.config.points.1.label": {
-   "text": "B",
-   "source": "B"
-  },
-  "chapters.0.lessons.0.steps.8.title": {
    "text": "El número de abajo",
    "source": "The bottom number"
   },
-  "chapters.0.lessons.0.steps.8.body": {
-   "text": "El número de abajo dice lo **pequeña** que es cada parte. Más partes, partes más pequeñas.",
-   "source": "The bottom number says how **small** each part is. More parts, smaller parts."
+  "chapters.0.lessons.0.steps.7.body": {
+   "text": "El número de abajo (el **denominador**) dice lo pequeña que es cada parte. Más partes, partes más pequeñas.",
+   "source": "The bottom number (the **denominator**) says how small each part is. More parts, smaller parts."
   },
-  "chapters.0.lessons.0.steps.9.title": {
+  "chapters.0.lessons.0.steps.8.title": {
    "text": "Dos nombres, un lugar",
    "source": "Two names, one place"
   },
-  "chapters.0.lessons.0.steps.9.question.prompt": {
-   "text": "Pon A en $\\frac{1}{2}$ y B en $\\frac{4}{8}$.",
-   "source": "Put A at $\\frac{1}{2}$ and B at $\\frac{4}{8}$."
+  "chapters.0.lessons.0.steps.8.question.prompt": {
+   "text": "A está en $\\frac{1}{2}$. Pon B en la recta de octavos exactamente en el mismo lugar.",
+   "source": "A is at $\\frac{1}{2}$. Put B on the eighths line at exactly the same spot."
   },
-  "chapters.0.lessons.0.steps.9.question.hints.0": {
-   "text": "Cuenta cuatro saltos de un octavo en la recta de abajo.",
-   "source": "Count four eighth-jumps on the bottom line."
+  "chapters.0.lessons.0.steps.8.question.hints.0": {
+   "text": "Mira justo debajo de A.",
+   "source": "Look straight down from A."
   },
-  "chapters.0.lessons.0.steps.9.question.explanation": {
-   "text": "Las dos caen en la mitad, así que son iguales. Se llaman fracciones equivalentes.",
-   "source": "Both land halfway, so they are equal. These are called equivalent fractions."
+  "chapters.0.lessons.0.steps.8.question.hints.1": {
+   "text": "¿A cuántos saltos de un octavo está del 0?",
+   "source": "How many eighth-jumps is that from 0?"
   },
-  "chapters.0.lessons.0.steps.9.question.successFeedback": {
-   "text": "Mismo lugar, mismo número: $\\frac{1}{2} = \\frac{4}{8}$.",
-   "source": "Same spot, same number: $\\frac{1}{2} = \\frac{4}{8}$."
+  "chapters.0.lessons.0.steps.8.question.explanation": {
+   "text": "La mitad son 4 de los 8 saltos, así que $\\frac{1}{2} = \\frac{4}{8}$. Se llaman fracciones equivalentes.",
+   "source": "Halfway is 4 of the 8 jumps, so $\\frac{1}{2} = \\frac{4}{8}$. These are called equivalent fractions."
   },
-  "chapters.0.lessons.0.steps.9.interactive.config.points.0.label": {
+  "chapters.0.lessons.0.steps.8.question.goals.0.message": {
+   "text": "Aún no es el mismo lugar. Mira justo debajo de A.",
+   "source": "Not the same spot yet. Look straight down from A."
+  },
+  "chapters.0.lessons.0.steps.8.question.successFeedback": {
+   "text": "B está en $\\frac{4}{8}$. Mismo lugar, mismo número: $\\frac{1}{2} = \\frac{4}{8}$.",
+   "source": "B is at $\\frac{4}{8}$. Same spot, same number: $\\frac{1}{2} = \\frac{4}{8}$."
+  },
+  "chapters.0.lessons.0.steps.8.interactive.config.points.0.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.9.interactive.config.points.1.label": {
+  "chapters.0.lessons.0.steps.8.interactive.config.points.1.label": {
    "text": "B",
    "source": "B"
+  },
+  "chapters.0.lessons.0.steps.9.title": {
+   "text": "Encuentra el error",
+   "source": "Spot the slip"
+  },
+  "chapters.0.lessons.0.steps.9.question.prompt": {
+   "text": "Kai dice que P está en $\\frac{4}{5}$: «Conté 5 marcas entre 0 y 1». ¿Qué falló?",
+   "source": "Kai says P is at $\\frac{4}{5}$: \"I counted 5 marks between 0 and 1.\" What went wrong?"
+  },
+  "chapters.0.lessons.0.steps.9.question.explanation": {
+   "text": "El número de abajo cuenta **espacios** iguales. 5 marcas dentro de la recta forman 6 espacios.",
+   "source": "The bottom number counts equal **spaces**. 5 marks inside the line make 6 spaces."
+  },
+  "chapters.0.lessons.0.steps.9.question.options.0.text": {
+   "text": "Kai contó marcas, no espacios. Hay 6 espacios, así que P está en $\\frac{4}{6}$.",
+   "source": "Kai counted marks, not spaces. There are 6 spaces, so P is at $\\frac{4}{6}$."
+  },
+  "chapters.0.lessons.0.steps.9.question.options.0.feedback": {
+   "text": "Sí. Cuenta los huecos, no las marcas.",
+   "source": "Yes. Count the gaps, not the marks."
+  },
+  "chapters.0.lessons.0.steps.9.question.options.1.text": {
+   "text": "Nada. P está en $\\frac{4}{5}$.",
+   "source": "Nothing. P is at $\\frac{4}{5}$."
+  },
+  "chapters.0.lessons.0.steps.9.question.options.1.feedback": {
+   "text": "Cuenta los huecos entre 0 y 1: hay 6, no 5.",
+   "source": "Count the gaps between 0 and 1: there are 6, not 5."
+  },
+  "chapters.0.lessons.0.steps.9.interactive.config.points.0.label": {
+   "text": "P",
+   "source": "P"
   },
   "chapters.0.lessons.0.steps.10.title": {
    "text": "Prueba de dominio",
@@ -300,8 +324,8 @@
    "source": "Which number is at P?"
   },
   "chapters.0.lessons.0.steps.10.question.explanation": {
-   "text": "Hay 5 **espacios** iguales entre 0 y 1 (no 4 ni 6 marcas). P está a 3 espacios: $\\frac{3}{5}$.",
-   "source": "There are 5 equal **spaces** between 0 and 1 (not 4 or 6 marks). P is 3 spaces along: $\\frac{3}{5}$."
+   "text": "Hay 5 **espacios** iguales entre 0 y 1. P está a 3 espacios: $\\frac{3}{5}$.",
+   "source": "There are 5 equal **spaces** between 0 and 1. P is 3 spaces along: $\\frac{3}{5}$."
   },
   "chapters.0.lessons.0.steps.10.question.options.0.text": {
    "text": "$\\frac{3}{5}$",
@@ -311,17 +335,49 @@
    "text": "$\\frac{3}{4}$",
    "source": "$\\frac{3}{4}$"
   },
+  "chapters.0.lessons.0.steps.10.question.options.1.feedback": {
+   "text": "Contaste las 4 marcas de dentro. Cuenta los espacios: hay 5.",
+   "source": "You counted the 4 marks inside the line. Count the spaces: there are 5."
+  },
   "chapters.0.lessons.0.steps.10.question.options.2.text": {
    "text": "$\\frac{3}{6}$",
    "source": "$\\frac{3}{6}$"
+  },
+  "chapters.0.lessons.0.steps.10.question.options.2.feedback": {
+   "text": "Contaste las 6 marcas. Cuenta los espacios entre ellas: hay 5.",
+   "source": "You counted all 6 marks. Count the spaces between them: there are 5."
   },
   "chapters.0.lessons.0.steps.10.question.options.3.text": {
    "text": "$\\frac{2}{5}$",
    "source": "$\\frac{2}{5}$"
   },
+  "chapters.0.lessons.0.steps.10.question.options.3.feedback": {
+   "text": "P está a 3 espacios del 0, no a 2. Cuenta desde el 0.",
+   "source": "P is 3 spaces from 0, not 2. Count from 0."
+  },
   "chapters.0.lessons.0.steps.10.interactive.config.points.0.label": {
    "text": "P",
    "source": "P"
+  },
+  "chapters.0.lessons.0.steps.11.title": {
+   "text": "Una más",
+   "source": "One more"
+  },
+  "chapters.0.lessons.0.steps.11.question.prompt": {
+   "text": "Pon B en el sexto que es igual a $\\frac{2}{3}$.",
+   "source": "Put B at the sixth that equals $\\frac{2}{3}$."
+  },
+  "chapters.0.lessons.0.steps.11.question.explanation": {
+   "text": "$\\frac{2}{3} = \\frac{4}{6}$: cada tercio son dos sextos.",
+   "source": "$\\frac{2}{3} = \\frac{4}{6}$: each third is two sixths."
+  },
+  "chapters.0.lessons.0.steps.11.interactive.config.points.0.label": {
+   "text": "A",
+   "source": "A"
+  },
+  "chapters.0.lessons.0.steps.11.interactive.config.points.1.label": {
+   "text": "B",
+   "source": "B"
   },
   "chapters.1.title": {
    "text": "Comparar y ordenar",

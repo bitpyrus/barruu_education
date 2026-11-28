@@ -52,6 +52,9 @@ export const MISCONCEPTIONS: Misconception[] = [
     ['https://link.springer.com/doi/10.1007/BF00305619']),
 
   // ── Mathematics: classic, citation pending ─────────────────────────────────
+  M('fraction-as-halfway', 'math.fractions-on-line', 'authored', 'Places any proper fraction at or near one half.'),
+  M('unit-fractions-equal', 'math.compare-fractions', 'authored', 'Thinks all unit fractions (1/n) are the same size.'),
+  M('counts-from-wrong-end', 'math.fractions-on-line', 'authored', 'Counts spaces from 1 (or after the point) instead of from 0.'),
   M('counts-ticks-not-spaces', 'math.fractions-on-line', 'classic', 'Counts tick marks instead of equal spaces to find the denominator (calls the third of five spaces 3/4 or 3/6).'),
   M('negative-square-precedence', 'math.exponent-laws', 'classic', 'Reads −3² as (−3)² = 9.'),
   M('freshman-binomial', 'math.expanding', 'classic', 'Expands (a + b)² as a² + b².'),
