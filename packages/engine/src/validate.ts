@@ -79,10 +79,15 @@ export function findCircuitSolution(config: CircuitBoardConfig, q: Extract<Quest
 export function findNumberLineSolution(config: NumberLineConfig, q: Extract<Question, { kind: 'numberLine' }>): NumberLinePoints | null {
   const lines = new Map(config.lines.map((l) => [l.id, l]));
   const fixed: NumberLinePoints = Object.fromEntries(config.points.map((p) => [p.id, p.value ?? null]));
+  const fmt0 = numberLineFormat(config);
   const movable = config.points.filter((p) => p.draggable).map((p) => {
     const l = lines.get(p.line)!;
-    return { id: p.id, values: Array.from({ length: (l.max - l.min) * l.divisions + 1 }, (_, i) => l.min + i / l.divisions) };
+    const all = Array.from({ length: (l.max - l.min) * l.divisions + 1 }, (_, i) => l.min + i / l.divisions);
+    // Goals about this point alone (against a value) prune its candidates before the joint search.
+    const own = q.goals.filter((g) => g.point === p.id && g.value !== undefined);
+    return { id: p.id, values: own.length ? all.filter((v) => evaluateNumberLineGoals(own, { [p.id]: v }, fmt0).met) : all };
   });
+  if (movable.some((m) => m.values.length === 0)) return null;
   const total = movable.reduce((n, m) => n * m.values.length, 1);
   if (total > MAX_CIRCUITS) return null;
   const fmt = numberLineFormat(config);
@@ -140,6 +145,7 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
     if (q.kind === 'choice' && !q.options.some((o) => o.correct)) at('choice question has no correct option');
     if (q.kind === 'choice' && !q.multiple && q.options.filter((o) => o.correct).length > 1) at('single-answer choice question has more than one correct option');
     if (q.kind === 'order' && [...q.correctOrder].sort().join() !== q.items.map((_, i) => i).join()) at('correctOrder is not a permutation of the items');
+    if (q.kind === 'order' && q.correctOrder.every((v, i) => v === i)) at('order question starts already in the correct order');
     if (step.stage === 'assess' && q.hints.length > 0) at('assessment steps should not have hints (they are hidden)');
   }
   return issues;

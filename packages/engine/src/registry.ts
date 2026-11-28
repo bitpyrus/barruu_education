@@ -19,7 +19,7 @@ import { compile, derivative, parseExpr } from './expr';
 import { exactPeriod, PENDULUM_ASSUMPTIONS, smallAnglePeriod } from './sim/pendulum';
 import type { SortAlgorithm } from './sim/sorting';
 import { area, boundingBox, perimeter, rectPoints, type Point } from './geometry';
-import { FractionValue, formatFraction, type NumberLineFormat, type NumberLinePoints } from './numberLine';
+import { FractionValue, formatDecimal, formatFraction, type NumberLineFormat, type NumberLinePoints } from './numberLine';
 import {
   CIRCUIT_ASSUMPTIONS, EdgeIdSchema, PART_KINDS, edgeInBounds, solveCircuit, type CircuitBoard, type CircuitPart,
 } from './sim/circuit';
@@ -419,8 +419,8 @@ export const NumberLineConfig = z.object({
     max: z.number().int().min(-19).max(24).default(1),
     /** Equal parts per unit; points snap to them. */
     divisions: z.number().int().min(1).max(24).default(4),
-    /** Tick labels: whole numbers only, or every tick as a fraction. */
-    labels: z.enum(['wholes', 'fractions']).default('wholes'),
+    /** Tick labels: whole numbers only, every tick as a fraction, or tenths as decimals (values then read as decimals). */
+    labels: z.enum(['wholes', 'fractions', 'decimals']).default('wholes'),
   })).min(1).max(3),
   points: z.array(z.object({
     id: z.string().regex(/^[a-zA-Z0-9_-]+$/),
@@ -461,6 +461,7 @@ export function numberLineFormat(c: NumberLineConfig): NumberLineFormat {
   return {
     divisions: Object.fromEntries(c.points.map((p) => [p.id, lines.get(p.line)?.divisions ?? 1])),
     labels: Object.fromEntries(c.points.map((p) => [p.id, p.label || p.id])),
+    decimals: Object.fromEntries(c.points.map((p) => [p.id, lines.get(p.line)?.labels === 'decimals'])),
   };
 }
 
@@ -477,7 +478,9 @@ const numberLine: InteractiveDescriptor<NumberLineConfig, NumberLineState> = {
     const lineText = c.lines.map((l) => `a line from ${l.min} to ${l.max} split into ${l.divisions === 1 ? 'wholes' : `${l.divisions} parts per unit`}`).join('; ');
     const pts = c.points.map((p) => {
       const v = s.points[p.id];
-      return `${p.label || p.id} ${v === null || v === undefined ? 'is not placed' : `is at ${formatFraction(v, lines.get(p.line)?.divisions ?? 1)}`}`;
+      const l = lines.get(p.line);
+      const shown = v === null || v === undefined ? '' : l?.labels === 'decimals' ? formatDecimal(v) : formatFraction(v, l?.divisions ?? 1);
+      return `${p.label || p.id} ${shown ? `is at ${shown}` : 'is not placed'}`;
     });
     return `Number line with ${lineText}. ${pts.join(', ')}.`;
   },

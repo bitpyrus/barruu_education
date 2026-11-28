@@ -2,7 +2,7 @@
  * Course content localization.
  *
  * Courses are authored once in the source language. Translations are stored as
- * *overlays*: a map from a stable string path (e.g. `chapters.0.lessons.1.steps.2.body`)
+ * *overlays*: a map from a stable string path (e.g. `chapters.#area.lessons.#gardens.steps.#predict.body`)
  * to `{ text, source }`, where `source` is the source-language text that was
  * translated. This gives us, without touching the content model:
  *  - fallback: anything untranslated shows the source text
@@ -29,10 +29,26 @@ const SKIP_KEYS = new Set(['id', 'kind', 'answer', 'variables', 'correctOrder', 
 
 export type StringTable = Record<string, string>;
 
-/** Walk a content object and collect every translatable string by path. */
-export function extractStrings(value: unknown, path = '', out: StringTable = {}): StringTable {
+/**
+ * Path segment for an array element. Elements with a unique `id` (chapters, lessons, steps,
+ * options, shapes, parts…) are addressed as `#id`, so inserting or reordering steps never
+ * shifts their translations. Plain strings and elements without a unique id use the index.
+ */
+function segments(arr: unknown[]): string[] {
+  const ids = arr.map((v) => (v && typeof v === 'object' && typeof (v as { id?: unknown }).id === 'string' ? (v as { id: string }).id : null));
+  const count = new Map<string, number>();
+  ids.forEach((id) => { if (id) count.set(id, (count.get(id) ?? 0) + 1); });
+  return ids.map((id, i) => (id && count.get(id) === 1 ? `#${id}` : String(i)));
+}
+
+/**
+ * Walk a content object and collect every translatable string by path.
+ * `byIndex` reproduces the legacy index-only paths (used to migrate old overlays).
+ */
+export function extractStrings(value: unknown, path = '', out: StringTable = {}, byIndex = false): StringTable {
   if (Array.isArray(value)) {
-    value.forEach((v, i) => extractStrings(v, path ? `${path}.${i}` : String(i), out));
+    const seg = byIndex ? value.map((_, i) => String(i)) : segments(value);
+    value.forEach((v, i) => extractStrings(v, path ? `${path}.${seg[i]}` : seg[i], out, byIndex));
   } else if (value && typeof value === 'object') {
     for (const [k, v] of Object.entries(value)) {
       if (SKIP_KEYS.has(k)) continue;
@@ -40,13 +56,21 @@ export function extractStrings(value: unknown, path = '', out: StringTable = {})
       if (TRANSLATABLE_KEYS.has(k)) {
         if (typeof v === 'string' && v.trim()) out[p] = v;
         else if (Array.isArray(v) && v.every((x) => typeof x === 'string')) v.forEach((s, i) => { if (s.trim()) out[`${p}.${i}`] = s; });
-        else extractStrings(v, p, out);
+        else extractStrings(v, p, out, byIndex);
       } else if (typeof v === 'object') {
-        extractStrings(v, p, out);
+        extractStrings(v, p, out, byIndex);
       }
     }
   }
   return out;
+}
+
+/** Rename legacy index-based overlay keys to id-based ones (same content, same walk order). */
+export function migrateOverlayPaths(content: unknown, strings: Record<string, { text: string; source: string }>) {
+  const legacy = Object.keys(extractStrings(content, '', {}, true));
+  const current = Object.keys(extractStrings(content));
+  const rename = new Map(legacy.map((k, i) => [k, current[i]]));
+  return Object.fromEntries(Object.entries(strings).map(([k, v]) => [rename.get(k) ?? k, v]));
 }
 
 export const OverlaySchema = z.object({
@@ -58,11 +82,16 @@ export const OverlaySchema = z.object({
 });
 export type Overlay = z.infer<typeof OverlaySchema>;
 
+function step(cur: unknown, part: string): unknown {
+  if (Array.isArray(cur) && part.startsWith('#')) return cur.find((v) => v && typeof v === 'object' && (v as { id?: unknown }).id === part.slice(1));
+  return (cur as Record<string, unknown>)?.[part];
+}
+
 function setPath(root: unknown, path: string, text: string): void {
   const parts = path.split('.');
   let cur = root as Record<string, unknown>;
   for (let i = 0; i < parts.length - 1; i++) {
-    const next = cur?.[parts[i]];
+    const next = step(cur, parts[i]);
     if (next === null || typeof next !== 'object') return;
     cur = next as Record<string, unknown>;
   }

@@ -33,6 +33,8 @@ const RAW_CONCEPTS: Concept[] = [
   { id: 'fractions-on-line', title: 'Fractions on the number line', subject: 'Mathematics', summary: 'a/b is a jumps of size 1/b.', prerequisites: [], skill: 'math.fractions-on-line' },
   { id: 'compare-fractions', title: 'Comparing fractions', subject: 'Mathematics', summary: 'Further from zero is bigger; more parts means smaller parts.', prerequisites: ['fractions-on-line'], skill: 'math.compare-fractions' },
   { id: 'equivalent-fractions', title: 'Equivalent fractions', subject: 'Mathematics', summary: 'Different names for the same point.', prerequisites: ['fractions-on-line'], skill: 'math.compare-fractions' },
+  { id: 'decimals-as-fractions', title: 'Decimals as fractions', subject: 'Mathematics', summary: 'Tenths and hundredths on the line.', prerequisites: ['fractions-on-line'], skill: 'math.compare-fractions' },
+  { id: 'ordering-numbers', title: 'Ordering fractions and decimals', subject: 'Mathematics', summary: 'One form, then left to right.', prerequisites: ['compare-fractions', 'decimals-as-fractions'], skill: 'math.compare-fractions' },
   { id: 'area-measurement', title: 'Measuring area', subject: 'Mathematics', summary: 'Area counts the unit squares a shape covers.', prerequisites: [], skill: 'math.area-by-rearranging' },
   { id: 'rectangle-area', title: 'Area of a rectangle', subject: 'Mathematics', summary: 'Width × height.', prerequisites: ['area-measurement'], skill: 'math.area-by-rearranging' },
   { id: 'area-perimeter', title: 'Area vs. perimeter', subject: 'Mathematics', summary: 'Same area, different outlines.', prerequisites: ['rectangle-area'], skill: 'math.area-perimeter' },

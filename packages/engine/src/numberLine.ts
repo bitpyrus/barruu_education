@@ -11,12 +11,13 @@ import type { FeedbackMessage } from './assessment';
 
 const EPS = 1e-9;
 
-/** "3/4", "-1/2", "2" or a number → number. */
+/** "3/4", "-1/2", "2", "0.25" or a number → number. */
 export const FractionValue = z.union([
   z.number(),
-  z.string().regex(/^-?\d+(\/\d+)?$/, 'write values as integers or fractions like "3/4"'),
+  z.string().regex(/^-?\d+(\/\d+|\.\d+)?$/, 'write values as integers, fractions like "3/4" or decimals like "0.25"'),
 ]).transform((v) => {
   if (typeof v === 'number') return v;
+  if (v.includes('.')) return Number(v);
   const [n, d] = v.split('/').map(Number);
   return d === undefined ? n : n / d;
 }).refine((v) => Number.isFinite(v), 'denominator cannot be zero');
@@ -39,7 +40,12 @@ export interface NumberLineFormat {
   /** Divisions per unit on the point's line (used to write values as fractions). */
   divisions: Record<string, number>;
   labels: Record<string, string>;
+  /** Points on decimal lines are written as decimals (0.25) instead of fractions. */
+  decimals?: Record<string, boolean>;
 }
+
+/** 0.25 → "0.25", 0.3 → "0.3", 1 → "1". */
+export const formatDecimal = (v: number) => String(Number(v.toFixed(4)));
 
 /** Write v as a fraction over d when it lies on that grid (e.g. 0.75, 4 → "3/4"); integers stay whole. */
 export function formatFraction(v: number, d = 1): string {
@@ -68,7 +74,7 @@ export interface NumberLineGoalResult { goal: NumberLineGoal; met: boolean; feed
 
 export function evaluateNumberLineGoals(goals: NumberLineGoal[], points: NumberLinePoints, fmt: NumberLineFormat = { divisions: {}, labels: {} }) {
   const name = (id: string) => fmt.labels[id] || id;
-  const show = (id: string, v: number) => formatFraction(v, fmt.divisions[id] ?? 1);
+  const show = (id: string, v: number) => (fmt.decimals?.[id] ? formatDecimal(v) : formatFraction(v, fmt.divisions[id] ?? 1));
   const results = goals.map((goal): NumberLineGoalResult => {
     const v = points[goal.point];
     if (v === null || v === undefined) {

@@ -5,7 +5,7 @@
  * line (IES fractions guide). Short screens, the learner drags first, explanations stay
  * one or two lines. Distractors carry misconception ids from the curriculum catalogue.
  */
-type Line = { id: string; min?: number; max?: number; divisions: number; labels?: 'wholes' | 'fractions' };
+type Line = { id: string; min?: number; max?: number; divisions: number; labels?: 'wholes' | 'fractions' | 'decimals' };
 type Pt = { id: string; label: string; line: string; value?: string; draggable?: boolean; color?: string };
 
 const nl = (lines: Line[], points: Pt[], extra: Record<string, unknown> = {}) => ({
@@ -25,7 +25,7 @@ export const NUMBERS_ON_THE_LINE = {
   summary: 'Fractions, decimals and negative numbers stop being rules to memorise once you can see where they live. Drag, split and compare on the number line.',
   outcomes: [
     'Place any fraction on a number line',
-    'Compare fractions by where they sit',
+    'Compare fractions and decimals by where they sit',
     'See equivalent fractions as the same point',
   ],
   prerequisites: ['Whole numbers'],
@@ -186,9 +186,238 @@ export const NUMBERS_ON_THE_LINE = {
     {
       id: 'comparing-and-ordering',
       title: 'Comparing and ordering',
-      summary: 'Fractions and decimals side by side.',
-      status: 'planned',
-      plannedLessons: ['Which is closer to 1?', 'Decimals are fractions too', 'Ordering a mixed list'],
+      summary: 'Fractions and decimals, side by side.',
+      lessons: [
+        {
+          id: 'closer-to-one',
+          title: 'Which is closer to 1?',
+          summary: 'Compare fractions by the piece that\'s missing.',
+          objectives: ['Compare fractions near 1 by their missing piece', 'Use ½ as a benchmark'],
+          concepts: ['compare-fractions'],
+          estimatedMinutes: 6,
+          steps: [
+            {
+              id: 'predict', type: 'question', stage: 'predict', title: 'So close',
+              question: {
+                kind: 'choice', prompt: 'Which is bigger, $\\frac{7}{8}$ or $\\frac{5}{6}$?',
+                options: [
+                  { id: 'seven-eighths', text: '$\\frac{7}{8}$', correct: true, feedback: 'Let\'s check.' },
+                  { id: 'five-sixths', text: '$\\frac{5}{6}$', misconception: 'smaller-denominator-bigger', feedback: 'Let\'s check.' },
+                  { id: 'same', text: 'The same: both are one part short of 1', misconception: 'one-short-means-equal', feedback: 'Let\'s check.' },
+                ],
+                concepts: ['compare-fractions'],
+              },
+            },
+            {
+              id: 'race', type: 'question', stage: 'explore', title: 'Race to 1',
+              interactive: nl([{ id: 'e', divisions: 8 }, { id: 's', divisions: 6 }], [
+                { id: 'A', label: 'A', line: 'e', color: 'violet' },
+                { id: 'B', label: 'B', line: 's', color: 'teal' },
+              ]),
+              question: {
+                kind: 'numberLine', prompt: 'Put A at $\\frac{7}{8}$ and B at $\\frac{5}{6}$.',
+                goals: [{ point: 'A', value: '7/8' }, { point: 'B', value: '5/6' }],
+                hints: ['Where is 1 on each line?', 'Count back one part from 1 on each line.', 'A is one eighth-jump left of 1; B is one sixth-jump left of 1.'],
+                successFeedback: 'A is closer to 1. Its gap, $\\frac{1}{8}$, is smaller than B\'s gap, $\\frac{1}{6}$.',
+                explanation: 'One part short of 1 on each line: the eighths line has smaller parts, so A is closer.',
+                concepts: ['compare-fractions'],
+              },
+            },
+            {
+              id: 'gap', type: 'narrative', stage: 'explain', title: 'Mind the gap',
+              body: 'Near 1, compare the **missing piece**. Smaller gap, bigger fraction.',
+            },
+            {
+              id: 'practice', type: 'question', stage: 'practice', title: 'Quick',
+              question: {
+                kind: 'choice', prompt: 'Which is bigger, $\\frac{3}{4}$ or $\\frac{4}{5}$?',
+                options: [
+                  { id: 'four-fifths', text: '$\\frac{4}{5}$', correct: true, feedback: 'Yes: its gap is $\\frac{1}{5}$, smaller than $\\frac{1}{4}$.' },
+                  { id: 'three-quarters', text: '$\\frac{3}{4}$', misconception: 'smaller-denominator-bigger', feedback: 'Compare the gaps: $\\frac{1}{4}$ is a bigger gap than $\\frac{1}{5}$.' },
+                  { id: 'same', text: 'The same', misconception: 'one-short-means-equal', feedback: 'Both are one part short, but the parts are different sizes.' },
+                ],
+                hints: ['What is missing from each to make 1?'],
+                explanation: '$\\frac{3}{4}$ is $\\frac{1}{4}$ short of 1; $\\frac{4}{5}$ is only $\\frac{1}{5}$ short.',
+                concepts: ['compare-fractions'],
+              },
+            },
+            {
+              id: 'half', type: 'question', stage: 'transfer', title: 'Past halfway?',
+              interactive: nl([{ id: 'h', divisions: 2 }, { id: 'v', divisions: 7 }], [
+                { id: 'H', label: '½', line: 'h', value: '1/2', draggable: false, color: 'amber' },
+                { id: 'P', label: 'P', line: 'v', color: 'violet' },
+              ]),
+              question: {
+                kind: 'numberLine', prompt: 'Put P at $\\frac{4}{7}$.',
+                goals: [{ point: 'P', value: '4/7' }],
+                hints: ['Count 4 sevenths from 0.'],
+                successFeedback: 'Just past ½: 4 is more than half of 7.',
+                explanation: 'Half of 7 is 3.5, so $\\frac{4}{7}$ is a little more than ½.',
+                concepts: ['compare-fractions'],
+              },
+            },
+            {
+              id: 'check', type: 'question', stage: 'assess', title: 'Mastery check',
+              question: {
+                kind: 'choice', prompt: 'Which is closest to 1?',
+                options: [
+                  { id: 'a', text: '$\\frac{8}{10}$', misconception: 'whole-number-bias', feedback: 'Bigger numbers, but $\\frac{8}{10} = \\frac{4}{5}$: its gap is $\\frac{2}{10} = \\frac{1}{5}$, the biggest here.' },
+                  { id: 'b', text: '$\\frac{5}{6}$', misconception: 'smaller-denominator-bigger', feedback: 'Its gap is $\\frac{1}{6}$; $\\frac{1}{7}$ is smaller.' },
+                  { id: 'c', text: '$\\frac{6}{7}$', correct: true },
+                  { id: 'd', text: 'All the same: each is one part short', misconception: 'one-short-means-equal', feedback: 'Not every option is one part short, and the parts are different sizes.' },
+                ],
+                explanation: 'The gaps are $\\frac{1}{5}$, $\\frac{1}{6}$ and $\\frac{1}{7}$ ($\\frac{8}{10}$ is $\\frac{2}{10} = \\frac{1}{5}$ short). The smallest gap is $\\frac{1}{7}$, so $\\frac{6}{7}$ is closest.',
+                concepts: ['compare-fractions'],
+              },
+            },
+          ],
+        },
+        {
+          id: 'decimals-are-fractions',
+          title: 'Decimals are fractions too',
+          summary: 'Tenths and hundredths on the line, and why 0.3 beats 0.25.',
+          objectives: ['Place decimals on a number line', 'Read decimals as tenths and hundredths', 'Compare decimals with different numbers of digits'],
+          concepts: ['decimals-as-fractions'],
+          estimatedMinutes: 7,
+          steps: [
+            {
+              id: 'predict', type: 'question', stage: 'predict', title: 'Guess',
+              question: {
+                kind: 'choice', prompt: 'Which is bigger, 0.3 or 0.25?',
+                options: [
+                  { id: 'point3', text: '0.3', correct: true, feedback: 'Let\'s check.' },
+                  { id: 'point25', text: '0.25', misconception: 'longer-decimal-is-larger', feedback: 'Let\'s check.' },
+                ],
+                concepts: ['decimals-as-fractions'],
+              },
+            },
+            {
+              id: 'tenths', type: 'interactive', stage: 'explore', title: 'Tenths',
+              body: 'Tenths line. Drag **P**.',
+              interactive: { ...nl([{ id: 'd', divisions: 10, labels: 'decimals' }], [{ id: 'P', label: 'P', line: 'd' }], { showValues: true }), goal: 'Put P at 0.3. Now try to put it at 0.25. Where would it have to go?' },
+            },
+            {
+              id: 'race', type: 'question', stage: 'explore', title: '0.3 vs 0.25',
+              body: 'Top line: tenths. Bottom line: twentieths (steps of 0.05).',
+              interactive: nl([{ id: 't', divisions: 10, labels: 'decimals' }, { id: 'w', divisions: 20, labels: 'decimals' }], [
+                { id: 'A', label: 'A', line: 't', color: 'violet' },
+                { id: 'B', label: 'B', line: 'w', color: 'teal' },
+              ]),
+              question: {
+                kind: 'numberLine', prompt: 'Put A at 0.3 and B at 0.25.',
+                goals: [{ point: 'A', value: '0.3' }, { point: 'B', value: '0.25' }],
+                hints: ['Each step on the bottom line is 0.05.', '0.25 is halfway between 0.2 and 0.3.'],
+                successFeedback: 'A is further right: 0.3 > 0.25.',
+                explanation: '0.3 = 0.30, and 30 hundredths is more than 25 hundredths.',
+                concepts: ['decimals-as-fractions'],
+              },
+            },
+            {
+              id: 'rule', type: 'narrative', stage: 'explain', title: 'Tenths are tenths',
+              body: '0.3 is **3 tenths**, or 30 hundredths. 0.25 is **25 hundredths**, between 2 and 3 tenths.\n\nLine up the places: 0.30 > 0.25.',
+            },
+            {
+              id: 'broken', type: 'question', stage: 'reflect', title: 'Spot the slip',
+              question: {
+                kind: 'choice', prompt: 'Mia says 0.25 > 0.3 "because 25 is bigger than 3". What went wrong?',
+                options: [
+                  { id: 'places', text: 'The digits are different place values: 0.3 is 0.30, and 30 hundredths beats 25 hundredths.', correct: true, feedback: 'Yes. Line up the places before comparing.' },
+                  { id: 'fine', text: 'Nothing. More digits means bigger.', misconception: 'longer-decimal-is-larger', feedback: 'Look back at the line: 0.25 sat left of 0.3.' },
+                ],
+                explanation: 'Write both with the same number of places (0.30 and 0.25), then compare.',
+                concepts: ['decimals-as-fractions'],
+              },
+            },
+            {
+              id: 'check', type: 'question', stage: 'assess', title: 'Mastery check',
+              question: {
+                kind: 'choice', prompt: 'Which is biggest?',
+                options: [
+                  { id: 'a', text: '0.65', correct: true },
+                  { id: 'b', text: '0.6', misconception: 'shorter-decimal-is-larger', feedback: '0.6 is 60 hundredths; 0.65 is 65 hundredths.' },
+                  { id: 'c', text: '0.125', misconception: 'longer-decimal-is-larger', feedback: 'More digits, but 0.125 is just over one tenth, far left of 0.6.' },
+                ],
+                explanation: 'As thousandths: 0.650, 0.600, 0.125. 0.65 is biggest.',
+                concepts: ['decimals-as-fractions'],
+              },
+            },
+            {
+              id: 'check-place', type: 'question', stage: 'assess', title: 'One more',
+              interactive: nl([{ id: 'w', divisions: 20, labels: 'decimals' }], [{ id: 'P', label: 'P', line: 'w' }]),
+              question: {
+                kind: 'numberLine', prompt: 'Put P at 0.45.',
+                goals: [{ point: 'P', value: '0.45' }],
+                explanation: '0.45 is halfway between 0.4 and 0.5.',
+                concepts: ['decimals-as-fractions'],
+              },
+            },
+          ],
+        },
+        {
+          id: 'ordering-mixed',
+          title: 'Put them in order',
+          summary: 'Fractions and decimals on one line.',
+          objectives: ['Order a mix of fractions and decimals', 'Find a number between two others'],
+          concepts: ['ordering-numbers'],
+          estimatedMinutes: 6,
+          steps: [
+            {
+              id: 'place', type: 'question', stage: 'explore', title: 'One line for all',
+              interactive: nl([{ id: 'w', divisions: 20, labels: 'decimals' }], [
+                { id: 'A', label: 'A', line: 'w', color: 'violet' },
+                { id: 'B', label: 'B', line: 'w', color: 'teal' },
+                { id: 'C', label: 'C', line: 'w', color: 'amber' },
+                { id: 'D', label: 'D', line: 'w', color: 'rose' },
+              ]),
+              question: {
+                kind: 'numberLine', prompt: 'Place A = $\\frac{1}{2}$, B = 0.4, C = $\\frac{3}{4}$ and D = 0.8.',
+                goals: [{ point: 'A', value: '1/2' }, { point: 'B', value: '0.4' }, { point: 'C', value: '3/4' }, { point: 'D', value: '0.8' }],
+                hints: ['$\\frac{1}{2}$ = 0.5 and $\\frac{3}{4}$ = 0.75.'],
+                successFeedback: 'Left to right: B, A, C, D.',
+                explanation: 'As decimals: 0.4, 0.5, 0.75, 0.8.',
+                concepts: ['ordering-numbers'],
+              },
+            },
+            {
+              id: 'rule', type: 'narrative', stage: 'explain', title: 'Left is smaller',
+              body: 'To order a mix, put everything in one form, decimals or fractions. Then read the line left to right.',
+            },
+            {
+              id: 'order', type: 'question', stage: 'practice', title: 'Smallest to largest',
+              question: {
+                kind: 'order', prompt: 'Order from smallest to largest.',
+                items: ['0.7', '$\\frac{2}{3}$', '0.65', '$\\frac{3}{5}$'],
+                correctOrder: [3, 2, 1, 0],
+                hints: ['$\\frac{3}{5}$ = 0.6 and $\\frac{2}{3}$ ≈ 0.67.'],
+                explanation: '0.6 < 0.65 < 0.67 < 0.7.',
+                concepts: ['ordering-numbers'],
+              },
+            },
+            {
+              id: 'between', type: 'question', stage: 'challenge', title: 'Squeeze in',
+              interactive: nl([{ id: 'w', divisions: 20, labels: 'decimals' }], [{ id: 'P', label: 'P', line: 'w' }]),
+              question: {
+                kind: 'numberLine', prompt: 'Put P between $\\frac{2}{5}$ and $\\frac{1}{2}$.',
+                goals: [{ point: 'P', op: 'gt', value: '2/5' }, { point: 'P', op: 'lt', value: '1/2' }],
+                hints: ['$\\frac{2}{5}$ = 0.4 and $\\frac{1}{2}$ = 0.5.'],
+                successFeedback: 'P = 0.45. There\'s always room between two numbers.',
+                explanation: 'Between 0.4 and 0.5 on this line there is exactly one mark: 0.45.',
+                concepts: ['ordering-numbers'],
+              },
+            },
+            {
+              id: 'check', type: 'question', stage: 'assess', title: 'Mastery check',
+              question: {
+                kind: 'order', prompt: 'Order from smallest to largest.',
+                items: ['0.5', '0.45', '$\\frac{2}{5}$', '0.405'],
+                correctOrder: [2, 3, 1, 0],
+                explanation: '$\\frac{2}{5}$ = 0.4 = 0.400, so: 0.400 < 0.405 < 0.45 < 0.5.',
+                concepts: ['ordering-numbers'],
+              },
+            },
+          ],
+        },
+      ],
     },
     {
       id: 'adding-with-a-sense-of-size',

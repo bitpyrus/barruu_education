@@ -251,5 +251,8 @@
   "feedback.numberLine.unplaced": "ضع النقطة {point} على الخط أولًا.",
   "feedback.numberLine.value": "النقطة {point} عند {actual}، لكن يجب أن تكون عند {value}.",
   "feedback.numberLine.bound": "النقطة {point} عند {actual}؛ يجب أن تكون {op} {value}.",
-  "feedback.numberLine.compare": "يجب أن تكون النقطة {point} {op} {other}."
+  "feedback.numberLine.compare": "يجب أن تكون النقطة {point} {op} {other}.",
+  "lesson.orderAria": "رتّب هذه العناصر",
+  "lesson.moveUp": "انقل {item} إلى الأعلى",
+  "lesson.moveDown": "انقل {item} إلى الأسفل"
 }

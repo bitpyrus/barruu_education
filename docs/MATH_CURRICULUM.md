@@ -86,9 +86,10 @@ These map onto the stages in docs/CONTENT_AND_LESSONS.md.
 ## Build order
 0. **Infrastructure.**
    - ✅ Math skill graph, course plan, alignment tags, misconception catalogue, lesson concepts mapped to skills.
-   - Still to do: key translation paths by id, seed the learner model from placement, extend placement items to grade 6.
+   - ✅ Translation paths keyed by id.
+   - Still to do: seed the learner model from placement, extend placement items to grade 6.
 1. **The hinge.**
-   - ✅ Number line; 🔶 F1 *Numbers on the line* chapter 1 lesson 1 (*Where does ¾ live?*).
+   - ✅ Number line (fractions and decimals); 🔶 F1 *Numbers on the line*: chapter 1 lesson 1 and chapter 2 (3 lessons).
    - Balance/tiles, then F3 *Expressions and equations*.
    - Function lab, then H1 *Linear relationships*.
 2. **Geometry spine.** Extend *Mathematical Thinking* (F4). Transformation board for H4/H5. Vector board with physics

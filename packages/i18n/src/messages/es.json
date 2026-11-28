@@ -251,5 +251,8 @@
   "feedback.numberLine.unplaced": "Primero pon {point} en la recta.",
   "feedback.numberLine.value": "{point} está en {actual}, pero debe estar en {value}.",
   "feedback.numberLine.bound": "{point} está en {actual}; debe ser {op} {value}.",
-  "feedback.numberLine.compare": "{point} debe ser {op} {other}."
+  "feedback.numberLine.compare": "{point} debe ser {op} {other}.",
+  "lesson.orderAria": "Ordena estos elementos",
+  "lesson.moveUp": "Subir {item}",
+  "lesson.moveDown": "Bajar {item}"
 }

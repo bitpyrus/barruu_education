@@ -7,7 +7,7 @@
  * PageDown (one whole), Home / End. Points can start off the line, in a tray.
  */
 import { useRef, useState, type KeyboardEvent, type PointerEvent } from 'react';
-import { formatFraction, snap, type NumberLineConfig, type NumberLineState } from '@barruu/engine';
+import { formatDecimal, formatFraction, snap, type NumberLineConfig, type NumberLineState } from '@barruu/engine';
 import type { InteractiveProps } from './types';
 import { useUiText } from '../UiText';
 import { cn } from '../cn';
@@ -36,7 +36,8 @@ export function NumberLine({ config, state, onChange, readOnly }: InteractivePro
   const lineY = (l: Line) => top + config.lines.indexOf(l) * ROW + 62;
   const xOf = (l: Line, v: number) => PADX + ((v - l.min) / (l.max - l.min)) * (W - 2 * PADX);
   const valueAt = (l: Line, x: number) => snap(l.min + ((x - PADX) / (W - 2 * PADX)) * (l.max - l.min), l.divisions, l.min, l.max);
-  const fmt = (p: Pt, v: number) => formatFraction(v, lines.get(p.line)!.divisions);
+  const fmtOn = (l: Line, v: number) => (l.labels === 'decimals' ? formatDecimal(v) : formatFraction(v, l.divisions));
+  const fmt = (p: Pt, v: number) => fmtOn(lines.get(p.line)!, v);
 
   const move = (p: Pt, v: number) => {
     if (readOnly || !p.draggable || state.points[p.id] === v) return;
@@ -99,7 +100,8 @@ export function NumberLine({ config, state, onChange, readOnly }: InteractivePro
         {config.lines.map((l) => {
           const y = lineY(l);
           const ticks = (l.max - l.min) * l.divisions;
-          const labelEvery = l.labels === 'fractions' && ticks <= 24;
+          const labelTick = (v: number) => (l.labels === 'fractions' ? ticks <= 24
+            : l.labels === 'decimals' ? (l.divisions <= 10 || Math.abs(v * 10 - Math.round(v * 10)) < 1e-9) && ticks <= 24 : false);
           return (
             <g key={l.id}>
               <line x1={PADX - 14} x2={W - PADX + 14} y1={y} y2={y} stroke="#292524" strokeWidth={3} strokeLinecap="round" />
@@ -110,9 +112,9 @@ export function NumberLine({ config, state, onChange, readOnly }: InteractivePro
                 return (
                   <g key={i}>
                     <line x1={x} x2={x} y1={y - (whole ? 12 : 7)} y2={y + (whole ? 12 : 7)} stroke="#292524" strokeWidth={whole ? 3 : 2} />
-                    {(whole || labelEvery) && (
+                    {(whole || labelTick(v)) && (
                       <text x={x} y={y + 32} textAnchor="middle" fontSize={whole ? 16 : 13} fontWeight={whole ? 700 : 500} fill={whole ? '#1c1917' : '#57534e'}>
-                        {formatFraction(v, l.divisions)}
+                        {fmtOn(l, v)}
                       </text>
                     )}
                   </g>
