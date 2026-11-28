@@ -57,7 +57,7 @@ export const MISCONCEPTIONS: Misconception[] = [
   M('counts-from-wrong-end', 'math.fractions-on-line', 'authored', 'Counts spaces from 1 (or after the point) instead of from 0.'),
   M('one-short-means-equal', 'math.compare-fractions', 'authored', 'Thinks fractions that are each one part short of 1 (7/8, 5/6) are equal.'),
   M('smaller-denominator-bigger', 'math.compare-fractions', 'authored', 'Over-applies "fewer parts means bigger parts" from unit fractions to any fractions (thinks 5/6 > 7/8).'),
-  M('decimal-lengths-equal', 'math.compare-fractions', 'authored', 'Treats decimals with different numbers of digits as equal (0.3 = 0.25).'),
+  M('shorter-decimal-is-larger', 'math.compare-fractions', 'classic', 'Thinks a decimal with fewer digits is larger because tenths beat hundredths: 0.4 > 0.45.'),
   M('counts-ticks-not-spaces', 'math.fractions-on-line', 'classic', 'Counts tick marks instead of equal spaces to find the denominator (calls the third of five spaces 3/4 or 3/6).'),
   M('negative-square-precedence', 'math.exponent-laws', 'classic', 'Reads −3² as (−3)² = 9.'),
   M('freshman-binomial', 'math.expanding', 'classic', 'Expands (a + b)² as a² + b².'),

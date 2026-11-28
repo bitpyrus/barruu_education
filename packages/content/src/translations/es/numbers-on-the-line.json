@@ -444,8 +444,16 @@
    "source": "Put A at $\\frac{7}{8}$ and B at $\\frac{5}{6}$."
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.hints.0": {
+   "text": "¿Dónde está el 1 en cada recta?",
+   "source": "Where is 1 on each line?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.hints.1": {
    "text": "En cada recta, retrocede una parte desde el 1.",
    "source": "Count back one part from 1 on each line."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.hints.2": {
+   "text": "A está un salto de octavo a la izquierda del 1; B, un salto de sexto.",
+   "source": "A is one eighth-jump left of 1; B is one sixth-jump left of 1."
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.explanation": {
    "text": "A cada una le falta una parte para llegar a 1: la recta de octavos tiene partes más pequeñas, así que A está más cerca.",
@@ -516,8 +524,8 @@
    "source": "Past halfway?"
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.question.prompt": {
-   "text": "Pon P en $\\frac{4}{7}$. ¿Pasa de ½?",
-   "source": "Put P at $\\frac{4}{7}$. Is it past ½?"
+   "text": "Pon P en $\\frac{4}{7}$.",
+   "source": "Put P at $\\frac{4}{7}$."
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.question.hints.0": {
    "text": "Cuenta 4 séptimos desde el 0.",
@@ -548,16 +556,16 @@
    "source": "Which is closest to 1?"
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.explanation": {
-   "text": "Los huecos son $\\frac{1}{5}$, $\\frac{1}{6}$ y $\\frac{1}{7}$. El más pequeño es $\\frac{1}{7}$, así que $\\frac{6}{7}$ es la más cercana.",
-   "source": "The gaps are $\\frac{1}{5}$, $\\frac{1}{6}$ and $\\frac{1}{7}$. The smallest gap is $\\frac{1}{7}$, so $\\frac{6}{7}$ is closest."
+   "text": "Los huecos son $\\frac{1}{5}$, $\\frac{1}{6}$ y $\\frac{1}{7}$ (a $\\frac{8}{10}$ le faltan $\\frac{2}{10} = \\frac{1}{5}$). El más pequeño es $\\frac{1}{7}$, así que $\\frac{6}{7}$ es la más cercana.",
+   "source": "The gaps are $\\frac{1}{5}$, $\\frac{1}{6}$ and $\\frac{1}{7}$ ($\\frac{8}{10}$ is $\\frac{2}{10} = \\frac{1}{5}$ short). The smallest gap is $\\frac{1}{7}$, so $\\frac{6}{7}$ is closest."
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#a.text": {
-   "text": "$\\frac{4}{5}$",
-   "source": "$\\frac{4}{5}$"
+   "text": "$\\frac{8}{10}$",
+   "source": "$\\frac{8}{10}$"
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#a.feedback": {
-   "text": "Su hueco es $\\frac{1}{5}$, el mayor de los tres.",
-   "source": "Its gap is $\\frac{1}{5}$, the biggest of the three."
+   "text": "Números más grandes, pero $\\frac{8}{10} = \\frac{4}{5}$: su hueco es $\\frac{2}{10} = \\frac{1}{5}$, el mayor de todos.",
+   "source": "Bigger numbers, but $\\frac{8}{10} = \\frac{4}{5}$: its gap is $\\frac{2}{10} = \\frac{1}{5}$, the biggest here."
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#b.text": {
    "text": "$\\frac{5}{6}$",
@@ -572,12 +580,12 @@
    "source": "$\\frac{6}{7}$"
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#d.text": {
-   "text": "Todas igual de cerca",
-   "source": "All equally close"
+   "text": "Todas iguales: a cada una le falta una parte",
+   "source": "All the same: each is one part short"
   },
   "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#d.feedback": {
-   "text": "A todas les falta una parte, pero los séptimos son las partes más pequeñas.",
-   "source": "Each is one part short, but sevenths are the smallest parts."
+   "text": "No a todas les falta una sola parte, y las partes tienen tamaños distintos.",
+   "source": "Not every option is one part short, and the parts are different sizes."
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.title": {
    "text": "Los decimales también son fracciones",
@@ -623,37 +631,21 @@
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#same.text": {
-   "text": "Iguales",
-   "source": "The same"
-  },
-  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#same.feedback": {
-   "text": "Comprobémoslo.",
-   "source": "Let's check."
-  },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.title": {
    "text": "Décimas",
    "source": "Tenths"
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.body": {
-   "text": "Esta recta está cortada en **10** partes. Arrastra **P**.",
-   "source": "This line is cut into **10** parts. Drag **P**."
+   "text": "Recta de décimas. Arrastra **P**.",
+   "source": "Tenths line. Drag **P**."
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.interactive.config.points.#P.label": {
    "text": "P",
    "source": "P"
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.interactive.goal": {
-   "text": "Pon P en 0.3 y luego en 0.7.",
-   "source": "Put P at 0.3, then at 0.7."
-  },
-  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#rule.title": {
-   "text": "Las décimas son décimas",
-   "source": "Tenths are tenths"
-  },
-  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#rule.body": {
-   "text": "0.3 son **3 décimas**: $0.3 = \\frac{3}{10}$.\n\n0.25 son **25 centésimas**, es decir, $2\\frac{1}{2}$ décimas.",
-   "source": "0.3 is **3 tenths**: $0.3 = \\frac{3}{10}$.\n\n0.25 is **25 hundredths**, which is $2\\frac{1}{2}$ tenths."
+   "text": "Pon P en 0.3. Ahora intenta ponerlo en 0.25. ¿Dónde tendría que ir?",
+   "source": "Put P at 0.3. Now try to put it at 0.25. Where would it have to go?"
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.title": {
    "text": "0.3 contra 0.25",
@@ -668,6 +660,10 @@
    "source": "Put A at 0.3 and B at 0.25."
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.question.hints.0": {
+   "text": "Cada paso en la recta de abajo es 0.05.",
+   "source": "Each step on the bottom line is 0.05."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.question.hints.1": {
    "text": "0.25 está a mitad de camino entre 0.2 y 0.3.",
    "source": "0.25 is halfway between 0.2 and 0.3."
   },
@@ -686,6 +682,14 @@
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.interactive.config.points.#B.label": {
    "text": "B",
    "source": "B"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#rule.title": {
+   "text": "Las décimas son décimas",
+   "source": "Tenths are tenths"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#rule.body": {
+   "text": "0.3 son **3 décimas**, o 30 centésimas. 0.25 son **25 centésimas**, entre 2 y 3 décimas.\n\nAlinea las posiciones: 0.30 > 0.25.",
+   "source": "0.3 is **3 tenths**, or 30 hundredths. 0.25 is **25 hundredths**, between 2 and 3 tenths.\n\nLine up the places: 0.30 > 0.25."
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.title": {
    "text": "Encuentra el error",
@@ -724,28 +728,28 @@
    "source": "Which is biggest?"
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.explanation": {
-   "text": "En centésimas (y milésimas): 0.500, 0.450, 0.125. El mayor es 0.5.",
-   "source": "As hundredths (and thousandths): 0.500, 0.450, 0.125. 0.5 is biggest."
+   "text": "En milésimas: 0.650, 0.600, 0.125. El mayor es 0.65.",
+   "source": "As thousandths: 0.650, 0.600, 0.125. 0.65 is biggest."
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#a.text": {
-   "text": "0.5",
-   "source": "0.5"
+   "text": "0.65",
+   "source": "0.65"
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#b.text": {
-   "text": "0.45",
-   "source": "0.45"
+   "text": "0.6",
+   "source": "0.6"
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#b.feedback": {
-   "text": "0.45 son 45 centésimas; 0.5 son 50 centésimas.",
-   "source": "0.45 is 45 hundredths; 0.5 is 50 hundredths."
+   "text": "0.6 son 60 centésimas; 0.65 son 65 centésimas.",
+   "source": "0.6 is 60 hundredths; 0.65 is 65 hundredths."
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#c.text": {
    "text": "0.125",
    "source": "0.125"
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#c.feedback": {
-   "text": "0.125 es poco más de una décima, muy a la izquierda de 0.5.",
-   "source": "0.125 is just over one tenth, far left of 0.5."
+   "text": "Más cifras, pero 0.125 es poco más de una décima, muy a la izquierda de 0.6.",
+   "source": "More digits, but 0.125 is just over one tenth, far left of 0.6."
   },
   "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check-place.title": {
    "text": "Una más",
@@ -888,8 +892,8 @@
    "source": "Order from smallest to largest."
   },
   "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.explanation": {
-   "text": "$\\frac{3}{8}$ = 0.375, así que: 0.375 < 0.405 < 0.45 < 0.5.",
-   "source": "$\\frac{3}{8}$ = 0.375, so: 0.375 < 0.405 < 0.45 < 0.5."
+   "text": "$\\frac{2}{5}$ = 0.4 = 0.400, así que: 0.400 < 0.405 < 0.45 < 0.5.",
+   "source": "$\\frac{2}{5}$ = 0.4 = 0.400, so: 0.400 < 0.405 < 0.45 < 0.5."
   },
   "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.items.0": {
    "text": "0.5",
@@ -900,8 +904,8 @@
    "source": "0.45"
   },
   "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.items.2": {
-   "text": "$\\frac{3}{8}$",
-   "source": "$\\frac{3}{8}$"
+   "text": "$\\frac{2}{5}$",
+   "source": "$\\frac{2}{5}$"
   },
   "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.items.3": {
    "text": "0.405",

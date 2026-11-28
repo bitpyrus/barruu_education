@@ -217,7 +217,7 @@ export const NUMBERS_ON_THE_LINE = {
               question: {
                 kind: 'numberLine', prompt: 'Put A at $\\frac{7}{8}$ and B at $\\frac{5}{6}$.',
                 goals: [{ point: 'A', value: '7/8' }, { point: 'B', value: '5/6' }],
-                hints: ['Count back one part from 1 on each line.'],
+                hints: ['Where is 1 on each line?', 'Count back one part from 1 on each line.', 'A is one eighth-jump left of 1; B is one sixth-jump left of 1.'],
                 successFeedback: 'A is closer to 1. Its gap, $\\frac{1}{8}$, is smaller than B\'s gap, $\\frac{1}{6}$.',
                 explanation: 'One part short of 1 on each line: the eighths line has smaller parts, so A is closer.',
                 concepts: ['compare-fractions'],
@@ -248,7 +248,7 @@ export const NUMBERS_ON_THE_LINE = {
                 { id: 'P', label: 'P', line: 'v', color: 'violet' },
               ]),
               question: {
-                kind: 'numberLine', prompt: 'Put P at $\\frac{4}{7}$. Is it past ½?',
+                kind: 'numberLine', prompt: 'Put P at $\\frac{4}{7}$.',
                 goals: [{ point: 'P', value: '4/7' }],
                 hints: ['Count 4 sevenths from 0.'],
                 successFeedback: 'Just past ½: 4 is more than half of 7.',
@@ -261,12 +261,12 @@ export const NUMBERS_ON_THE_LINE = {
               question: {
                 kind: 'choice', prompt: 'Which is closest to 1?',
                 options: [
-                  { id: 'a', text: '$\\frac{4}{5}$', misconception: 'smaller-denominator-bigger', feedback: 'Its gap is $\\frac{1}{5}$, the biggest of the three.' },
+                  { id: 'a', text: '$\\frac{8}{10}$', misconception: 'whole-number-bias', feedback: 'Bigger numbers, but $\\frac{8}{10} = \\frac{4}{5}$: its gap is $\\frac{2}{10} = \\frac{1}{5}$, the biggest here.' },
                   { id: 'b', text: '$\\frac{5}{6}$', misconception: 'smaller-denominator-bigger', feedback: 'Its gap is $\\frac{1}{6}$; $\\frac{1}{7}$ is smaller.' },
                   { id: 'c', text: '$\\frac{6}{7}$', correct: true },
-                  { id: 'd', text: 'All equally close', misconception: 'one-short-means-equal', feedback: 'Each is one part short, but sevenths are the smallest parts.' },
+                  { id: 'd', text: 'All the same: each is one part short', misconception: 'one-short-means-equal', feedback: 'Not every option is one part short, and the parts are different sizes.' },
                 ],
-                explanation: 'The gaps are $\\frac{1}{5}$, $\\frac{1}{6}$ and $\\frac{1}{7}$. The smallest gap is $\\frac{1}{7}$, so $\\frac{6}{7}$ is closest.',
+                explanation: 'The gaps are $\\frac{1}{5}$, $\\frac{1}{6}$ and $\\frac{1}{7}$ ($\\frac{8}{10}$ is $\\frac{2}{10} = \\frac{1}{5}$ short). The smallest gap is $\\frac{1}{7}$, so $\\frac{6}{7}$ is closest.',
                 concepts: ['compare-fractions'],
               },
             },
@@ -287,22 +287,17 @@ export const NUMBERS_ON_THE_LINE = {
                 options: [
                   { id: 'point3', text: '0.3', correct: true, feedback: 'Let\'s check.' },
                   { id: 'point25', text: '0.25', misconception: 'longer-decimal-is-larger', feedback: 'Let\'s check.' },
-                  { id: 'same', text: 'The same', misconception: 'decimal-lengths-equal', feedback: 'Let\'s check.' },
                 ],
                 concepts: ['decimals-as-fractions'],
               },
             },
             {
               id: 'tenths', type: 'interactive', stage: 'explore', title: 'Tenths',
-              body: 'This line is cut into **10** parts. Drag **P**.',
-              interactive: { ...nl([{ id: 'd', divisions: 10, labels: 'decimals' }], [{ id: 'P', label: 'P', line: 'd' }], { showValues: true }), goal: 'Put P at 0.3, then at 0.7.' },
+              body: 'Tenths line. Drag **P**.',
+              interactive: { ...nl([{ id: 'd', divisions: 10, labels: 'decimals' }], [{ id: 'P', label: 'P', line: 'd' }], { showValues: true }), goal: 'Put P at 0.3. Now try to put it at 0.25. Where would it have to go?' },
             },
             {
-              id: 'rule', type: 'narrative', stage: 'explain', title: 'Tenths are tenths',
-              body: '0.3 is **3 tenths**: $0.3 = \\frac{3}{10}$.\n\n0.25 is **25 hundredths**, which is $2\\frac{1}{2}$ tenths.',
-            },
-            {
-              id: 'race', type: 'question', stage: 'practice', title: '0.3 vs 0.25',
+              id: 'race', type: 'question', stage: 'explore', title: '0.3 vs 0.25',
               body: 'Top line: tenths. Bottom line: twentieths (steps of 0.05).',
               interactive: nl([{ id: 't', divisions: 10, labels: 'decimals' }, { id: 'w', divisions: 20, labels: 'decimals' }], [
                 { id: 'A', label: 'A', line: 't', color: 'violet' },
@@ -311,11 +306,15 @@ export const NUMBERS_ON_THE_LINE = {
               question: {
                 kind: 'numberLine', prompt: 'Put A at 0.3 and B at 0.25.',
                 goals: [{ point: 'A', value: '0.3' }, { point: 'B', value: '0.25' }],
-                hints: ['0.25 is halfway between 0.2 and 0.3.'],
+                hints: ['Each step on the bottom line is 0.05.', '0.25 is halfway between 0.2 and 0.3.'],
                 successFeedback: 'A is further right: 0.3 > 0.25.',
                 explanation: '0.3 = 0.30, and 30 hundredths is more than 25 hundredths.',
                 concepts: ['decimals-as-fractions'],
               },
+            },
+            {
+              id: 'rule', type: 'narrative', stage: 'explain', title: 'Tenths are tenths',
+              body: '0.3 is **3 tenths**, or 30 hundredths. 0.25 is **25 hundredths**, between 2 and 3 tenths.\n\nLine up the places: 0.30 > 0.25.',
             },
             {
               id: 'broken', type: 'question', stage: 'reflect', title: 'Spot the slip',
@@ -334,11 +333,11 @@ export const NUMBERS_ON_THE_LINE = {
               question: {
                 kind: 'choice', prompt: 'Which is biggest?',
                 options: [
-                  { id: 'a', text: '0.5', correct: true },
-                  { id: 'b', text: '0.45', misconception: 'longer-decimal-is-larger', feedback: '0.45 is 45 hundredths; 0.5 is 50 hundredths.' },
-                  { id: 'c', text: '0.125', misconception: 'longer-decimal-is-larger', feedback: '0.125 is just over one tenth, far left of 0.5.' },
+                  { id: 'a', text: '0.65', correct: true },
+                  { id: 'b', text: '0.6', misconception: 'shorter-decimal-is-larger', feedback: '0.6 is 60 hundredths; 0.65 is 65 hundredths.' },
+                  { id: 'c', text: '0.125', misconception: 'longer-decimal-is-larger', feedback: 'More digits, but 0.125 is just over one tenth, far left of 0.6.' },
                 ],
-                explanation: 'As hundredths (and thousandths): 0.500, 0.450, 0.125. 0.5 is biggest.',
+                explanation: 'As thousandths: 0.650, 0.600, 0.125. 0.65 is biggest.',
                 concepts: ['decimals-as-fractions'],
               },
             },
@@ -410,9 +409,9 @@ export const NUMBERS_ON_THE_LINE = {
               id: 'check', type: 'question', stage: 'assess', title: 'Mastery check',
               question: {
                 kind: 'order', prompt: 'Order from smallest to largest.',
-                items: ['0.5', '0.45', '$\\frac{3}{8}$', '0.405'],
+                items: ['0.5', '0.45', '$\\frac{2}{5}$', '0.405'],
                 correctOrder: [2, 3, 1, 0],
-                explanation: '$\\frac{3}{8}$ = 0.375, so: 0.375 < 0.405 < 0.45 < 0.5.',
+                explanation: '$\\frac{2}{5}$ = 0.4 = 0.400, so: 0.400 < 0.405 < 0.45 < 0.5.',
                 concepts: ['ordering-numbers'],
               },
             },
