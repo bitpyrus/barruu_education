@@ -35,827 +35,827 @@
    "text": "Multiplicar y dividir números decimales",
    "source": "Multiplying and dividing decimals"
   },
-  "chapters.0.title": {
+  "chapters.#current-and-circuits.title": {
    "text": "Corriente y circuitos",
    "source": "Current and circuits"
   },
-  "chapters.0.summary": {
+  "chapters.#current-and-circuits.summary": {
    "text": "Circuitos cerrados, interruptores, serie y paralelo, y la ley que lo une todo.",
    "source": "Loops, switches, series and parallel, and the law that ties them together."
   },
-  "chapters.0.lessons.0.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.title": {
    "text": "¿Qué hace que una bombilla se encienda?",
    "source": "What makes a bulb light?"
   },
-  "chapters.0.lessons.0.summary": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.summary": {
    "text": "Descubre que la corriente solo circula por un circuito cerrado, y qué pasa cuando encuentra un atajo.",
    "source": "Discover that current only flows around a complete loop — and what happens when it finds a shortcut."
   },
-  "chapters.0.lessons.0.objectives.0": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.objectives.0": {
    "text": "Construir un circuito cerrado que encienda una bombilla",
    "source": "Build a complete circuit that lights a bulb"
   },
-  "chapters.0.lessons.0.objectives.1": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.objectives.1": {
    "text": "Usar un interruptor para abrir y cerrar un circuito",
    "source": "Use a switch to open and close a circuit"
   },
-  "chapters.0.lessons.0.objectives.2": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.objectives.2": {
    "text": "Reconocer un cortocircuito",
    "source": "Recognise a short circuit"
   },
-  "chapters.0.lessons.0.steps.0.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#hook.title": {
    "text": "Una linterna en la oscuridad",
    "source": "A torch in the dark"
   },
-  "chapters.0.lessons.0.steps.0.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#hook.body": {
    "text": "Pulsa el botón de una linterna y la luz aparece al instante. Dentro solo hay una pila, una bombilla, unas tiras de metal y un interruptor.\n\n¿Qué hace realmente el interruptor? Construyamos uno y averigüémoslo.",
    "source": "Press the button on a torch (a flashlight) and light appears instantly. Inside there is only a battery, a bulb, some metal strips and a switch.\n\nWhat does the switch actually do? Let's build one and find out."
   },
-  "chapters.0.lessons.0.steps.1.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.title": {
    "text": "Un solo cable",
    "source": "One wire"
   },
-  "chapters.0.lessons.0.steps.1.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.body": {
    "text": "Un cable une el extremo **+** de una pila con una bombilla. No hay nada conectado al extremo **−** de la pila.",
    "source": "A wire joins the **+** end of a battery to a bulb. Nothing is connected to the **−** end of the battery."
   },
-  "chapters.0.lessons.0.steps.1.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.question.prompt": {
    "text": "¿Se enciende la bombilla?",
    "source": "Does the bulb light?"
   },
-  "chapters.0.lessons.0.steps.1.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.question.options.#yes.text": {
    "text": "Sí: la corriente sale del extremo + y entra en la bombilla",
    "source": "Yes — current flows out of the + end into the bulb"
   },
-  "chapters.0.lessons.0.steps.1.question.options.0.feedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.question.options.#yes.feedback": {
    "text": "Es lo que mucha gente piensa. Pongámoslo a prueba.",
    "source": "Many people expect that. Let's test it."
   },
-  "chapters.0.lessons.0.steps.1.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.question.options.#dim.text": {
    "text": "Solo débilmente",
    "source": "Only dimly"
   },
-  "chapters.0.lessons.0.steps.1.question.options.1.feedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.question.options.#dim.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.0.steps.1.question.options.2.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.question.options.#no.text": {
    "text": "No: tiene que haber un camino de vuelta a la pila",
    "source": "No — there has to be a path back to the battery"
   },
-  "chapters.0.lessons.0.steps.1.question.options.2.feedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict.question.options.#no.feedback": {
    "text": "Comprobemos tu intuición.",
    "source": "Let's check your hunch."
   },
-  "chapters.0.lessons.0.steps.2.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#loop.title": {
    "text": "Cierra el circuito",
    "source": "Complete the loop"
   },
-  "chapters.0.lessons.0.steps.2.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#loop.body": {
    "text": "Toca un hueco punteado para poner un cable (vuelve a tocarlo para quitarlo). Observa la bombilla y los puntos en movimiento que muestran la corriente.",
    "source": "Tap a dashed gap to put a wire in it (tap again to take it out). Watch the bulb, and the moving dots that show the current."
   },
-  "chapters.0.lessons.0.steps.2.interactive.config.parts.1.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#loop.interactive.config.parts.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.2.interactive.config.slots.0.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#loop.interactive.config.slots.#g1.label": {
    "text": "1",
    "source": "1"
   },
-  "chapters.0.lessons.0.steps.2.interactive.config.slots.1.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#loop.interactive.config.slots.#g2.label": {
    "text": "2",
    "source": "2"
   },
-  "chapters.0.lessons.0.steps.2.interactive.config.slots.2.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#loop.interactive.config.slots.#g3.label": {
    "text": "3",
    "source": "3"
   },
-  "chapters.0.lessons.0.steps.2.interactive.goal": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#loop.interactive.goal": {
    "text": "Llena primero solo el hueco 1: es el montaje de un solo cable de tu predicción. ¿Se enciende la bombilla? ¿Cuántos huecos tienes que llenar para que se encienda?",
    "source": "Fill only gap 1 first: that is the one-wire setup from your prediction. Does the bulb light? How many gaps must you fill before it does?"
   },
-  "chapters.0.lessons.0.steps.3.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#explain-loop.title": {
    "text": "La corriente da la vuelta, no se escapa",
    "source": "Current goes round, not out"
   },
-  "chapters.0.lessons.0.steps.3.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#explain-loop.body": {
    "text": "La bombilla solo se encendió cuando **todos** los huecos estaban llenos. La corriente es un flujo de carga y tiene que dar **la vuelta completa**: sale de la pila, pasa por la bombilla y vuelve a la pila. Ese camino completo se llama **circuito cerrado**.\n\nSi dejas un hueco, todo el circuito queda **abierto**: no circula corriente por ningún sitio, ni siquiera por los cables que sí están conectados.\n\nLos puntos se mueven de **+** a **−** dando la vuelta. Este sentido se llama *corriente convencional*. (En realidad, los electrones del cable avanzan en sentido contrario, pero todas las reglas de los circuitos funcionan igual).",
    "source": "The bulb only lit once **every** gap was filled. Current is a flow of charge, and it has to travel **all the way round**: out of the battery, through the bulb and back into the battery. That complete path is called a **closed circuit**.\n\nLeave one gap and the whole circuit is **open**: no current flows anywhere, not even in the wires that are connected.\n\nThe dots move from **+** round to **−**. This direction is called *conventional current*. (The electrons in the wire actually drift the other way, but every circuit rule works the same.)"
   },
-  "chapters.0.lessons.0.steps.4.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.title": {
    "text": "Añade un interruptor",
    "source": "Add a switch"
   },
-  "chapters.0.lessons.0.steps.4.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.body": {
    "text": "Un interruptor es un hueco que puedes abrir y cerrar. Tócalo para cambiarlo.",
    "source": "A switch is a gap you can open and close. Tap it to flip it."
   },
-  "chapters.0.lessons.0.steps.4.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.question.prompt": {
    "text": "Haz que se encienda la bombilla A.",
    "source": "Make bulb A light."
   },
-  "chapters.0.lessons.0.steps.4.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.question.hints.0": {
    "text": "¿Queda todavía algún hueco en el circuito?",
    "source": "Is there still a gap anywhere in the loop?"
   },
-  "chapters.0.lessons.0.steps.4.question.hints.1": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.question.hints.1": {
    "text": "Un interruptor solo deja pasar la corriente cuando está cerrado.",
    "source": "A switch only lets current through when it is closed."
   },
-  "chapters.0.lessons.0.steps.4.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.question.explanation": {
    "text": "El hueco necesita un cable **y** el interruptor tiene que estar cerrado; así el circuito queda completo.",
    "source": "The gap needs a wire **and** the switch needs to be closed, so the loop is complete."
   },
-  "chapters.0.lessons.0.steps.4.question.successFeedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.question.successFeedback": {
    "text": "Un interruptor cerrado completa el circuito. Al abrirlo se interrumpe, que es justo lo que hace el botón de una linterna.",
    "source": "A closed switch completes the loop. Opening it breaks the circuit, which is exactly what a torch button does."
   },
-  "chapters.0.lessons.0.steps.4.interactive.config.parts.1.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#switch.interactive.config.parts.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.5.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.title": {
    "text": "No todos los huecos",
    "source": "Not every gap"
   },
-  "chapters.0.lessons.0.steps.5.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.body": {
    "text": "Este tablero tiene un hueco extra debajo de la bombilla.",
    "source": "This board has an extra gap underneath the bulb."
   },
-  "chapters.0.lessons.0.steps.5.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.question.prompt": {
    "text": "Enciende la bombilla A.",
    "source": "Light bulb A."
   },
-  "chapters.0.lessons.0.steps.5.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.question.hints.0": {
    "text": "Sigue con el dedo el camino de + a −. ¿Tiene la corriente que pasar por la bombilla?",
    "source": "Follow the path from + to − with your finger. Does the current have to go through the bulb?"
   },
-  "chapters.0.lessons.0.steps.5.question.hints.1": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.question.hints.1": {
    "text": "Un cable en el hueco 2 le da a la corriente una ruta que se salta la bombilla.",
    "source": "A wire in gap 2 gives the current a route that skips the bulb."
   },
-  "chapters.0.lessons.0.steps.5.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.question.explanation": {
    "text": "Llena los huecos 1 y 3 y deja vacío el hueco 2. Un cable en el hueco 2 une los dos extremos de la bombilla, así que la corriente va por ahí: un cortocircuito.",
    "source": "Fill gaps 1 and 3 and leave gap 2 empty. A wire in gap 2 joins both ends of the bulb, so the current takes that path instead: a short circuit."
   },
-  "chapters.0.lessons.0.steps.5.question.successFeedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.question.successFeedback": {
    "text": "El hueco 2 tenía que quedar vacío. Un cable ahí haría que la corriente se saltara la bombilla.",
    "source": "Gap 2 had to stay empty. A wire there would let the current skip the bulb."
   },
-  "chapters.0.lessons.0.steps.5.interactive.config.parts.1.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.interactive.config.parts.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.5.interactive.config.slots.0.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.interactive.config.slots.#g1.label": {
    "text": "1",
    "source": "1"
   },
-  "chapters.0.lessons.0.steps.5.interactive.config.slots.1.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.interactive.config.slots.#g2.label": {
    "text": "2",
    "source": "2"
   },
-  "chapters.0.lessons.0.steps.5.interactive.config.slots.2.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#trap.interactive.config.slots.#g3.label": {
    "text": "3",
    "source": "3"
   },
-  "chapters.0.lessons.0.steps.6.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.title": {
    "text": "Un interruptor bajo la bombilla",
    "source": "A switch under the bulb"
   },
-  "chapters.0.lessons.0.steps.6.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.body": {
    "text": "En el siguiente tablero, la bombilla A está encendida y por debajo pasa un cable con un interruptor, de un extremo de la bombilla al otro.",
    "source": "On the next board, bulb A is lit and a wire with a switch runs underneath it, from one end of the bulb to the other."
   },
-  "chapters.0.lessons.0.steps.6.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.prompt": {
    "text": "Cierras el interruptor. ¿Qué le pasa a la bombilla A?",
    "source": "You close the switch. What happens to bulb A?"
   },
-  "chapters.0.lessons.0.steps.6.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#brighter.text": {
    "text": "Brilla más",
    "source": "It gets brighter"
   },
-  "chapters.0.lessons.0.steps.6.question.options.0.feedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#brighter.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.0.steps.6.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#same.text": {
    "text": "Sigue igual",
    "source": "It stays the same"
   },
-  "chapters.0.lessons.0.steps.6.question.options.1.feedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#same.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.0.steps.6.question.options.2.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#dimmer.text": {
    "text": "Brilla menos, pero sigue encendida",
    "source": "It gets dimmer but stays lit"
   },
-  "chapters.0.lessons.0.steps.6.question.options.2.feedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#dimmer.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.0.steps.6.question.options.3.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#dark.text": {
    "text": "Se apaga",
    "source": "It goes dark"
   },
-  "chapters.0.lessons.0.steps.6.question.options.3.feedback": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#predict-bypass.question.options.#dark.feedback": {
    "text": "Comprobemos tu intuición.",
    "source": "Let's check your hunch."
   },
-  "chapters.0.lessons.0.steps.7.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#bypass.title": {
    "text": "Observa un cortocircuito",
    "source": "Watch a short circuit"
   },
-  "chapters.0.lessons.0.steps.7.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#bypass.body": {
    "text": "Aquí el hueco bajo la bombilla es un interruptor. Ciérralo y observa la bombilla y los puntos.",
    "source": "Here the gap under the bulb is a switch. Close it and watch the bulb and the dots."
   },
-  "chapters.0.lessons.0.steps.7.interactive.config.parts.1.label": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#bypass.interactive.config.parts.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.7.interactive.goal": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#bypass.interactive.goal": {
    "text": "Cierra el interruptor y luego vuelve a abrirlo.",
    "source": "Close the switch, then open it again."
   },
-  "chapters.0.lessons.0.steps.8.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#explain-short.title": {
    "text": "Por qué los cortocircuitos son peligrosos",
    "source": "Why short circuits are dangerous"
   },
-  "chapters.0.lessons.0.steps.8.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#explain-short.body": {
    "text": "Con el interruptor cerrado, la corriente tiene un camino hecho solo de cable. El cable casi no tiene resistencia, así que casi toda la corriente va por ese camino y **la bombilla se apaga**.\n\nSin nada que la frene, la corriente se vuelve enorme: mira la lectura de la pila, unos 30 A en lugar de 0.5 A. Una pila real se calienta y se agota rápido, y en una casa los cables podrían sobrecalentarse. Por eso las casas tienen **fusibles** e **interruptores automáticos**, que cortan la electricidad cuando la corriente es demasiado grande.",
    "source": "With the switch closed, current has a path made of wire alone. Wire has almost no resistance, so nearly all the current takes that path and **the bulb goes dark**.\n\nWith nothing to hold it back, the current becomes very large: look at the battery's reading, about 30 A instead of 0.5 A. A real battery gets hot and drains fast, and in a house the wires could overheat. That is why homes have **fuses** and **circuit breakers**, which cut the power when the current gets too big."
   },
-  "chapters.0.lessons.0.steps.9.title": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.title": {
    "text": "Prueba de dominio",
    "source": "Mastery check"
   },
-  "chapters.0.lessons.0.steps.9.body": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.body": {
    "text": "Una bombilla está conectada a una pila en un circuito cerrado y brilla. Entonces alguien conecta un cable extra directamente de un extremo de la bombilla al otro.",
    "source": "A bulb is wired to a battery in a complete loop and is shining. Then someone connects an extra wire directly from one end of the bulb to its other end."
   },
-  "chapters.0.lessons.0.steps.9.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.question.prompt": {
    "text": "¿Qué pasa?",
    "source": "What happens?"
   },
-  "chapters.0.lessons.0.steps.9.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.question.explanation": {
    "text": "El cable extra es un camino casi sin resistencia, así que la corriente pasa por él en lugar de por la bombilla: un cortocircuito.",
    "source": "The extra wire is a path with almost no resistance, so the current goes round it instead of through the bulb: a short circuit."
   },
-  "chapters.0.lessons.0.steps.9.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.question.options.#out.text": {
    "text": "La bombilla se apaga y una gran corriente pasa por el cable extra",
    "source": "The bulb goes out, and a large current flows through the extra wire"
   },
-  "chapters.0.lessons.0.steps.9.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.question.options.#brighter.text": {
    "text": "La bombilla brilla más porque hay más cable",
    "source": "The bulb gets brighter because there is more wire"
   },
-  "chapters.0.lessons.0.steps.9.question.options.2.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.question.options.#same.text": {
    "text": "No cambia nada; la bombilla sigue recibiendo su parte de la corriente",
    "source": "Nothing changes; the bulb still gets its share of current"
   },
-  "chapters.0.lessons.0.steps.9.question.options.3.text": {
+  "chapters.#current-and-circuits.lessons.#complete-the-loop.steps.#check.question.options.#half.text": {
    "text": "La bombilla brilla con la mitad de intensidad",
    "source": "The bulb glows at half brightness"
   },
-  "chapters.0.lessons.1.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.title": {
    "text": "Serie y paralelo",
    "source": "Series and parallel"
   },
-  "chapters.0.lessons.1.summary": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.summary": {
    "text": "Añade una segunda bombilla de dos maneras distintas y descubre por qué la instalación eléctrica de tu casa está en paralelo.",
    "source": "Add a second bulb in two different ways and find out why your home is wired in parallel."
   },
-  "chapters.0.lessons.1.objectives.0": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.objectives.0": {
    "text": "Predecir el brillo y la corriente de bombillas en serie",
    "source": "Predict brightness and current for bulbs in series"
   },
-  "chapters.0.lessons.1.objectives.1": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.objectives.1": {
    "text": "Construir un circuito en paralelo",
    "source": "Build a parallel circuit"
   },
-  "chapters.0.lessons.1.objectives.2": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.objectives.2": {
    "text": "Explicar por qué las corrientes se suman en paralelo",
    "source": "Explain why currents add in parallel"
   },
-  "chapters.0.lessons.1.steps.0.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#hook.title": {
    "text": "Una bombilla rota",
    "source": "One broken bulb"
   },
-  "chapters.0.lessons.1.steps.0.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#hook.body": {
    "text": "En algunas guirnaldas de luces, una bombilla rota hace que **toda la guirnalda** se apague. En otras, las demás siguen brillando.\n\nLas bombillas son iguales. La diferencia está en cómo están conectadas.",
    "source": "In some strings of fairy lights (string lights), one broken bulb makes the **whole string** go dark. In others, the rest keep shining.\n\nThe bulbs are the same. The difference is how they are connected."
   },
-  "chapters.0.lessons.1.steps.1.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.title": {
    "text": "Una segunda bombilla",
    "source": "A second bulb"
   },
-  "chapters.0.lessons.1.steps.1.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.body": {
    "text": "La bombilla A brilla sola en un circuito con una pila. Añades una bombilla B idéntica **en el mismo circuito**, una detrás de la otra.",
    "source": "Bulb A shines on its own in a loop with a battery. You add an identical bulb B **in the same loop**, one after the other."
   },
-  "chapters.0.lessons.1.steps.1.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.prompt": {
    "text": "¿Qué le pasa a la bombilla A?",
    "source": "What happens to bulb A?"
   },
-  "chapters.0.lessons.1.steps.1.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#same.text": {
    "text": "Brilla igual: la pila le da a cada bombilla la misma corriente",
    "source": "It stays just as bright: the battery gives each bulb the same current"
   },
-  "chapters.0.lessons.1.steps.1.question.options.0.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#same.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.1.steps.1.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#dimmer.text": {
    "text": "Brilla menos",
    "source": "It gets dimmer"
   },
-  "chapters.0.lessons.1.steps.1.question.options.1.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#dimmer.feedback": {
    "text": "Comprobemos tu intuición.",
    "source": "Let's check your hunch."
   },
-  "chapters.0.lessons.1.steps.1.question.options.2.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#brighter.text": {
    "text": "Brilla más",
    "source": "It gets brighter"
   },
-  "chapters.0.lessons.1.steps.1.question.options.2.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#brighter.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.1.steps.1.question.options.3.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#off.text": {
    "text": "Se apaga",
    "source": "It goes out"
   },
-  "chapters.0.lessons.1.steps.1.question.options.3.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#predict.question.options.#off.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.1.steps.2.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-lab.title": {
    "text": "¿Una bombilla o dos?",
    "source": "One bulb or two?"
   },
-  "chapters.0.lessons.1.steps.2.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-lab.body": {
    "text": "Toca el hueco para pasar por un cable, la bombilla B y un hueco vacío. Compara el brillo de la bombilla A y las lecturas del medidor bajo el tablero.",
    "source": "Tap the gap to cycle through a wire, bulb B and an empty gap. Compare bulb A's brightness and the meter readings below the board."
   },
-  "chapters.0.lessons.1.steps.2.interactive.config.parts.1.label": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-lab.interactive.config.parts.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.1.steps.2.interactive.config.slots.0.label": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-lab.interactive.config.slots.#B.label": {
    "text": "B",
    "source": "B"
   },
-  "chapters.0.lessons.1.steps.2.interactive.goal": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-lab.interactive.goal": {
    "text": "Añade la bombilla B y observa A. Luego vuelve a tocar para dejar el hueco vacío, como una bombilla rota. ¿Qué le pasa a A?",
    "source": "Add bulb B and watch A. Then tap again to leave an empty gap, like a broken bulb. What happens to A?"
   },
-  "chapters.0.lessons.1.steps.3.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.title": {
    "text": "¿Se gasta la corriente?",
    "source": "Is current used up?"
   },
-  "chapters.0.lessons.1.steps.3.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.body": {
    "text": "Ahora las dos bombillas están en el circuito. Mira las lecturas del medidor bajo el tablero.",
    "source": "Both bulbs are in the loop now. Look at the meter readings under the board."
   },
-  "chapters.0.lessons.1.steps.3.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.prompt": {
    "text": "Compara la corriente que pasa por la bombilla B con la que pasa por la bombilla A.",
    "source": "Compare the current through bulb B with the current through bulb A."
   },
-  "chapters.0.lessons.1.steps.3.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.hints.0": {
    "text": "Lee la corriente de la bombilla A y de la bombilla B bajo el tablero.",
    "source": "Read the current for bulb A and for bulb B under the board."
   },
-  "chapters.0.lessons.1.steps.3.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.explanation": {
    "text": "Los dos medidores marcan 0.25 A. La corriente no se gasta en una bombilla: la misma corriente recorre todo el circuito.",
    "source": "Both meters read 0.25 A. Charge isn't used up in a bulb: the same current flows all the way round the loop."
   },
-  "chapters.0.lessons.1.steps.3.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.options.#less.text": {
    "text": "Pasa menos por B, porque la bombilla A gasta una parte",
    "source": "Less flows through B, because bulb A uses some of it up"
   },
-  "chapters.0.lessons.1.steps.3.question.options.0.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.options.#less.feedback": {
    "text": "Los medidores muestran la misma corriente en las dos. La carga no se gasta: transporta energía en su recorrido y vuelve a la pila.",
    "source": "The meters show the same current in both. Charge isn't used up: it carries energy round and returns to the battery."
   },
-  "chapters.0.lessons.1.steps.3.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.options.#same.text": {
    "text": "Pasa la misma corriente por las dos",
    "source": "The same current flows through both"
   },
-  "chapters.0.lessons.1.steps.3.question.options.1.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.options.#same.feedback": {
    "text": "Exacto: 0.25 A por cada una. En un circuito de un solo camino, todas las partes llevan la misma corriente.",
    "source": "Right: 0.25 A through each. In a single loop, every part carries the same current."
   },
-  "chapters.0.lessons.1.steps.3.question.options.2.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.options.#more.text": {
    "text": "Pasa más por B",
    "source": "More flows through B"
   },
-  "chapters.0.lessons.1.steps.3.question.options.2.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.question.options.#more.feedback": {
    "text": "Los medidores muestran la misma corriente en las dos.",
    "source": "The meters show the same current in both."
   },
-  "chapters.0.lessons.1.steps.3.interactive.config.parts.1.label": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.interactive.config.parts.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.1.steps.3.interactive.config.slots.0.label": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#series-current.interactive.config.slots.#B.label": {
    "text": "B",
    "source": "B"
   },
-  "chapters.0.lessons.1.steps.4.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#explain-series.title": {
    "text": "En serie, la corriente tiene un solo camino",
    "source": "In series, current has one path"
   },
-  "chapters.0.lessons.1.steps.4.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#explain-series.body": {
    "text": "Las bombillas una detrás de otra están **en serie**. Solo hay un camino, así que:\n\n- la **misma corriente** pasa por todas las partes,\n- cada bombilla frena la corriente (tiene **resistencia**), y en serie estas se suman, así que dos bombillas reducen la corriente a la mitad, de 0.5 A a 0.25 A,\n- los 3 V de la pila se **reparten**: 1.5 V en cada bombilla.\n\nCon la mitad de corriente y la mitad de tensión, cada bombilla recibe solo una cuarta parte de la energía por segundo, así que brilla mucho menos. Y si una bombilla se rompe, el único camino se corta y se apagan **todas**.",
    "source": "Bulbs one after another are **in series**. There is only one path, so:\n\n- the **same current** flows through every part,\n- each bulb holds the current back (it has **resistance**), and in series these add up, so two bulbs halve the current from 0.5 A to 0.25 A,\n- the battery's 3 V is **shared**: 1.5 V across each bulb.\n\nWith half the current and half the voltage, each bulb gets only a quarter of the energy each second, so it glows much more dimly. And if one bulb breaks, the single path is broken and **every** bulb goes out."
   },
-  "chapters.0.lessons.1.steps.5.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.title": {
    "text": "Dos bombillas brillantes",
    "source": "Two bright bulbs"
   },
-  "chapters.0.lessons.1.steps.5.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.body": {
    "text": "La bombilla A está a la derecha. Los dos huecos del medio forman un segundo camino del cable de arriba al de abajo.",
    "source": "Bulb A is on the right. The two gaps in the middle make a second path from the top wire to the bottom wire."
   },
-  "chapters.0.lessons.1.steps.5.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.question.prompt": {
    "text": "Añade una bombilla para que se enciendan **dos** bombillas, las dos con **todo** su brillo.",
    "source": "Add one bulb so that **two** bulbs light up, both at **full** brightness."
   },
-  "chapters.0.lessons.1.steps.5.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.question.hints.0": {
    "text": "La columna del medio es un segundo camino del cable de arriba al de abajo. La corriente solo lo usa si no tiene huecos.",
    "source": "The middle column is a second path from the top wire to the bottom wire. Current only uses it if it has no gaps."
   },
-  "chapters.0.lessons.1.steps.5.question.hints.1": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.question.hints.1": {
    "text": "Dos bombillas en el mismo camino comparten la tensión. Pon una bombilla en un hueco del medio y un cable en el otro.",
    "source": "Two bulbs on the same path share the voltage. Put a bulb in one middle gap and a wire in the other."
   },
-  "chapters.0.lessons.1.steps.5.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.question.explanation": {
    "text": "Pon una bombilla en un hueco del medio y un cable en el otro. Así cada bombilla tiene su propio camino con los 3 V completos. Dos cables harían un cortocircuito.",
    "source": "Put a bulb in one middle gap and a wire in the other. Each bulb then has its own path across the full 3 V. Two wires would make a short circuit."
   },
-  "chapters.0.lessons.1.steps.5.question.goals.0.message": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.question.goals.0.message": {
    "text": "Solo está encendida la bombilla A. El camino del medio tiene un hueco, así que no pasa corriente por él.",
    "source": "Only bulb A is lit. The middle path has a gap, so no current flows through it."
   },
-  "chapters.0.lessons.1.steps.5.question.goals.1.message": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.question.goals.1.message": {
    "text": "Hay tres bombillas encendidas, pero las dos del medio brillan poco: comparten un camino y sus 3 V. Dale a una bombilla un camino propio.",
    "source": "Three bulbs are lit, but the two in the middle are dim: they share one path and its 3 V. Give one bulb a path of its own."
   },
-  "chapters.0.lessons.1.steps.5.question.successFeedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.question.successFeedback": {
    "text": "Las dos bombillas brillan con todo su brillo, porque cada una está conectada directamente a la pila.",
    "source": "Both bulbs shine at full brightness, because each one is connected straight across the battery."
   },
-  "chapters.0.lessons.1.steps.5.interactive.config.parts.1.label": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.interactive.config.parts.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.1.steps.5.interactive.config.slots.0.label": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.interactive.config.slots.#m1.label": {
    "text": "1",
    "source": "1"
   },
-  "chapters.0.lessons.1.steps.5.interactive.config.slots.1.label": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#parallel.interactive.config.slots.#m2.label": {
    "text": "2",
    "source": "2"
   },
-  "chapters.0.lessons.1.steps.6.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#explain-parallel.title": {
    "text": "En paralelo, cada rama recibe toda la tensión",
    "source": "In parallel, each branch gets the full voltage"
   },
-  "chapters.0.lessons.1.steps.6.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#explain-parallel.body": {
    "text": "Las bombillas en caminos separados están **en paralelo**. Cada rama está conectada directamente a la pila, así que:\n\n- cada rama recibe los **3 V completos**, y cada bombilla brilla tanto como lo haría sola,\n- las corrientes de las ramas **se suman**: $0.5 + 0.5 = 1$ A salen de la pila (mira la lectura de la pila),\n- si una rama se rompe, las demás siguen funcionando.\n\nPor eso los enchufes de una casa están conectados en paralelo. El precio: la pila entrega el doble de corriente, así que se agota el doble de rápido.",
    "source": "Bulbs on separate paths are **in parallel**. Each branch is connected straight across the battery, so:\n\n- every branch gets the **full 3 V**, and each bulb shines as brightly as it would on its own,\n- the branch currents **add up**: $0.5 + 0.5 = 1$ A from the battery (look at the battery's reading),\n- if one branch breaks, the others keep working.\n\nThat is why the power sockets (outlets) in a home are wired in parallel. The price: the battery delivers twice the current, so it runs down twice as fast."
   },
-  "chapters.0.lessons.1.steps.7.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#fairy-lights.title": {
    "text": "Volvamos a la guirnalda",
    "source": "Back to the fairy lights"
   },
-  "chapters.0.lessons.1.steps.7.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#fairy-lights.body": {
    "text": "Una bombilla de una guirnalda se rompe y deja un hueco. **Todas** las bombillas de la guirnalda se apagan.",
    "source": "One bulb in a string of lights breaks and leaves a gap. **Every** bulb in the string goes dark."
   },
-  "chapters.0.lessons.1.steps.7.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#fairy-lights.question.prompt": {
    "text": "¿Cómo están conectadas las bombillas?",
    "source": "How are the bulbs connected?"
   },
-  "chapters.0.lessons.1.steps.7.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#fairy-lights.question.options.#series.text": {
    "text": "En serie",
    "source": "In series"
   },
-  "chapters.0.lessons.1.steps.7.question.options.0.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#fairy-lights.question.options.#series.feedback": {
    "text": "Exacto: un solo camino, así que un hueco detiene la corriente en todas partes.",
    "source": "Right: one path, so one gap stops the current everywhere."
   },
-  "chapters.0.lessons.1.steps.7.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#fairy-lights.question.options.#parallel.text": {
    "text": "En paralelo",
    "source": "In parallel"
   },
-  "chapters.0.lessons.1.steps.7.question.options.1.feedback": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#fairy-lights.question.options.#parallel.feedback": {
    "text": "En paralelo, las demás ramas seguirían teniendo su propio camino hasta la pila.",
    "source": "In parallel, the other branches would still have their own path to the battery."
   },
-  "chapters.0.lessons.1.steps.8.title": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#check.title": {
    "text": "Prueba de dominio",
    "source": "Mastery check"
   },
-  "chapters.0.lessons.1.steps.8.body": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#check.body": {
    "text": "Sola, una bombilla conectada a una pila de 3 V lleva una corriente de 0.5 A. Dos de estas bombillas se conectan en paralelo a la misma pila.",
    "source": "On its own, a bulb connected to a 3 V battery carries 0.5 A. Two of these bulbs are connected in parallel across the same battery."
   },
-  "chapters.0.lessons.1.steps.8.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#check.question.prompt": {
    "text": "¿Qué corriente total entrega la pila?",
    "source": "What total current does the battery deliver?"
   },
-  "chapters.0.lessons.1.steps.8.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#series-and-parallel.steps.#check.question.explanation": {
    "text": "Cada bombilla recibe los 3 V completos, así que por cada una pasan los mismos 0.5 A que si estuviera sola. La pila entrega la suma: 1 A.",
    "source": "Each bulb gets the full 3 V, so each carries the same 0.5 A it would on its own. The battery delivers the sum: 1 A."
   },
-  "chapters.0.lessons.2.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.title": {
    "text": "La ley de Ohm",
    "source": "Ohm's law"
   },
-  "chapters.0.lessons.2.summary": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.summary": {
    "text": "Encuentra la regla que relaciona tensión, corriente y resistencia, y úsala para diseñar un circuito.",
    "source": "Find the rule that links voltage, current and resistance, and use it to design a circuit."
   },
-  "chapters.0.lessons.2.objectives.0": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.objectives.0": {
    "text": "Describir cómo depende la corriente de la tensión y la resistencia",
    "source": "Describe how current depends on voltage and resistance"
   },
-  "chapters.0.lessons.2.objectives.1": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.objectives.1": {
    "text": "Calcular corriente, tensión o resistencia con V = IR",
    "source": "Calculate current, voltage or resistance with V = IR"
   },
-  "chapters.0.lessons.2.objectives.2": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.objectives.2": {
    "text": "Elegir resistencias para conseguir una corriente objetivo",
    "source": "Choose resistors to get a target current"
   },
-  "chapters.0.lessons.2.steps.0.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#hook.title": {
    "text": "Empujar y frenar",
    "source": "Push and hold back"
   },
-  "chapters.0.lessons.2.steps.0.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#hook.body": {
    "text": "La **tensión** (o voltaje) de una pila indica con cuánta fuerza empuja la carga por el circuito. Una **resistencia** (el componente) frena la corriente, y su valor, también llamado **resistencia**, se mide en ohmios (Ω).\n\nEntonces, ¿cuánta corriente obtienes con cierto empuje contra cierta resistencia? Los ingenieros necesitan la respuesta exacta, así que vamos a encontrarla.",
    "source": "A battery's **voltage** is how hard it pushes charge around a circuit. A **resistor** holds the current back, and its **resistance** is measured in ohms (Ω).\n\nSo how much current do you get from a given push against a given resistance? Engineers need the exact answer, so let's find it."
   },
-  "chapters.0.lessons.2.steps.1.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.title": {
    "text": "Duplica el empuje",
    "source": "Double the push"
   },
-  "chapters.0.lessons.2.steps.1.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.body": {
    "text": "Una pila hace pasar corriente por una resistencia. Cambias la pila por otra con el **doble** de tensión y mantienes la misma resistencia.",
    "source": "A battery drives a current through a resistor. You swap in a battery with **twice** the voltage and keep the same resistor."
   },
-  "chapters.0.lessons.2.steps.1.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.prompt": {
    "text": "¿Qué le pasa a la corriente?",
    "source": "What happens to the current?"
   },
-  "chapters.0.lessons.2.steps.1.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#same.text": {
    "text": "Sigue igual",
    "source": "It stays the same"
   },
-  "chapters.0.lessons.2.steps.1.question.options.0.feedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#same.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.2.steps.1.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#double.text": {
    "text": "Se duplica",
    "source": "It doubles"
   },
-  "chapters.0.lessons.2.steps.1.question.options.1.feedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#double.feedback": {
    "text": "Comprobemos tu intuición.",
    "source": "Let's check your hunch."
   },
-  "chapters.0.lessons.2.steps.1.question.options.2.text": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#half.text": {
    "text": "Se reduce a la mitad",
    "source": "It halves"
   },
-  "chapters.0.lessons.2.steps.1.question.options.2.feedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#half.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.2.steps.1.question.options.3.text": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#four.text": {
    "text": "Se hace cuatro veces mayor",
    "source": "It becomes four times as big"
   },
-  "chapters.0.lessons.2.steps.1.question.options.3.feedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict.question.options.#four.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.2.steps.2.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.title": {
    "text": "Duplica el freno",
    "source": "Double the hold-back"
   },
-  "chapters.0.lessons.2.steps.2.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.body": {
    "text": "Esta vez mantienes la pila y cambias la resistencia por otra con el **doble** de resistencia.",
    "source": "This time you keep the battery and swap in a resistor with **twice** the resistance."
   },
-  "chapters.0.lessons.2.steps.2.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.question.prompt": {
    "text": "¿Qué le pasa a la corriente?",
    "source": "What happens to the current?"
   },
-  "chapters.0.lessons.2.steps.2.question.options.0.text": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.question.options.#same.text": {
    "text": "Sigue igual",
    "source": "It stays the same"
   },
-  "chapters.0.lessons.2.steps.2.question.options.0.feedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.question.options.#same.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.2.steps.2.question.options.1.text": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.question.options.#double.text": {
    "text": "Se duplica",
    "source": "It doubles"
   },
-  "chapters.0.lessons.2.steps.2.question.options.1.feedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.question.options.#double.feedback": {
    "text": "Pongámoslo a prueba.",
    "source": "Let's test it."
   },
-  "chapters.0.lessons.2.steps.2.question.options.2.text": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.question.options.#half.text": {
    "text": "Se reduce a la mitad",
    "source": "It halves"
   },
-  "chapters.0.lessons.2.steps.2.question.options.2.feedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#predict-r.question.options.#half.feedback": {
    "text": "Comprobemos tu intuición.",
    "source": "Let's check your hunch."
   },
-  "chapters.0.lessons.2.steps.3.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#lab.title": {
    "text": "El laboratorio de la ley de Ohm",
    "source": "The Ohm's law lab"
   },
-  "chapters.0.lessons.2.steps.3.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#lab.body": {
    "text": "Usa los deslizadores para cambiar la tensión de la pila y la resistencia. Lee la corriente en el medidor.",
    "source": "Use the sliders to change the battery voltage and the resistance. Read the current from the meter."
   },
-  "chapters.0.lessons.2.steps.3.interactive.config.adjustable.0.label": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#lab.interactive.config.adjustable.0.label": {
    "text": "Tensión de la pila",
    "source": "Battery voltage"
   },
-  "chapters.0.lessons.2.steps.3.interactive.config.adjustable.1.label": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#lab.interactive.config.adjustable.1.label": {
    "text": "Resistencia",
    "source": "Resistance"
   },
-  "chapters.0.lessons.2.steps.3.interactive.goal": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#lab.interactive.goal": {
    "text": "Duplica la tensión y luego duplica la resistencia. ¿Qué le pasa a la corriente cada vez?",
    "source": "Double the voltage, then double the resistance. What happens to the current each time?"
   },
-  "chapters.0.lessons.2.steps.4.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#explain.title": {
    "text": "La ley de Ohm",
    "source": "Ohm's law"
   },
-  "chapters.0.lessons.2.steps.4.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#explain.body": {
    "text": "Duplicar la tensión duplicó la corriente, y duplicar la resistencia la redujo a la mitad. La corriente es la tensión dividida entre la resistencia:\n\n$$ I = \\frac{V}{R} \\qquad\\text{o, reordenando,}\\qquad V = I R $$\n\nLa tensión $V$ se mide en voltios (V), la corriente $I$ en amperios (A) y la resistencia $R$ en ohmios (Ω). Por ejemplo, 6 V aplicados a 4 Ω dan $6 / 4 = 1.5$ A.\n\nEsta regla es la **ley de Ohm**. Se cumple para las resistencias y (en este modelo simplificado) también para las bombillas.",
    "source": "Doubling the voltage doubled the current, and doubling the resistance halved it. The current is the voltage divided by the resistance:\n\n$$ I = \\frac{V}{R} \\qquad\\text{or, rearranged,}\\qquad V = I R $$\n\nVoltage $V$ is in volts (V), current $I$ in amperes (A) and resistance $R$ in ohms (Ω). For example, 6 V across 4 Ω gives $6 / 4 = 1.5$ A.\n\nThis rule is **Ohm's law**. It holds for resistors, and (in this simplified model) for bulbs too."
   },
-  "chapters.0.lessons.2.steps.5.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#calc.title": {
    "text": "Calcúlalo",
    "source": "Calculate it"
   },
-  "chapters.0.lessons.2.steps.5.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#calc.body": {
    "text": "Esta vez el medidor está apagado, así que tendrás que calcularlo.",
    "source": "The meter is switched off this time, so you'll have to work it out."
   },
-  "chapters.0.lessons.2.steps.5.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#calc.question.prompt": {
    "text": "Una pila de 6 V está conectada a una resistencia de 3 Ω. ¿Qué corriente circula?",
    "source": "A 6 V battery is connected to a 3 Ω resistor. What current flows?"
   },
-  "chapters.0.lessons.2.steps.5.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#calc.question.hints.0": {
    "text": "Usa $I = V / R$.",
    "source": "Use $I = V / R$."
   },
-  "chapters.0.lessons.2.steps.5.question.hints.1": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#calc.question.hints.1": {
    "text": "$I = 6 / 3$",
    "source": "$I = 6 / 3$"
   },
-  "chapters.0.lessons.2.steps.5.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#calc.question.explanation": {
    "text": "$I = \\dfrac{6\\text{ V}}{3\\ \\Omega} = 2$ A.",
    "source": "$I = \\dfrac{6\\text{ V}}{3\\ \\Omega} = 2$ A."
   },
-  "chapters.0.lessons.2.steps.6.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.title": {
    "text": "Diseña con un objetivo",
    "source": "Design for a target"
   },
-  "chapters.0.lessons.2.steps.6.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.body": {
    "text": "Una almohadilla térmica de 6 V debe consumir exactamente **0.5 A**. Toca el hueco para elegir su elemento calefactor. El medidor está apagado, así que calcúlalo primero.",
    "source": "A 6 V heater pad must draw exactly **0.5 A**. Tap the gap to choose its heating element. The meter is off, so work it out first."
   },
-  "chapters.0.lessons.2.steps.6.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.question.prompt": {
    "text": "Elige la resistencia que haga que la corriente sea exactamente 0.5 A.",
    "source": "Choose the resistor that makes the current exactly 0.5 A."
   },
-  "chapters.0.lessons.2.steps.6.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.question.hints.0": {
    "text": "Reordena la ley de Ohm: $R = V / I$.",
    "source": "Rearrange Ohm's law: $R = V / I$."
   },
-  "chapters.0.lessons.2.steps.6.question.hints.1": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.question.hints.1": {
    "text": "$6 / 0.5 = $ ?",
    "source": "$6 / 0.5 = $ ?"
   },
-  "chapters.0.lessons.2.steps.6.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.question.explanation": {
    "text": "$R = \\dfrac{V}{I} = \\dfrac{6}{0.5} = 12\\ \\Omega$.",
    "source": "$R = \\dfrac{V}{I} = \\dfrac{6}{0.5} = 12\\ \\Omega$."
   },
-  "chapters.0.lessons.2.steps.6.question.successFeedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.question.successFeedback": {
    "text": "$R = 6 / 0.5 = 12\\ \\Omega$. Los ingenieros eligen resistencias justo con este cálculo.",
    "source": "$R = 6 / 0.5 = 12\\ \\Omega$. Engineers pick resistors with exactly this calculation."
   },
-  "chapters.0.lessons.2.steps.6.interactive.config.slots.0.label": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#design.interactive.config.slots.#R.label": {
    "text": "R",
    "source": "R"
   },
-  "chapters.0.lessons.2.steps.7.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.title": {
    "text": "Dos resistencias",
    "source": "Two resistors"
   },
-  "chapters.0.lessons.2.steps.7.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.body": {
    "text": "Ahora hay dos huecos en serie. En cada uno cabe una resistencia de 2 Ω, 4 Ω o 6 Ω. El medidor vuelve a estar apagado.",
    "source": "Now there are two gaps in series. Each can hold a 2 Ω, 4 Ω or 6 Ω resistor. The meter is off again."
   },
-  "chapters.0.lessons.2.steps.7.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.question.prompt": {
    "text": "Haz que la pila entregue exactamente **0.75 A**.",
    "source": "Make the battery deliver exactly **0.75 A**."
   },
-  "chapters.0.lessons.2.steps.7.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.question.hints.0": {
    "text": "¿Qué resistencia total da 0.75 A con 6 V?",
    "source": "What total resistance gives 0.75 A from 6 V?"
   },
-  "chapters.0.lessons.2.steps.7.question.hints.1": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.question.hints.1": {
    "text": "$R = 6 / 0.75 = 8\\ \\Omega$, y las resistencias en serie se suman.",
    "source": "$R = 6 / 0.75 = 8\\ \\Omega$, and resistances in series add up."
   },
-  "chapters.0.lessons.2.steps.7.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.question.explanation": {
    "text": "Necesitas $R = 6 / 0.75 = 8\\ \\Omega$ en total. En serie las resistencias se suman, así que sirven 2 Ω + 6 Ω o 4 Ω + 4 Ω.",
    "source": "You need $R = 6 / 0.75 = 8\\ \\Omega$ in total. In series resistances add, so 2 Ω + 6 Ω or 4 Ω + 4 Ω both work."
   },
-  "chapters.0.lessons.2.steps.7.question.successFeedback": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.question.successFeedback": {
    "text": "Sirve cualquier pareja que sume 8 Ω: 2 + 6, 6 + 2 o 4 + 4.",
    "source": "Any pair that adds up to 8 Ω works: 2 + 6, 6 + 2 or 4 + 4."
   },
-  "chapters.0.lessons.2.steps.7.interactive.config.slots.0.label": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.interactive.config.slots.#R1.label": {
    "text": "1",
    "source": "1"
   },
-  "chapters.0.lessons.2.steps.7.interactive.config.slots.1.label": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#two.interactive.config.slots.#R2.label": {
    "text": "2",
    "source": "2"
   },
-  "chapters.0.lessons.2.steps.8.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#headlight.title": {
    "text": "El faro de un coche",
    "source": "A car headlight"
   },
-  "chapters.0.lessons.2.steps.8.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#headlight.body": {
    "text": "El faro de un coche tiene una resistencia de 3 Ω y consume 4 A de la batería del coche.",
    "source": "A car headlight has a resistance of 3 Ω and draws 4 A from the car's battery."
   },
-  "chapters.0.lessons.2.steps.8.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#headlight.question.prompt": {
    "text": "¿Qué tensión suministra la batería?",
    "source": "What voltage does the battery supply?"
   },
-  "chapters.0.lessons.2.steps.8.question.hints.0": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#headlight.question.hints.0": {
    "text": "Usa $V = I R$.",
    "source": "Use $V = I R$."
   },
-  "chapters.0.lessons.2.steps.8.question.hints.1": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#headlight.question.hints.1": {
    "text": "$V = 4 \\times 3$",
    "source": "$V = 4 \\times 3$"
   },
-  "chapters.0.lessons.2.steps.8.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#headlight.question.explanation": {
    "text": "$V = I R = 4\\ \\text{A} \\times 3\\ \\Omega = 12$ V.",
    "source": "$V = I R = 4\\ \\text{A} \\times 3\\ \\Omega = 12$ V."
   },
-  "chapters.0.lessons.2.steps.9.title": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#check.title": {
    "text": "Prueba de dominio",
    "source": "Mastery check"
   },
-  "chapters.0.lessons.2.steps.9.body": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#check.body": {
    "text": "Una pila de 9 V hace pasar una corriente de 0.5 A por una resistencia.",
    "source": "A 9 V battery drives a current of 0.5 A through a resistor."
   },
-  "chapters.0.lessons.2.steps.9.question.prompt": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#check.question.prompt": {
    "text": "¿Cuál es la resistencia?",
    "source": "What is the resistance?"
   },
-  "chapters.0.lessons.2.steps.9.question.explanation": {
+  "chapters.#current-and-circuits.lessons.#ohms-law.steps.#check.question.explanation": {
    "text": "$R = \\dfrac{V}{I} = \\dfrac{9}{0.5} = 18\\ \\Omega$.",
    "source": "$R = \\dfrac{V}{I} = \\dfrac{9}{0.5} = 18\\ \\Omega$."
   },
-  "chapters.1.title": {
+  "chapters.#power-and-energy.title": {
    "text": "Potencia y energía",
    "source": "Power and energy"
   },
-  "chapters.1.summary": {
+  "chapters.#power-and-energy.summary": {
    "text": "Por qué se calientan las bombillas, qué mide una factura de la luz y cómo te protegen los fusibles.",
    "source": "Why bulbs get hot, what an electricity bill measures, and how fuses keep you safe."
   },
-  "chapters.1.plannedLessons.0": {
+  "chapters.#power-and-energy.plannedLessons.0": {
    "text": "¿Por qué se calientan las bombillas?",
    "source": "Why do bulbs get hot?"
   },
-  "chapters.1.plannedLessons.1": {
+  "chapters.#power-and-energy.plannedLessons.1": {
    "text": "Pagar la electricidad",
    "source": "Paying for electricity"
   },
-  "chapters.1.plannedLessons.2": {
+  "chapters.#power-and-energy.plannedLessons.2": {
    "text": "Fusibles y circuitos seguros",
    "source": "Fuses and safe circuits"
   }

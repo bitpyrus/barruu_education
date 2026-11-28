@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   createTranslator, formatMessage, MESSAGES, LOCALES, missingKeys, negotiateLocale, localeInfo,
-  extractStrings, localizeContent, translationCoverage, overlayTemplate, OverlaySchema,
+  extractStrings, localizeContent, translationCoverage, overlayTemplate, OverlaySchema, migrateOverlayPaths,
 } from '@barruu/i18n';
 
 describe('message formatting', () => {
@@ -60,20 +60,20 @@ describe('content overlays', () => {
     const s = extractStrings(course);
     expect(s).toEqual({
       title: 'Area',
-      'chapters.0.title': 'Shapes',
-      'chapters.0.lessons.0.title': 'Gardens',
-      'chapters.0.lessons.0.steps.0.body': 'Which is bigger?',
-      'chapters.0.lessons.0.steps.0.question.prompt': 'How many?',
-      'chapters.0.lessons.0.steps.0.question.hints.0': 'Split it',
-      'chapters.0.lessons.0.steps.0.question.hints.1': 'Count',
-      'chapters.0.lessons.0.steps.1.interactive.config.shapes.0.label': 'A',
+      'chapters.#ch.title': 'Shapes',
+      'chapters.#ch.lessons.#l.title': 'Gardens',
+      'chapters.#ch.lessons.#l.steps.#s.body': 'Which is bigger?',
+      'chapters.#ch.lessons.#l.steps.#s.question.prompt': 'How many?',
+      'chapters.#ch.lessons.#l.steps.#s.question.hints.0': 'Split it',
+      'chapters.#ch.lessons.#l.steps.#s.question.hints.1': 'Count',
+      'chapters.#ch.lessons.#l.steps.#b.interactive.config.shapes.#a.label': 'A',
     });
   });
 
   it('applies translations, falls back for missing ones, and skips stale ones', () => {
     const overlay = OverlaySchema.parse({ locale: 'es', contentId: 'c', strings: {
       title: { text: 'Área', source: 'Area' },
-      'chapters.0.title': { text: 'Figuras', source: 'Shapes (old text)' },
+      'chapters.#ch.title': { text: 'Figuras', source: 'Shapes (old text)' },
     } });
     const out = localizeContent(course, overlay);
     expect(out.title).toBe('Área');
@@ -81,8 +81,22 @@ describe('content overlays', () => {
     expect(out.chapters[0].lessons[0].steps[0].question!.answer).toBe(8);
     expect(course.title).toBe('Area'); // source untouched
     const cov = translationCoverage(course, overlay);
-    expect(cov).toMatchObject({ total: 8, translated: 1, stale: ['chapters.0.title'] });
+    expect(cov).toMatchObject({ total: 8, translated: 1, stale: ['chapters.#ch.title'] });
     expect(cov.missing).toHaveLength(6);
+  });
+
+  it('keeps translations when steps are inserted or reordered (paths use ids)', () => {
+    const overlay = OverlaySchema.parse({ locale: 'es', contentId: 'c', strings: {
+      'chapters.#ch.lessons.#l.steps.#s.body': { text: '¿Cuál es mayor?', source: 'Which is bigger?' },
+    } });
+    const moved = structuredClone(course);
+    moved.chapters[0].lessons[0].steps.unshift({ id: 'new', type: 'narrative', body: 'Hello' } as never);
+    expect(localizeContent(moved, overlay).chapters[0].lessons[0].steps[1].body).toBe('¿Cuál es mayor?');
+  });
+
+  it('migrates legacy index-based overlay keys', () => {
+    const migrated = migrateOverlayPaths(course, { 'chapters.0.lessons.0.steps.1.interactive.config.shapes.0.label': { text: 'A', source: 'A' } });
+    expect(Object.keys(migrated)).toEqual(['chapters.#ch.lessons.#l.steps.#b.interactive.config.shapes.#a.label']);
   });
 
   it('builds a template for translators / AI drafting', () => {

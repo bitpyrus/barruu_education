@@ -20,8 +20,8 @@
    "source": "Place any fraction on a number line"
   },
   "outcomes.1": {
-   "text": "Comparar fracciones según dónde están",
-   "source": "Compare fractions by where they sit"
+   "text": "Comparar fracciones y decimales según dónde están",
+   "source": "Compare fractions and decimals by where they sit"
   },
   "outcomes.2": {
    "text": "Ver las fracciones equivalentes como el mismo punto",
@@ -31,423 +31,931 @@
    "text": "Números enteros",
    "source": "Whole numbers"
   },
-  "chapters.0.title": {
+  "chapters.#where-fractions-live.title": {
    "text": "Dónde viven las fracciones",
    "source": "Where fractions live"
   },
-  "chapters.0.summary": {
+  "chapters.#where-fractions-live.summary": {
    "text": "Las fracciones son lugares en la recta y distancias desde el cero.",
    "source": "Fractions are places on the line, and lengths from zero."
   },
-  "chapters.0.lessons.0.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.title": {
    "text": "¿Dónde vive ¾?",
    "source": "Where does ¾ live?"
   },
-  "chapters.0.lessons.0.summary": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.summary": {
    "text": "Divide la recta, cuenta los saltos y cada fracción encuentra su lugar.",
    "source": "Split the line, count the jumps, and every fraction finds its place."
   },
-  "chapters.0.lessons.0.objectives.0": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.objectives.0": {
    "text": "Colocar fracciones entre 0 y 2 en una recta numérica",
    "source": "Place fractions between 0 and 2 on a number line"
   },
-  "chapters.0.lessons.0.objectives.1": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.objectives.1": {
    "text": "Comparar fracciones unitarias por su tamaño",
    "source": "Compare unit fractions by size"
   },
-  "chapters.0.lessons.0.objectives.2": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.objectives.2": {
    "text": "Reconocer fracciones equivalentes",
    "source": "Spot equivalent fractions"
   },
-  "chapters.0.lessons.0.steps.0.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.title": {
    "text": "Un número es un lugar",
    "source": "A number is a place"
   },
-  "chapters.0.lessons.0.steps.0.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.question.prompt": {
    "text": "Cada número tiene un lugar en la recta. ¿Dónde va $\\frac{1}{3}$?",
    "source": "Every number has a place on the line. Where does $\\frac{1}{3}$ go?"
   },
-  "chapters.0.lessons.0.steps.0.question.options.0.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.question.options.#near0.text": {
    "text": "Más cerca del 0",
    "source": "Closer to 0"
   },
-  "chapters.0.lessons.0.steps.0.question.options.0.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.question.options.#near0.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.0.question.options.1.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.question.options.#middle.text": {
    "text": "En el medio",
    "source": "In the middle"
   },
-  "chapters.0.lessons.0.steps.0.question.options.1.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.question.options.#middle.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.0.question.options.2.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.question.options.#near1.text": {
    "text": "Más cerca del 1",
    "source": "Closer to 1"
   },
-  "chapters.0.lessons.0.steps.0.question.options.2.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#predict.question.options.#near1.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.1.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#thirds.title": {
    "text": "Divídela en tres",
    "source": "Split it in three"
   },
-  "chapters.0.lessons.0.steps.1.body": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#thirds.body": {
    "text": "De 0 a 1 está cortada en 3 partes iguales. Arrastra **P** un salto desde el 0. ¿Acertaste?",
    "source": "0 to 1 is cut into 3 equal parts. Drag **P** one jump from 0. Was your guess right?"
   },
-  "chapters.0.lessons.0.steps.1.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#thirds.interactive.config.points.#P.label": {
    "text": "P",
    "source": "P"
   },
-  "chapters.0.lessons.0.steps.1.interactive.goal": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#thirds.interactive.goal": {
    "text": "Pon P a un salto del 0 y luego a dos saltos.",
    "source": "Put P one jump from 0, then two jumps."
   },
-  "chapters.0.lessons.0.steps.2.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#rule.title": {
    "text": "Corta y cuenta",
    "source": "Cut, then count"
   },
-  "chapters.0.lessons.0.steps.2.body": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#rule.body": {
    "text": "$\\frac{2}{3}$: corta cada unidad en **3** partes iguales y da **2** saltos desde el 0.\n\nEl número de abajo corta; el de arriba cuenta.",
    "source": "$\\frac{2}{3}$: cut each whole into **3** equal parts, then take **2** jumps from 0.\n\nThe bottom number cuts; the top number counts."
   },
-  "chapters.0.lessons.0.steps.3.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#quarters.title": {
    "text": "Tu turno",
    "source": "Your turn"
   },
-  "chapters.0.lessons.0.steps.3.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#quarters.question.prompt": {
    "text": "Pon P en $\\frac{3}{4}$.",
    "source": "Put P at $\\frac{3}{4}$."
   },
-  "chapters.0.lessons.0.steps.3.question.hints.0": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#quarters.question.hints.0": {
    "text": "¿Cuántas partes iguales hay entre 0 y 1?",
    "source": "How many equal parts between 0 and 1?"
   },
-  "chapters.0.lessons.0.steps.3.question.hints.1": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#quarters.question.hints.1": {
    "text": "Da 3 de los 4 saltos.",
    "source": "Take 3 of the 4 jumps."
   },
-  "chapters.0.lessons.0.steps.3.question.explanation": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#quarters.question.explanation": {
    "text": "La recta está cortada en 4 partes; $\\frac{3}{4}$ son 3 de ellas.",
    "source": "The line is cut into 4 parts; $\\frac{3}{4}$ is 3 of them."
   },
-  "chapters.0.lessons.0.steps.3.question.successFeedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#quarters.question.successFeedback": {
    "text": "Tres saltos de un cuarto.",
    "source": "Three jumps of a quarter."
   },
-  "chapters.0.lessons.0.steps.3.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#quarters.interactive.config.points.#P.label": {
    "text": "P",
    "source": "P"
   },
-  "chapters.0.lessons.0.steps.4.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#past-one.title": {
    "text": "Más allá del 1",
    "source": "Past 1"
   },
-  "chapters.0.lessons.0.steps.4.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#past-one.question.prompt": {
    "text": "Pon P en $\\frac{5}{4}$.",
    "source": "Put P at $\\frac{5}{4}$."
   },
-  "chapters.0.lessons.0.steps.4.question.hints.0": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#past-one.question.hints.0": {
    "text": "¿Dónde está $\\frac{4}{4}$?",
    "source": "Where is $\\frac{4}{4}$?"
   },
-  "chapters.0.lessons.0.steps.4.question.hints.1": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#past-one.question.hints.1": {
    "text": "Sigue saltando: un cuarto más después del 1.",
    "source": "Keep jumping: one more quarter after 1."
   },
-  "chapters.0.lessons.0.steps.4.question.explanation": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#past-one.question.explanation": {
    "text": "$\\frac{4}{4}$ es 1, así que $\\frac{5}{4}$ es un cuarto más.",
    "source": "$\\frac{4}{4}$ is 1, so $\\frac{5}{4}$ is one more quarter."
   },
-  "chapters.0.lessons.0.steps.4.question.successFeedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#past-one.question.successFeedback": {
    "text": "Las fracciones no se detienen en el 1: $\\frac{5}{4} = 1 + \\frac{1}{4}$.",
    "source": "Fractions don't stop at 1: $\\frac{5}{4} = 1 + \\frac{1}{4}$."
   },
-  "chapters.0.lessons.0.steps.4.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#past-one.interactive.config.points.#P.label": {
    "text": "P",
    "source": "P"
   },
-  "chapters.0.lessons.0.steps.5.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.title": {
    "text": "Adivina otra vez",
    "source": "Guess again"
   },
-  "chapters.0.lessons.0.steps.5.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.question.prompt": {
    "text": "¿Cuál es mayor, $\\frac{1}{4}$ o $\\frac{1}{6}$?",
    "source": "Which is bigger, $\\frac{1}{4}$ or $\\frac{1}{6}$?"
   },
-  "chapters.0.lessons.0.steps.5.question.options.0.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.question.options.#quarter.text": {
    "text": "$\\frac{1}{4}$",
    "source": "$\\frac{1}{4}$"
   },
-  "chapters.0.lessons.0.steps.5.question.options.0.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.question.options.#quarter.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.5.question.options.1.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.question.options.#sixth.text": {
    "text": "$\\frac{1}{6}$",
    "source": "$\\frac{1}{6}$"
   },
-  "chapters.0.lessons.0.steps.5.question.options.1.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.question.options.#sixth.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.5.question.options.2.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.question.options.#same.text": {
    "text": "Son iguales",
    "source": "They're the same"
   },
-  "chapters.0.lessons.0.steps.5.question.options.2.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#which-bigger.question.options.#same.feedback": {
    "text": "Comprobémoslo.",
    "source": "Let's check."
   },
-  "chapters.0.lessons.0.steps.6.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.title": {
    "text": "Cuartos contra sextos",
    "source": "Quarters vs sixths"
   },
-  "chapters.0.lessons.0.steps.6.body": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.body": {
    "text": "Recta de arriba: cuartos. Recta de abajo: sextos.",
    "source": "Top line: quarters. Bottom line: sixths."
   },
-  "chapters.0.lessons.0.steps.6.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.question.prompt": {
    "text": "Pon A en $\\frac{1}{4}$ y B en $\\frac{1}{6}$.",
    "source": "Put A at $\\frac{1}{4}$ and B at $\\frac{1}{6}$."
   },
-  "chapters.0.lessons.0.steps.6.question.hints.0": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.question.hints.0": {
    "text": "¿Cuántas partes iguales tiene cada recta entre 0 y 1?",
    "source": "How many equal parts does each line have between 0 and 1?"
   },
-  "chapters.0.lessons.0.steps.6.question.hints.1": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.question.hints.1": {
    "text": "Un salto en cada recta.",
    "source": "One jump on each line."
   },
-  "chapters.0.lessons.0.steps.6.question.explanation": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.question.explanation": {
    "text": "Un salto de un cuarto en la recta de arriba y uno de un sexto en la de abajo.",
    "source": "One quarter-jump on the top line, one sixth-jump on the bottom."
   },
-  "chapters.0.lessons.0.steps.6.question.successFeedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.question.successFeedback": {
    "text": "A está más lejos del 0, así que $\\frac{1}{4} > \\frac{1}{6}$. Más partes, partes más pequeñas.",
    "source": "A is further from 0, so $\\frac{1}{4} > \\frac{1}{6}$. More parts, smaller parts."
   },
-  "chapters.0.lessons.0.steps.6.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.interactive.config.points.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.6.interactive.config.points.1.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#race.interactive.config.points.#B.label": {
    "text": "B",
    "source": "B"
   },
-  "chapters.0.lessons.0.steps.7.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#big-idea.title": {
    "text": "El número de abajo",
    "source": "The bottom number"
   },
-  "chapters.0.lessons.0.steps.7.body": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#big-idea.body": {
    "text": "El número de abajo (el **denominador**) dice lo pequeña que es cada parte. Más partes, partes más pequeñas.",
    "source": "The bottom number (the **denominator**) says how small each part is. More parts, smaller parts."
   },
-  "chapters.0.lessons.0.steps.8.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.title": {
    "text": "Dos nombres, un lugar",
    "source": "Two names, one place"
   },
-  "chapters.0.lessons.0.steps.8.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.question.prompt": {
    "text": "A está en $\\frac{1}{2}$. Pon B en la recta de octavos exactamente en el mismo lugar.",
    "source": "A is at $\\frac{1}{2}$. Put B on the eighths line at exactly the same spot."
   },
-  "chapters.0.lessons.0.steps.8.question.hints.0": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.question.hints.0": {
    "text": "Mira justo debajo de A.",
    "source": "Look straight down from A."
   },
-  "chapters.0.lessons.0.steps.8.question.hints.1": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.question.hints.1": {
    "text": "¿A cuántos saltos de un octavo está del 0?",
    "source": "How many eighth-jumps is that from 0?"
   },
-  "chapters.0.lessons.0.steps.8.question.explanation": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.question.explanation": {
    "text": "La mitad son 4 de los 8 saltos, así que $\\frac{1}{2} = \\frac{4}{8}$. Se llaman fracciones equivalentes.",
    "source": "Halfway is 4 of the 8 jumps, so $\\frac{1}{2} = \\frac{4}{8}$. These are called equivalent fractions."
   },
-  "chapters.0.lessons.0.steps.8.question.goals.0.message": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.question.goals.0.message": {
    "text": "Aún no es el mismo lugar. Mira justo debajo de A.",
    "source": "Not the same spot yet. Look straight down from A."
   },
-  "chapters.0.lessons.0.steps.8.question.successFeedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.question.successFeedback": {
    "text": "B está en $\\frac{4}{8}$. Mismo lugar, mismo número: $\\frac{1}{2} = \\frac{4}{8}$.",
    "source": "B is at $\\frac{4}{8}$. Same spot, same number: $\\frac{1}{2} = \\frac{4}{8}$."
   },
-  "chapters.0.lessons.0.steps.8.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.interactive.config.points.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.8.interactive.config.points.1.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#same-spot.interactive.config.points.#B.label": {
    "text": "B",
    "source": "B"
   },
-  "chapters.0.lessons.0.steps.9.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.title": {
    "text": "Encuentra el error",
    "source": "Spot the slip"
   },
-  "chapters.0.lessons.0.steps.9.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.question.prompt": {
    "text": "Kai dice que P está en $\\frac{4}{5}$: «Conté 5 marcas entre 0 y 1». ¿Qué falló?",
    "source": "Kai says P is at $\\frac{4}{5}$: \"I counted 5 marks between 0 and 1.\" What went wrong?"
   },
-  "chapters.0.lessons.0.steps.9.question.explanation": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.question.explanation": {
    "text": "El número de abajo cuenta **espacios** iguales. 5 marcas dentro de la recta forman 6 espacios.",
    "source": "The bottom number counts equal **spaces**. 5 marks inside the line make 6 spaces."
   },
-  "chapters.0.lessons.0.steps.9.question.options.0.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.question.options.#spaces.text": {
    "text": "Kai contó marcas, no espacios. Hay 6 espacios, así que P está en $\\frac{4}{6}$.",
    "source": "Kai counted marks, not spaces. There are 6 spaces, so P is at $\\frac{4}{6}$."
   },
-  "chapters.0.lessons.0.steps.9.question.options.0.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.question.options.#spaces.feedback": {
    "text": "Sí. Cuenta los huecos, no las marcas.",
    "source": "Yes. Count the gaps, not the marks."
   },
-  "chapters.0.lessons.0.steps.9.question.options.1.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.question.options.#fine.text": {
    "text": "Nada. P está en $\\frac{4}{5}$.",
    "source": "Nothing. P is at $\\frac{4}{5}$."
   },
-  "chapters.0.lessons.0.steps.9.question.options.1.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.question.options.#fine.feedback": {
    "text": "Cuenta los huecos entre 0 y 1: hay 6, no 5.",
    "source": "Count the gaps between 0 and 1: there are 6, not 5."
   },
-  "chapters.0.lessons.0.steps.9.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#broken.interactive.config.points.#P.label": {
    "text": "P",
    "source": "P"
   },
-  "chapters.0.lessons.0.steps.10.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.title": {
    "text": "Prueba de dominio",
    "source": "Mastery check"
   },
-  "chapters.0.lessons.0.steps.10.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.prompt": {
    "text": "¿Qué número está en P?",
    "source": "Which number is at P?"
   },
-  "chapters.0.lessons.0.steps.10.question.explanation": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.explanation": {
    "text": "Hay 5 **espacios** iguales entre 0 y 1. P está a 3 espacios: $\\frac{3}{5}$.",
    "source": "There are 5 equal **spaces** between 0 and 1. P is 3 spaces along: $\\frac{3}{5}$."
   },
-  "chapters.0.lessons.0.steps.10.question.options.0.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.options.#a.text": {
    "text": "$\\frac{3}{5}$",
    "source": "$\\frac{3}{5}$"
   },
-  "chapters.0.lessons.0.steps.10.question.options.1.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.options.#b.text": {
    "text": "$\\frac{3}{4}$",
    "source": "$\\frac{3}{4}$"
   },
-  "chapters.0.lessons.0.steps.10.question.options.1.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.options.#b.feedback": {
    "text": "Contaste las 4 marcas de dentro. Cuenta los espacios: hay 5.",
    "source": "You counted the 4 marks inside the line. Count the spaces: there are 5."
   },
-  "chapters.0.lessons.0.steps.10.question.options.2.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.options.#c.text": {
    "text": "$\\frac{3}{6}$",
    "source": "$\\frac{3}{6}$"
   },
-  "chapters.0.lessons.0.steps.10.question.options.2.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.options.#c.feedback": {
    "text": "Contaste las 6 marcas. Cuenta los espacios entre ellas: hay 5.",
    "source": "You counted all 6 marks. Count the spaces between them: there are 5."
   },
-  "chapters.0.lessons.0.steps.10.question.options.3.text": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.options.#d.text": {
    "text": "$\\frac{2}{5}$",
    "source": "$\\frac{2}{5}$"
   },
-  "chapters.0.lessons.0.steps.10.question.options.3.feedback": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.question.options.#d.feedback": {
    "text": "P está a 3 espacios del 0, no a 2. Cuenta desde el 0.",
    "source": "P is 3 spaces from 0, not 2. Count from 0."
   },
-  "chapters.0.lessons.0.steps.10.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check.interactive.config.points.#P.label": {
    "text": "P",
    "source": "P"
   },
-  "chapters.0.lessons.0.steps.11.title": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check-equal.title": {
    "text": "Una más",
    "source": "One more"
   },
-  "chapters.0.lessons.0.steps.11.question.prompt": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check-equal.question.prompt": {
    "text": "Pon B en el sexto que es igual a $\\frac{2}{3}$.",
    "source": "Put B at the sixth that equals $\\frac{2}{3}$."
   },
-  "chapters.0.lessons.0.steps.11.question.explanation": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check-equal.question.explanation": {
    "text": "$\\frac{2}{3} = \\frac{4}{6}$: cada tercio son dos sextos.",
    "source": "$\\frac{2}{3} = \\frac{4}{6}$: each third is two sixths."
   },
-  "chapters.0.lessons.0.steps.11.interactive.config.points.0.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check-equal.interactive.config.points.#A.label": {
    "text": "A",
    "source": "A"
   },
-  "chapters.0.lessons.0.steps.11.interactive.config.points.1.label": {
+  "chapters.#where-fractions-live.lessons.#where-does-three-quarters-live.steps.#check-equal.interactive.config.points.#B.label": {
    "text": "B",
    "source": "B"
   },
-  "chapters.1.title": {
+  "chapters.#comparing-and-ordering.title": {
    "text": "Comparar y ordenar",
    "source": "Comparing and ordering"
   },
-  "chapters.1.summary": {
+  "chapters.#comparing-and-ordering.summary": {
    "text": "Fracciones y decimales, uno al lado del otro.",
-   "source": "Fractions and decimals side by side."
+   "source": "Fractions and decimals, side by side."
   },
-  "chapters.1.plannedLessons.0": {
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.title": {
    "text": "¿Cuál está más cerca del 1?",
    "source": "Which is closer to 1?"
   },
-  "chapters.1.plannedLessons.1": {
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.summary": {
+   "text": "Compara fracciones por la parte que les falta.",
+   "source": "Compare fractions by the piece that's missing."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.objectives.0": {
+   "text": "Comparar fracciones cercanas a 1 por la parte que les falta",
+   "source": "Compare fractions near 1 by their missing piece"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.objectives.1": {
+   "text": "Usar ½ como referencia",
+   "source": "Use ½ as a benchmark"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.title": {
+   "text": "Muy cerca",
+   "source": "So close"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.question.prompt": {
+   "text": "¿Cuál es mayor, $\\frac{7}{8}$ o $\\frac{5}{6}$?",
+   "source": "Which is bigger, $\\frac{7}{8}$ or $\\frac{5}{6}$?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.question.options.#seven-eighths.text": {
+   "text": "$\\frac{7}{8}$",
+   "source": "$\\frac{7}{8}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.question.options.#seven-eighths.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.question.options.#five-sixths.text": {
+   "text": "$\\frac{5}{6}$",
+   "source": "$\\frac{5}{6}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.question.options.#five-sixths.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.question.options.#same.text": {
+   "text": "Iguales: a las dos les falta una parte para llegar a 1",
+   "source": "The same: both are one part short of 1"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#predict.question.options.#same.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.title": {
+   "text": "Carrera hacia el 1",
+   "source": "Race to 1"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.prompt": {
+   "text": "Pon A en $\\frac{7}{8}$ y B en $\\frac{5}{6}$.",
+   "source": "Put A at $\\frac{7}{8}$ and B at $\\frac{5}{6}$."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.hints.0": {
+   "text": "En cada recta, retrocede una parte desde el 1.",
+   "source": "Count back one part from 1 on each line."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.explanation": {
+   "text": "A cada una le falta una parte para llegar a 1: la recta de octavos tiene partes más pequeñas, así que A está más cerca.",
+   "source": "One part short of 1 on each line: the eighths line has smaller parts, so A is closer."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.question.successFeedback": {
+   "text": "A está más cerca del 1. Su hueco, $\\frac{1}{8}$, es menor que el de B, $\\frac{1}{6}$.",
+   "source": "A is closer to 1. Its gap, $\\frac{1}{8}$, is smaller than B's gap, $\\frac{1}{6}$."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.interactive.config.points.#A.label": {
+   "text": "A",
+   "source": "A"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#race.interactive.config.points.#B.label": {
+   "text": "B",
+   "source": "B"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#gap.title": {
+   "text": "Fíjate en el hueco",
+   "source": "Mind the gap"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#gap.body": {
+   "text": "Cerca del 1, compara la **parte que falta**. Hueco más pequeño, fracción mayor.",
+   "source": "Near 1, compare the **missing piece**. Smaller gap, bigger fraction."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.title": {
+   "text": "Rápido",
+   "source": "Quick"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.prompt": {
+   "text": "¿Cuál es mayor, $\\frac{3}{4}$ o $\\frac{4}{5}$?",
+   "source": "Which is bigger, $\\frac{3}{4}$ or $\\frac{4}{5}$?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.hints.0": {
+   "text": "¿Cuánto le falta a cada una para llegar a 1?",
+   "source": "What is missing from each to make 1?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.explanation": {
+   "text": "A $\\frac{3}{4}$ le falta $\\frac{1}{4}$ para llegar a 1; a $\\frac{4}{5}$ solo le falta $\\frac{1}{5}$.",
+   "source": "$\\frac{3}{4}$ is $\\frac{1}{4}$ short of 1; $\\frac{4}{5}$ is only $\\frac{1}{5}$ short."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.options.#four-fifths.text": {
+   "text": "$\\frac{4}{5}$",
+   "source": "$\\frac{4}{5}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.options.#four-fifths.feedback": {
+   "text": "Sí: su hueco es $\\frac{1}{5}$, menor que $\\frac{1}{4}$.",
+   "source": "Yes: its gap is $\\frac{1}{5}$, smaller than $\\frac{1}{4}$."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.options.#three-quarters.text": {
+   "text": "$\\frac{3}{4}$",
+   "source": "$\\frac{3}{4}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.options.#three-quarters.feedback": {
+   "text": "Compara los huecos: $\\frac{1}{4}$ es un hueco mayor que $\\frac{1}{5}$.",
+   "source": "Compare the gaps: $\\frac{1}{4}$ is a bigger gap than $\\frac{1}{5}$."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.options.#same.text": {
+   "text": "Iguales",
+   "source": "The same"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#practice.question.options.#same.feedback": {
+   "text": "A las dos les falta una parte, pero las partes tienen tamaños distintos.",
+   "source": "Both are one part short, but the parts are different sizes."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.title": {
+   "text": "¿Pasa de la mitad?",
+   "source": "Past halfway?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.question.prompt": {
+   "text": "Pon P en $\\frac{4}{7}$. ¿Pasa de ½?",
+   "source": "Put P at $\\frac{4}{7}$. Is it past ½?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.question.hints.0": {
+   "text": "Cuenta 4 séptimos desde el 0.",
+   "source": "Count 4 sevenths from 0."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.question.explanation": {
+   "text": "La mitad de 7 es 3.5, así que $\\frac{4}{7}$ es un poco más que ½.",
+   "source": "Half of 7 is 3.5, so $\\frac{4}{7}$ is a little more than ½."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.question.successFeedback": {
+   "text": "Justo pasada la mitad: 4 es más que la mitad de 7.",
+   "source": "Just past ½: 4 is more than half of 7."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.interactive.config.points.#H.label": {
+   "text": "½",
+   "source": "½"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#half.interactive.config.points.#P.label": {
+   "text": "P",
+   "source": "P"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.title": {
+   "text": "Prueba de dominio",
+   "source": "Mastery check"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.prompt": {
+   "text": "¿Cuál está más cerca del 1?",
+   "source": "Which is closest to 1?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.explanation": {
+   "text": "Los huecos son $\\frac{1}{5}$, $\\frac{1}{6}$ y $\\frac{1}{7}$. El más pequeño es $\\frac{1}{7}$, así que $\\frac{6}{7}$ es la más cercana.",
+   "source": "The gaps are $\\frac{1}{5}$, $\\frac{1}{6}$ and $\\frac{1}{7}$. The smallest gap is $\\frac{1}{7}$, so $\\frac{6}{7}$ is closest."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#a.text": {
+   "text": "$\\frac{4}{5}$",
+   "source": "$\\frac{4}{5}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#a.feedback": {
+   "text": "Su hueco es $\\frac{1}{5}$, el mayor de los tres.",
+   "source": "Its gap is $\\frac{1}{5}$, the biggest of the three."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#b.text": {
+   "text": "$\\frac{5}{6}$",
+   "source": "$\\frac{5}{6}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#b.feedback": {
+   "text": "Su hueco es $\\frac{1}{6}$; $\\frac{1}{7}$ es menor.",
+   "source": "Its gap is $\\frac{1}{6}$; $\\frac{1}{7}$ is smaller."
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#c.text": {
+   "text": "$\\frac{6}{7}$",
+   "source": "$\\frac{6}{7}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#d.text": {
+   "text": "Todas igual de cerca",
+   "source": "All equally close"
+  },
+  "chapters.#comparing-and-ordering.lessons.#closer-to-one.steps.#check.question.options.#d.feedback": {
+   "text": "A todas les falta una parte, pero los séptimos son las partes más pequeñas.",
+   "source": "Each is one part short, but sevenths are the smallest parts."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.title": {
    "text": "Los decimales también son fracciones",
    "source": "Decimals are fractions too"
   },
-  "chapters.1.plannedLessons.2": {
-   "text": "Ordenar una lista mixta",
-   "source": "Ordering a mixed list"
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.summary": {
+   "text": "Décimas y centésimas en la recta, y por qué 0.3 gana a 0.25.",
+   "source": "Tenths and hundredths on the line, and why 0.3 beats 0.25."
   },
-  "chapters.2.title": {
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.objectives.0": {
+   "text": "Colocar decimales en una recta numérica",
+   "source": "Place decimals on a number line"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.objectives.1": {
+   "text": "Leer los decimales como décimas y centésimas",
+   "source": "Read decimals as tenths and hundredths"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.objectives.2": {
+   "text": "Comparar decimales con distinto número de cifras",
+   "source": "Compare decimals with different numbers of digits"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.title": {
+   "text": "Adivina",
+   "source": "Guess"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.prompt": {
+   "text": "¿Cuál es mayor, 0.3 o 0.25?",
+   "source": "Which is bigger, 0.3 or 0.25?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#point3.text": {
+   "text": "0.3",
+   "source": "0.3"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#point3.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#point25.text": {
+   "text": "0.25",
+   "source": "0.25"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#point25.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#same.text": {
+   "text": "Iguales",
+   "source": "The same"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#predict.question.options.#same.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.title": {
+   "text": "Décimas",
+   "source": "Tenths"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.body": {
+   "text": "Esta recta está cortada en **10** partes. Arrastra **P**.",
+   "source": "This line is cut into **10** parts. Drag **P**."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.interactive.config.points.#P.label": {
+   "text": "P",
+   "source": "P"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#tenths.interactive.goal": {
+   "text": "Pon P en 0.3 y luego en 0.7.",
+   "source": "Put P at 0.3, then at 0.7."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#rule.title": {
+   "text": "Las décimas son décimas",
+   "source": "Tenths are tenths"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#rule.body": {
+   "text": "0.3 son **3 décimas**: $0.3 = \\frac{3}{10}$.\n\n0.25 son **25 centésimas**, es decir, $2\\frac{1}{2}$ décimas.",
+   "source": "0.3 is **3 tenths**: $0.3 = \\frac{3}{10}$.\n\n0.25 is **25 hundredths**, which is $2\\frac{1}{2}$ tenths."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.title": {
+   "text": "0.3 contra 0.25",
+   "source": "0.3 vs 0.25"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.body": {
+   "text": "Recta de arriba: décimas. Recta de abajo: veinteavos (pasos de 0.05).",
+   "source": "Top line: tenths. Bottom line: twentieths (steps of 0.05)."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.question.prompt": {
+   "text": "Pon A en 0.3 y B en 0.25.",
+   "source": "Put A at 0.3 and B at 0.25."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.question.hints.0": {
+   "text": "0.25 está a mitad de camino entre 0.2 y 0.3.",
+   "source": "0.25 is halfway between 0.2 and 0.3."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.question.explanation": {
+   "text": "0.3 = 0.30, y 30 centésimas son más que 25 centésimas.",
+   "source": "0.3 = 0.30, and 30 hundredths is more than 25 hundredths."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.question.successFeedback": {
+   "text": "A está más a la derecha: 0.3 > 0.25.",
+   "source": "A is further right: 0.3 > 0.25."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.interactive.config.points.#A.label": {
+   "text": "A",
+   "source": "A"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#race.interactive.config.points.#B.label": {
+   "text": "B",
+   "source": "B"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.title": {
+   "text": "Encuentra el error",
+   "source": "Spot the slip"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.question.prompt": {
+   "text": "Mia dice que 0.25 > 0.3 «porque 25 es mayor que 3». ¿Qué falló?",
+   "source": "Mia says 0.25 > 0.3 \"because 25 is bigger than 3\". What went wrong?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.question.explanation": {
+   "text": "Escribe los dos con el mismo número de cifras decimales (0.30 y 0.25) y luego compara.",
+   "source": "Write both with the same number of places (0.30 and 0.25), then compare."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.question.options.#places.text": {
+   "text": "Las cifras tienen distinto valor posicional: 0.3 es 0.30, y 30 centésimas ganan a 25 centésimas.",
+   "source": "The digits are different place values: 0.3 is 0.30, and 30 hundredths beats 25 hundredths."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.question.options.#places.feedback": {
+   "text": "Sí. Alinea las posiciones antes de comparar.",
+   "source": "Yes. Line up the places before comparing."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.question.options.#fine.text": {
+   "text": "Nada. Más cifras significa mayor.",
+   "source": "Nothing. More digits means bigger."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#broken.question.options.#fine.feedback": {
+   "text": "Mira la recta: 0.25 quedó a la izquierda de 0.3.",
+   "source": "Look back at the line: 0.25 sat left of 0.3."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.title": {
+   "text": "Prueba de dominio",
+   "source": "Mastery check"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.prompt": {
+   "text": "¿Cuál es el mayor?",
+   "source": "Which is biggest?"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.explanation": {
+   "text": "En centésimas (y milésimas): 0.500, 0.450, 0.125. El mayor es 0.5.",
+   "source": "As hundredths (and thousandths): 0.500, 0.450, 0.125. 0.5 is biggest."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#a.text": {
+   "text": "0.5",
+   "source": "0.5"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#b.text": {
+   "text": "0.45",
+   "source": "0.45"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#b.feedback": {
+   "text": "0.45 son 45 centésimas; 0.5 son 50 centésimas.",
+   "source": "0.45 is 45 hundredths; 0.5 is 50 hundredths."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#c.text": {
+   "text": "0.125",
+   "source": "0.125"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check.question.options.#c.feedback": {
+   "text": "0.125 es poco más de una décima, muy a la izquierda de 0.5.",
+   "source": "0.125 is just over one tenth, far left of 0.5."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check-place.title": {
+   "text": "Una más",
+   "source": "One more"
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check-place.question.prompt": {
+   "text": "Pon P en 0.45.",
+   "source": "Put P at 0.45."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check-place.question.explanation": {
+   "text": "0.45 está a mitad de camino entre 0.4 y 0.5.",
+   "source": "0.45 is halfway between 0.4 and 0.5."
+  },
+  "chapters.#comparing-and-ordering.lessons.#decimals-are-fractions.steps.#check-place.interactive.config.points.#P.label": {
+   "text": "P",
+   "source": "P"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.title": {
+   "text": "Ordénalos",
+   "source": "Put them in order"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.summary": {
+   "text": "Fracciones y decimales en una sola recta.",
+   "source": "Fractions and decimals on one line."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.objectives.0": {
+   "text": "Ordenar una mezcla de fracciones y decimales",
+   "source": "Order a mix of fractions and decimals"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.objectives.1": {
+   "text": "Encontrar un número entre otros dos",
+   "source": "Find a number between two others"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.title": {
+   "text": "Una recta para todos",
+   "source": "One line for all"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.question.prompt": {
+   "text": "Coloca A = $\\frac{1}{2}$, B = 0.4, C = $\\frac{3}{4}$ y D = 0.8.",
+   "source": "Place A = $\\frac{1}{2}$, B = 0.4, C = $\\frac{3}{4}$ and D = 0.8."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.question.hints.0": {
+   "text": "$\\frac{1}{2}$ = 0.5 y $\\frac{3}{4}$ = 0.75.",
+   "source": "$\\frac{1}{2}$ = 0.5 and $\\frac{3}{4}$ = 0.75."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.question.explanation": {
+   "text": "En decimales: 0.4, 0.5, 0.75, 0.8.",
+   "source": "As decimals: 0.4, 0.5, 0.75, 0.8."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.question.successFeedback": {
+   "text": "De izquierda a derecha: B, A, C, D.",
+   "source": "Left to right: B, A, C, D."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.interactive.config.points.#A.label": {
+   "text": "A",
+   "source": "A"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.interactive.config.points.#B.label": {
+   "text": "B",
+   "source": "B"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.interactive.config.points.#C.label": {
+   "text": "C",
+   "source": "C"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#place.interactive.config.points.#D.label": {
+   "text": "D",
+   "source": "D"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#rule.title": {
+   "text": "A la izquierda, más pequeño",
+   "source": "Left is smaller"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#rule.body": {
+   "text": "Para ordenar una mezcla, pon todo en una misma forma, decimales o fracciones. Luego lee la recta de izquierda a derecha.",
+   "source": "To order a mix, put everything in one form, decimals or fractions. Then read the line left to right."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.title": {
+   "text": "De menor a mayor",
+   "source": "Smallest to largest"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.question.prompt": {
+   "text": "Ordena de menor a mayor.",
+   "source": "Order from smallest to largest."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.question.hints.0": {
+   "text": "$\\frac{3}{5}$ = 0.6 y $\\frac{2}{3}$ ≈ 0.67.",
+   "source": "$\\frac{3}{5}$ = 0.6 and $\\frac{2}{3}$ ≈ 0.67."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.question.explanation": {
+   "text": "0.6 < 0.65 < 0.67 < 0.7.",
+   "source": "0.6 < 0.65 < 0.67 < 0.7."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.question.items.0": {
+   "text": "0.7",
+   "source": "0.7"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.question.items.1": {
+   "text": "$\\frac{2}{3}$",
+   "source": "$\\frac{2}{3}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.question.items.2": {
+   "text": "0.65",
+   "source": "0.65"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#order.question.items.3": {
+   "text": "$\\frac{3}{5}$",
+   "source": "$\\frac{3}{5}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#between.title": {
+   "text": "Hazle sitio",
+   "source": "Squeeze in"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#between.question.prompt": {
+   "text": "Pon P entre $\\frac{2}{5}$ y $\\frac{1}{2}$.",
+   "source": "Put P between $\\frac{2}{5}$ and $\\frac{1}{2}$."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#between.question.hints.0": {
+   "text": "$\\frac{2}{5}$ = 0.4 y $\\frac{1}{2}$ = 0.5.",
+   "source": "$\\frac{2}{5}$ = 0.4 and $\\frac{1}{2}$ = 0.5."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#between.question.explanation": {
+   "text": "Entre 0.4 y 0.5 hay exactamente una marca en esta recta: 0.45.",
+   "source": "Between 0.4 and 0.5 on this line there is exactly one mark: 0.45."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#between.question.successFeedback": {
+   "text": "P = 0.45. Siempre hay sitio entre dos números.",
+   "source": "P = 0.45. There's always room between two numbers."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#between.interactive.config.points.#P.label": {
+   "text": "P",
+   "source": "P"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.title": {
+   "text": "Prueba de dominio",
+   "source": "Mastery check"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.prompt": {
+   "text": "Ordena de menor a mayor.",
+   "source": "Order from smallest to largest."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.explanation": {
+   "text": "$\\frac{3}{8}$ = 0.375, así que: 0.375 < 0.405 < 0.45 < 0.5.",
+   "source": "$\\frac{3}{8}$ = 0.375, so: 0.375 < 0.405 < 0.45 < 0.5."
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.items.0": {
+   "text": "0.5",
+   "source": "0.5"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.items.1": {
+   "text": "0.45",
+   "source": "0.45"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.items.2": {
+   "text": "$\\frac{3}{8}$",
+   "source": "$\\frac{3}{8}$"
+  },
+  "chapters.#comparing-and-ordering.lessons.#ordering-mixed.steps.#check.question.items.3": {
+   "text": "0.405",
+   "source": "0.405"
+  },
+  "chapters.#adding-with-a-sense-of-size.title": {
    "text": "Sumar con sentido del tamaño",
    "source": "Adding with a sense of size"
   },
-  "chapters.2.summary": {
+  "chapters.#adding-with-a-sense-of-size.summary": {
    "text": "Por qué ⅛ + ½ no es 2⁄10.",
    "source": "Why ⅛ + ½ isn't 2⁄10."
   },
-  "chapters.2.plannedLessons.0": {
+  "chapters.#adding-with-a-sense-of-size.plannedLessons.0": {
    "text": "Saltos que se suman",
    "source": "Jumps that add"
   },
-  "chapters.2.plannedLessons.1": {
+  "chapters.#adding-with-a-sense-of-size.plannedLessons.1": {
    "text": "Primero, partes del mismo tamaño",
    "source": "Same-size parts first"
   },
-  "chapters.2.plannedLessons.2": {
+  "chapters.#adding-with-a-sense-of-size.plannedLessons.2": {
    "text": "Estima y luego suma",
    "source": "Estimate, then add"
   },
-  "chapters.3.title": {
+  "chapters.#scaling.title": {
    "text": "Escalar",
    "source": "Scaling"
   },
-  "chapters.3.summary": {
+  "chapters.#scaling.summary": {
    "text": "Multiplicar no siempre agranda.",
    "source": "Multiplying doesn't always make bigger."
   },
-  "chapters.3.plannedLessons.0": {
+  "chapters.#scaling.plannedLessons.0": {
    "text": "Estirar y encoger",
    "source": "Stretch and shrink"
   },
-  "chapters.3.plannedLessons.1": {
+  "chapters.#scaling.plannedLessons.1": {
    "text": "Dividir entre una fracción",
    "source": "Dividing by a fraction"
   },
-  "chapters.4.title": {
+  "chapters.#below-zero.title": {
    "text": "Bajo cero",
    "source": "Below zero"
   },
-  "chapters.4.summary": {
+  "chapters.#below-zero.summary": {
    "text": "Los números negativos y cómo se mueven.",
    "source": "Negative numbers and how they move."
   },
-  "chapters.4.plannedLessons.0": {
+  "chapters.#below-zero.plannedLessons.0": {
    "text": "A la izquierda del cero",
    "source": "Left of zero"
   },
-  "chapters.4.plannedLessons.1": {
+  "chapters.#below-zero.plannedLessons.1": {
    "text": "Sumar y restar negativos",
    "source": "Adding and subtracting negatives"
   }

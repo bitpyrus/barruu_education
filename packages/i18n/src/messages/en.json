@@ -251,5 +251,8 @@
   "feedback.numberLine.unplaced": "Put {point} on the line first.",
   "feedback.numberLine.value": "{point} is at {actual}, but it needs to be at {value}.",
   "feedback.numberLine.bound": "{point} is at {actual}; it needs to be {op} {value}.",
-  "feedback.numberLine.compare": "{point} needs to be {op} {other}."
+  "feedback.numberLine.compare": "{point} needs to be {op} {other}.",
+  "lesson.orderAria": "Put these in order",
+  "lesson.moveUp": "Move {item} up",
+  "lesson.moveDown": "Move {item} down"
 }

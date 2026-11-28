@@ -79,3 +79,15 @@ describe('number line', () => {
     expect(getDescriptor('numberLine')!.describeState(v.config, { points: { p: 0.75 } })).toContain('P is at 3/4');
   });
 });
+
+describe('number line decimals', () => {
+  it('parses decimal goal values and writes decimal feedback on decimal lines', () => {
+    const v = validateConfig<NumberLineConfig>('numberLine', { lines: [{ id: 'd', divisions: 20, labels: 'decimals' }], points: [{ id: 'P', label: 'P', line: 'd' }] });
+    if (!v.ok) throw new Error(v.errors.join());
+    const q = QuestionSchema.parse({ kind: 'numberLine', prompt: 'p', goals: [{ point: 'P', value: '0.25' }] });
+    const format = numberLineFormat(v.config);
+    expect(checkAnswer(q, { kind: 'numberLine', points: { P: 0.25 }, format }).correct).toBe(true);
+    expect(checkAnswer(q, { kind: 'numberLine', points: { P: 0.3 }, format }).message.params).toMatchObject({ actual: '0.3', value: '0.25' });
+    expect(getDescriptor('numberLine')!.describeState(v.config, { points: { P: 0.45 } })).toContain('P is at 0.45');
+  });
+});

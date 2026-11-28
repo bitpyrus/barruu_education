@@ -82,13 +82,13 @@ export function AnswerArea({ question: q, draft, onDraft, locked, reveal, onSubm
     onDraft({ ...draft, order: next });
   };
   return (
-    <ol className="grid gap-2.5" aria-label="Put these in order">
+    <ol className="grid gap-2.5" aria-label={t('lesson.orderAria')}>
       {draft.order.map((itemIdx, pos) => (
         <li key={itemIdx} className="flex items-center gap-3 rounded-2xl border-2 border-stone-200 bg-white px-4 py-3">
           <span className="w-6 text-center font-bold text-stone-400">{pos + 1}</span>
           <span className="flex-1 font-mono text-[16px]"><RichInline text={q.items[itemIdx]} /></span>
-          <button type="button" aria-label={`Move ${q.items[itemIdx]} up`} disabled={locked || pos === 0} onClick={() => move(pos, -1)} className="rounded-lg p-2 hover:bg-stone-100 disabled:opacity-25"><ArrowUp size={18} /></button>
-          <button type="button" aria-label={`Move ${q.items[itemIdx]} down`} disabled={locked || pos === draft.order.length - 1} onClick={() => move(pos, 1)} className="rounded-lg p-2 hover:bg-stone-100 disabled:opacity-25"><ArrowDown size={18} /></button>
+          <button type="button" aria-label={t('lesson.moveUp', { item: q.items[itemIdx] })} disabled={locked || pos === 0} onClick={() => move(pos, -1)} className="rounded-lg p-2 hover:bg-stone-100 disabled:opacity-25"><ArrowUp size={18} /></button>
+          <button type="button" aria-label={t('lesson.moveDown', { item: q.items[itemIdx] })} disabled={locked || pos === draft.order.length - 1} onClick={() => move(pos, 1)} className="rounded-lg p-2 hover:bg-stone-100 disabled:opacity-25"><ArrowDown size={18} /></button>
         </li>
       ))}
     </ol>
