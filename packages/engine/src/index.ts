@@ -12,6 +12,7 @@ export * from './expr';
 export * from './assessment';
 export * from './geometry';
 export * from './numberLine';
+export * from './balance';
 export * from './registry';
 export * from './validate';
 export * from './learnerModel';

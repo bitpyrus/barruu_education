@@ -14,6 +14,7 @@ import { SortingLab } from './SortingLab';
 import { GridBoard } from './GridBoard';
 import { CircuitBoard } from './CircuitBoard';
 import { NumberLine } from './NumberLine';
+import { BalanceTiles } from './BalanceTiles';
 import { cn } from '../cn';
 import { useUiText } from '../UiText';
 
@@ -25,6 +26,7 @@ const COMPONENTS: Record<string, ComponentType<InteractiveProps<any, any>>> = {
   gridBoard: GridBoard,
   circuitBoard: CircuitBoard,
   numberLine: NumberLine,
+  balanceTiles: BalanceTiles,
 };
 
 export interface InteractiveHostProps {

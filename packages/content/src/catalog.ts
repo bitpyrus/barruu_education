@@ -7,6 +7,7 @@ import { ConceptGraph, ConceptSchema, CourseSchema, courseLessons, type Concept,
 import { MATHEMATICAL_THINKING } from './courses/mathematicalThinking';
 import { ELECTRIC_CIRCUITS } from './courses/electricCircuits';
 import { NUMBERS_ON_THE_LINE } from './courses/numbersOnTheLine';
+import { EXPRESSIONS_AND_EQUATIONS } from './courses/expressionsAndEquations';
 
 const RAW_CONCEPTS: Concept[] = [
   // Mathematics
@@ -35,6 +36,8 @@ const RAW_CONCEPTS: Concept[] = [
   { id: 'equivalent-fractions', title: 'Equivalent fractions', subject: 'Mathematics', summary: 'Different names for the same point.', prerequisites: ['fractions-on-line'], skill: 'math.compare-fractions' },
   { id: 'decimals-as-fractions', title: 'Decimals as fractions', subject: 'Mathematics', summary: 'Tenths and hundredths on the line.', prerequisites: ['fractions-on-line'], skill: 'math.compare-fractions' },
   { id: 'ordering-numbers', title: 'Ordering fractions and decimals', subject: 'Mathematics', summary: 'One form, then left to right.', prerequisites: ['compare-fractions', 'decimals-as-fractions'], skill: 'math.compare-fractions' },
+  { id: 'equals-sign', title: 'The equals sign', subject: 'Mathematics', summary: 'Both sides have the same value.', prerequisites: [], skill: 'math.equals-sign' },
+  { id: 'solving-equations', title: 'Solving equations', subject: 'Mathematics', summary: 'Do the same thing to both sides.', prerequisites: ['equals-sign'], skill: 'math.two-step-equations' },
   { id: 'area-measurement', title: 'Measuring area', subject: 'Mathematics', summary: 'Area counts the unit squares a shape covers.', prerequisites: [], skill: 'math.area-by-rearranging' },
   { id: 'rectangle-area', title: 'Area of a rectangle', subject: 'Mathematics', summary: 'Width × height.', prerequisites: ['area-measurement'], skill: 'math.area-by-rearranging' },
   { id: 'area-perimeter', title: 'Area vs. perimeter', subject: 'Mathematics', summary: 'Same area, different outlines.', prerequisites: ['rectangle-area'], skill: 'math.area-perimeter' },
@@ -44,6 +47,7 @@ const RAW_CONCEPTS: Concept[] = [
 
 const RAW_COURSES: unknown[] = [
   NUMBERS_ON_THE_LINE,
+  EXPRESSIONS_AND_EQUATIONS,
   MATHEMATICAL_THINKING,
   ELECTRIC_CIRCUITS,
   {

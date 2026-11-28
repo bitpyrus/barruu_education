@@ -3,7 +3,7 @@
  *   npm run build && npm run preview   # serves on :4173 (or set BASE_URL)
  *   node scripts/e2e/web-check.cjs
  * Covers: placement (weak vs strong learner), language switching incl. RTL,
- * localized lesson content, a construction answer, the number line, the circuit builder (incl. a short circuit), mobile layout.
+ * localized lesson content, a construction answer, the number line, the balance scale, the circuit builder (incl. a short circuit), mobile layout.
  */
 const { chromium } = require('playwright');
 const { execSync } = require('node:child_process');
@@ -65,6 +65,18 @@ async function runPlacement(p, mode) {
   await p.getByRole('button', { name: 'Check' }).click();
   await p.getByText('Three jumps of a quarter.').waitFor();
   console.log('number line: keyboard placement + fraction feedback OK');
+
+  // Balance scale: "=" shows only when level; solve 2x + 3 = 11 by moves on both sides.
+  await p.goto(B + '/courses/expressions-and-equations/the-balance', { waitUntil: 'networkidle' });
+  await p.getByRole('radio').first().click(); // "7"
+  await p.getByRole('button', { name: 'Lock in' }).click();
+  await p.getByRole('button', { name: /Continue/ }).click();
+  if ((await p.getByTestId('balance-equation').innerText()) !== '12 ≠ 5') throw new Error('expected a tipped scale');
+  for (let i = 0; i < 7; i++) await p.getByRole('button', { name: /Add a 1 to the right pan/ }).click();
+  if ((await p.getByTestId('balance-equation').innerText()) !== '12 = 12') throw new Error('expected a level scale');
+  await p.getByRole('button', { name: 'Check' }).click();
+  await p.getByText(/The box is/).waitFor();
+  console.log('balance: free mode level OK');
 
   // Circuit builder: complete a loop, flip a switch, fall into (and out of) a short circuit.
   await p.goto(B + '/courses/electric-circuits/complete-the-loop', { waitUntil: 'networkidle' });

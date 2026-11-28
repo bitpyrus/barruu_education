@@ -7,6 +7,8 @@
 import { courseLessons, type Course, type Lesson, type Question } from './schema';
 import { validateConfig, resizeRect, initialCircuitBoard, placePart, numberLineFormat, type GridBoardConfig, type CircuitBoardConfig, type NumberLineConfig } from './registry';
 import { evaluateNumberLineGoals, type NumberLinePoints } from './numberLine';
+import { evaluateBalanceGoals } from './balance';
+import { reachableBalanceStates, type BalanceTilesConfig } from './registry';
 import { evaluateCircuitGoals, type CircuitBoard } from './sim/circuit';
 import { evaluateGoals, type Point } from './geometry';
 
@@ -109,12 +111,14 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
     let boardConfig: GridBoardConfig | undefined;
     let circuitConfig: CircuitBoardConfig | undefined;
     let lineConfig: NumberLineConfig | undefined;
+    let balanceConfig: BalanceTilesConfig | undefined;
     if (spec) {
       const v = validateConfig<GridBoardConfig>(spec.kind, spec.config);
       if (!v.ok) { v.errors.forEach(at); continue; }
       if (spec.kind === 'gridBoard') boardConfig = v.config;
       if (spec.kind === 'circuitBoard') circuitConfig = v.config as unknown as CircuitBoardConfig;
       if (spec.kind === 'numberLine') lineConfig = v.config as unknown as NumberLineConfig;
+      if (spec.kind === 'balanceTiles') balanceConfig = v.config as unknown as BalanceTilesConfig;
     }
     if (step.type !== 'question') continue;
     const q = step.question;
@@ -133,6 +137,12 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
       q.goals.forEach((g) => { if (g.part && !ids.has(g.part)) at(`goal refers to unknown part "${g.part}"`); });
       if (evaluateCircuitGoals(q.goals, initialCircuitBoard(circuitConfig)).met) at('the starting circuit already satisfies every goal');
       if (!findCircuitSolution(circuitConfig, q)) at('no reachable circuit satisfies every goal');
+    }
+    if (q.kind === 'balance') {
+      if (!balanceConfig) { at('balance question needs a balanceTiles interactive'); continue; }
+      const states = reachableBalanceStates(balanceConfig);
+      if (evaluateBalanceGoals(q.goals, states[0], balanceConfig.xValue).met) at('the starting balance already satisfies every goal');
+      if (!states.some((st) => evaluateBalanceGoals(q.goals, st, balanceConfig!.xValue).met)) at('no reachable balance state satisfies every goal');
     }
     if (q.kind === 'numberLine') {
       if (!lineConfig) { at('numberLine question needs a numberLine interactive'); continue; }

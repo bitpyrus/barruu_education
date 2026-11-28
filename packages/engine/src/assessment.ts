@@ -7,6 +7,7 @@ import { areEquivalent, evalSafe, ExprError, parseExpr } from './expr';
 import { evaluateGoals, type ShapeState } from './geometry';
 import { evaluateCircuitGoals, type CircuitBoard } from './sim/circuit';
 import { evaluateNumberLineGoals, type NumberLineFormat, type NumberLinePoints } from './numberLine';
+import { evaluateBalanceGoals, type BalanceSides } from './balance';
 
 export type Answer =
   | { kind: 'choice'; selected: string[] }
@@ -15,7 +16,8 @@ export type Answer =
   | { kind: 'order'; order: number[] }
   | { kind: 'construction'; shapes: Record<string, ShapeState> }
   | { kind: 'circuit'; board: CircuitBoard }
-  | { kind: 'numberLine'; points: NumberLinePoints; format?: NumberLineFormat };
+  | { kind: 'numberLine'; points: NumberLinePoints; format?: NumberLineFormat }
+  | { kind: 'balance'; sides: BalanceSides; xValue: number };
 
 /**
  * Feedback is returned twice: as English `feedback` (fallback, logs, tutor) and as
@@ -34,7 +36,8 @@ export type FeedbackCode =
   | 'goal.degenerate' | 'goal.metric'
   | 'circuit.empty' | 'circuit.correct' | 'circuit.short' | 'circuit.invalid' | 'circuit.dark' | 'circuit.lit'
   | 'circuit.litBulbs' | 'circuit.total' | 'circuit.metric'
-  | 'numberLine.empty' | 'numberLine.correct' | 'numberLine.unplaced' | 'numberLine.value' | 'numberLine.bound' | 'numberLine.compare';
+  | 'numberLine.empty' | 'numberLine.correct' | 'numberLine.unplaced' | 'numberLine.value' | 'numberLine.bound' | 'numberLine.compare'
+  | 'balance.empty' | 'balance.correct' | 'balance.unbalanced' | 'balance.tipped' | 'balance.notSolved';
 
 export type MessageParams = Record<string, string | number>;
 
@@ -140,6 +143,13 @@ export function checkAnswer(q: Question, a: Answer): CheckResult {
       const r = evaluateNumberLineGoals(q.goals, a.points, a.format);
       const metCount = r.results.filter((x) => x.met).length;
       if (r.met) return result(true, 1, q.successFeedback ? custom(q.successFeedback) : msg('numberLine.correct', 'Spot on!'));
+      return result(false, metCount / r.results.length, r.results.find((x) => !x.met)!.feedback);
+    }
+    case 'balance': {
+      if (a.kind !== 'balance') return result(false, 0, msg('balance.empty', 'Use the balance first.'), [], true);
+      const r = evaluateBalanceGoals(q.goals, a.sides, a.xValue);
+      const metCount = r.results.filter((x) => x.met).length;
+      if (r.met) return result(true, 1, q.successFeedback ? custom(q.successFeedback) : msg('balance.correct', 'Balanced!'));
       return result(false, metCount / r.results.length, r.results.find((x) => !x.met)!.feedback);
     }
   }

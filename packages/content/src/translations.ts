@@ -8,8 +8,9 @@ import type { Course } from '@barruu/engine';
 import esMathematicalThinking from './translations/es/mathematical-thinking.json';
 import esElectricCircuits from './translations/es/electric-circuits.json';
 import esNumbersOnTheLine from './translations/es/numbers-on-the-line.json';
+import esExpressionsAndEquations from './translations/es/expressions-and-equations.json';
 
-const RAW: unknown[] = [esMathematicalThinking, esElectricCircuits, esNumbersOnTheLine];
+const RAW: unknown[] = [esMathematicalThinking, esElectricCircuits, esNumbersOnTheLine, esExpressionsAndEquations];
 
 export const OVERLAYS: Overlay[] = RAW.map((o) => OverlaySchema.parse(o));
 

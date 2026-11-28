@@ -7,6 +7,7 @@ export type { InteractiveHostProps } from './interactives/InteractiveHost';
 export { GridBoard } from './interactives/GridBoard';
 export { CircuitBoard } from './interactives/CircuitBoard';
 export { NumberLine } from './interactives/NumberLine';
+export { BalanceTiles } from './interactives/BalanceTiles';
 export { FunctionExplorer } from './interactives/FunctionExplorer';
 export { PendulumLab } from './interactives/PendulumLab';
 export { SortingLab } from './interactives/SortingLab';

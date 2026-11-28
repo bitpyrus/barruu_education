@@ -19,6 +19,19 @@ export function CourseArt({ course, className }: { course: Pick<Course, 'illustr
 const W = '#ffffff';
 
 const ART: Record<string, () => React.ReactNode> = {
+  balance: () => (
+    <g fill="none" stroke={W} strokeLinecap="round" strokeLinejoin="round">
+      {/* A level balance: x + 3 on the left, 7 on the right */}
+      <path d="M140 170 L180 170 L160 70 Z" fill={W} opacity="0.35" stroke="none" />
+      <line x1="60" y1="70" x2="260" y2="70" strokeWidth="6" />
+      <path d="M20 125 Q60 140 100 125 M220 125 Q260 140 300 125" strokeWidth="4" />
+      <line x1="60" y1="70" x2="35" y2="125" strokeWidth="2" opacity="0.7" /><line x1="60" y1="70" x2="85" y2="125" strokeWidth="2" opacity="0.7" />
+      <line x1="260" y1="70" x2="235" y2="125" strokeWidth="2" opacity="0.7" /><line x1="260" y1="70" x2="285" y2="125" strokeWidth="2" opacity="0.7" />
+      <rect x="34" y="88" width="14" height="32" rx="4" fill={W} stroke="none" />
+      {[54, 70, 54].map((x, i) => <rect key={i} x={x + (i === 2 ? 16 : 0)} y={i === 2 ? 88 : 106} width="13" height="13" rx="3" fill={W} opacity="0.8" stroke="none" />)}
+      {[0, 1, 2, 3, 4, 5, 6].map((i) => <rect key={`r${i}`} x={232 + (i % 4) * 15} y={i < 4 ? 106 : 91} width="13" height="13" rx="3" fill={W} opacity="0.8" stroke="none" />)}
+    </g>
+  ),
   numberline: () => (
     <g fill="none" stroke={W} strokeLinecap="round">
       {/* A number line from 0 to 1 split into quarters, with a pin at 3/4 */}
