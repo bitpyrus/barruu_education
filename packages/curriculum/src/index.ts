@@ -3,5 +3,7 @@
  * item bank and adaptive level detection.
  */
 export * from './skills';
+export * from './math';
+export * from './misconceptions';
 export * from './items';
 export * from './placement';

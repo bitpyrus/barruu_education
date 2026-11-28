@@ -107,3 +107,27 @@ describe('translations', () => {
     expect(lintCourse(es)).toEqual([]);
   });
 });
+
+describe('content uses the shared curriculum vocabulary', () => {
+  it('every concept maps to a curriculum skill', async () => {
+    const { getSkill } = await import('@barruu/curriculum');
+    for (const c of CONCEPTS) expect(c.skill && getSkill(c.skill), `${c.id} → ${c.skill}`).toBeTruthy();
+  });
+
+  it('every misconception tag in courses and placement items is in the catalogue', async () => {
+    const { MISCONCEPTION_BY_ID, ITEMS } = await import('@barruu/curriculum');
+    const tags = new Set<string>(['short-circuit']); // emitted by the circuit checker
+    const walk = (v: unknown): void => {
+      if (Array.isArray(v)) v.forEach(walk);
+      else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) { if (k === 'misconception' && typeof x === 'string') tags.add(x); else walk(x); }
+    };
+    walk(COURSES); walk(ITEMS);
+    const missing = [...tags].filter((t) => !MISCONCEPTION_BY_ID.has(t));
+    expect(missing).toEqual([]);
+  });
+
+  it('every built course that implements a math plan course exists', async () => {
+    const { MATH_COURSES } = await import('@barruu/curriculum');
+    for (const c of MATH_COURSES) if (c.implementedBy) expect(COURSES.some((k) => k.id === c.implementedBy), c.code).toBe(true);
+  });
+});

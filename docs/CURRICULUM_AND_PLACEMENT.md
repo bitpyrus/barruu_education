@@ -2,14 +2,19 @@
 
 ## Skill map (`packages/curriculum/src/skills.ts`)
 
+Mathematics comes from the curriculum plan in `packages/curriculum/src/math.ts` (one skill per course chapter,
+grades 6–14); see docs/MATH_CURRICULUM.md and ADR 0008. Science, engineering and CS skills are listed in `skills.ts`.
+
+
 - Subjects: Mathematics, Physics, Chemistry, Engineering, Computer Science.
 - Each skill: `id` (`subject.topic`), title, subject, **typical US grade** (8 = before high school, 9–12, 13+ =
   university), prerequisites.
 - Rules (tested by `validateSkillGraph`): prerequisites exist, no cycles, a prerequisite is never taught at a later
   grade than the skill.
 - Courses declare `grades: [from, to]` and `skills: [...]`; the content check verifies the skills exist.
-- Lesson-level `concepts` (finer-grained, in `packages/content`) and curriculum `skills` are separate for now; see
-  STATE.md known issues for unification.
+- Lesson-level `concepts` (in `packages/content`) each name the curriculum skill they are evidence for
+  (`Concept.skill`, required by a content test), so lessons and placement move the same nodes.
+- Distractor `misconception` tags must exist in `packages/curriculum/src/misconceptions.ts` (tested).
 
 Extending to other grades = adding skills with grades outside 9–12 and courses tagged accordingly.
 

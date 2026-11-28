@@ -39,6 +39,11 @@ export const ConceptSchema = z.object({
   subject: z.string().min(1),
   summary: z.string().default(''),
   prerequisites: z.array(z.string()).default([]),
+  /**
+   * The curriculum skill (packages/curriculum) this concept is evidence for, so lesson evidence
+   * and the placement test move the same node. Content tests require it for built-in concepts.
+   */
+  skill: z.string().optional(),
 });
 export type Concept = z.infer<typeof ConceptSchema>;
 

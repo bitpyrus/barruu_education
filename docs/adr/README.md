@@ -12,3 +12,4 @@ one; mark superseded ADRs.
 | [0005](0005-private-until-owner-licenses.md) | No licence until the owner decides; develop privately | Accepted |
 | [0006](0006-whole-app-precache.md) | Precache the whole app on first visit (service worker) | Accepted |
 | [0007](0007-circuit-builder-model.md) | Circuit builder: lattice edges, gap slots, MNA solver | Accepted |
+| [0008](0008-one-math-skill-graph.md) | One mathematics skill graph; syllabi are views of it | Accepted |

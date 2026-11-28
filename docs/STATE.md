@@ -1,6 +1,6 @@
 # Current state · capabilities · known issues · next task
 
-_Last updated: 2026-11-27 — branch `claude/circuits-course` (PR to `main`)._
+_Last updated: 2026-11-28 — branch `claude/math-curriculum` (PR to `main`)._
 
 ## Snapshot
 The foundation is in place:
@@ -9,6 +9,9 @@ The foundation is in place:
 - Multilingual support: English, plus Spanish and Arabic as machine drafts, including right-to-left layout.
   Translation is overlay-based.
 - Five courses: the flagships *Mathematical Thinking* and *Electric Circuits*, plus three previews.
+- A researched **mathematics curriculum** (docs/MATH_CURRICULUM.md, research in docs/research/): 27 courses and
+  137 chapter skills, grade 6 to university year 1, with alignment tags, a misconception catalogue and a validated skill
+  graph (ADR 0008).
 - A circuit builder (`circuitBoard`): exact DC solver, circuit goals as answers, short-circuit detection (ADR 0007).
 - A web app with home, placement, catalog, course and lesson player pages, and a language switcher.
 - AI-native development setup: `AGENTS.md`, slash commands, reviewer agents, ADRs, CI.
@@ -23,7 +26,9 @@ The foundation is in place:
 | Content lint (solvable constructions and circuits, etc.) | ✅ | `npm run content:check`, catalog tests |
 | Circuit builder: solver, goals, lint, renderer (keyboard + touch) | ✅ | `circuit.test.ts` (hand-computed values), `circuits.test.ts` (lesson physics), `web-check.cjs` |
 | *Electric Circuits* chapter 1 (3 lessons) + Spanish draft | ✅ en · 🔶 es machine draft (185/185) | content:check, reviewer agents |
-| Skill map valid (DAG, grade order) | ✅ | `curriculum.test.ts` |
+| Skill map valid (DAG, grade order) | ✅ incl. 137 math chapter skills (grades 6–14) | `curriculum.test.ts`, `math.test.ts` |
+| Math curriculum plan (courses, chapters, alignment tags, interactives) | ✅ data; 🔶 alignment codes for Singapore/IB unverified | `math.test.ts` |
+| Misconception catalogue; content tags + concept→skill mapping enforced | ✅ | `math.test.ts`, `catalog.test.ts` |
 | Adaptive placement | ✅ engine; ⚠ item difficulties estimated | simulation tests; `web-check.cjs` (weak → "Before grade 9", strong → "Beyond grade 12") |
 | UI translations en/es/ar complete, plurals incl. Arabic | ✅ | `i18n.test.ts` |
 | Engine feedback + interactive labels localized (codes + params) | ✅ | `engine.test.ts`, `i18n.test.ts`, `web-check.cjs` (Spanish goal feedback) |
@@ -47,8 +52,8 @@ The foundation is in place:
    is no install manifest, icons, or "available offline" indicator yet.
 2. Placement item prompts aren't translatable yet.
 3. Placement difficulties are expert estimates. Calibration is needed (docs/CURRICULUM_AND_PLACEMENT.md).
-4. Lesson `concepts` (content) and curriculum `skills` are two separate vocabularies. Unify or map them so lesson
-   evidence updates curriculum skills.
+4. Lesson `concepts` now map to curriculum skills (`Concept.skill`), but the learner model still updates concepts only.
+   Next: when a concept's evidence is recorded, also update its skill (or key the learner model by skill).
 5. The placement result doesn't yet seed the learner model.
 6. No bundled Arabic font. It falls back to system fonts, so rendering varies offline.
 7. Each deploy re-downloads the whole app (~1.3 MB) on the next online visit. That's fine at today's size.
@@ -60,14 +65,18 @@ The foundation is in place:
    `.bipy` import, and the homepage live challenge.
 
 ## Next task (do this next)
-**Connect placement to learning, then the next interactive.**
-1. Make placement items translatable (overlays like courses), and translate them to es/ar. Known issue 2.
-2. Seed the learner model from the placement result (known issue 5), and map lesson `concepts` to curriculum
-   `skills` (known issue 4). Then "Find your level" can recommend a starting lesson, for example *Electric Circuits*
-   for learners who show `phys.circuits` gaps.
-3. Next interactive: the force/vector diagram, for a *Forces & Motion* course (ROADMAP Phase 1).
-4. Electric Circuits chapter 2 (*Power and energy*: P = VI, energy cost, fuses). The circuit board already reports
-   power.
+**Phase 1 of the math plan (docs/MATH_CURRICULUM.md → Build order).**
+1. Build the **number line** interactive (`numberLine`, rank 1). It needs:
+   - points, jumps, intervals and stacked lines, with zoom;
+   - engine checkers for a point or interval within tolerance, and for ordering;
+   - keyboard and touch input, with text through `useUiText()`.
+   Then author **F1 Numbers on the line**, chapter 1 *Where fractions live*. Use misconception-tagged distractors from
+   the catalogue, such as `whole-number-bias` and `add-tops-and-bottoms`. Run the reviewer agents.
+2. Build **balance scale → algebra tiles** (`balanceTiles`), then F3 chapter 1 *What "=" means* (`equals-means-compute`).
+3. Finish the rest of Phase 0:
+   - key translation overlay paths by step and option id (known issue 9);
+   - seed the learner model from placement (known issue 5);
+   - add grade 6–8 placement items for the new foundations skills.
 
 ## Handoff notes
 - Deploy: Cloudflare Workers via root `wrangler.jsonc` (static assets from `apps/web/dist`); see docs/LOCAL_AND_OFFLINE.md.
@@ -83,5 +92,7 @@ The foundation is in place:
 - Circuit boards: edge ids are `h:x,y` / `v:x,y` (x right, y down). A battery's `+` is end `a` (top/left) unless
   `positive: 'b'`. Bulbs are 6 Ω and reach full brightness at 1.5 W (3 V). Authors give learners **slots** (gaps
   with options) and toggleable switches; content lint enumerates every reachable board to prove a challenge solvable.
+- Math curriculum: add chapters and skills in `packages/curriculum/src/math.ts`, not in `skills.ts`. Within a course, a
+  chapter may only depend on earlier chapters (tested). New distractor tags go in `misconceptions.ts`.
 - React-hooks v7 lint flags setState in effects and ref writes during render. Use the derived-state pattern instead
   (see `PendulumLab.tsx` and `SortingLab.tsx`).
