@@ -6,6 +6,7 @@
 import { ConceptGraph, ConceptSchema, CourseSchema, courseLessons, type Concept, type Course, type Lesson } from '@barruu/engine';
 import { MATHEMATICAL_THINKING } from './courses/mathematicalThinking';
 import { ELECTRIC_CIRCUITS } from './courses/electricCircuits';
+import { NUMBERS_ON_THE_LINE } from './courses/numbersOnTheLine';
 
 const RAW_CONCEPTS: Concept[] = [
   // Mathematics
@@ -29,6 +30,9 @@ const RAW_CONCEPTS: Concept[] = [
   { id: 'arrays', title: 'Arrays', subject: 'Computer Science', summary: 'Ordered collections indexed by position.', prerequisites: [], skill: 'cs.algorithms' },
   { id: 'compare-swap', title: 'Compare & swap', subject: 'Computer Science', summary: 'The basic operations of comparison sorts.', prerequisites: ['arrays'], skill: 'cs.algorithms' },
   { id: 'bubble-sort', title: 'Bubble sort', subject: 'Computer Science', summary: 'Repeatedly swapping adjacent out-of-order pairs.', prerequisites: ['compare-swap'], skill: 'cs.algorithms' },
+  { id: 'fractions-on-line', title: 'Fractions on the number line', subject: 'Mathematics', summary: 'a/b is a jumps of size 1/b.', prerequisites: [], skill: 'math.fractions-on-line' },
+  { id: 'compare-fractions', title: 'Comparing fractions', subject: 'Mathematics', summary: 'Further from zero is bigger; more parts means smaller parts.', prerequisites: ['fractions-on-line'], skill: 'math.compare-fractions' },
+  { id: 'equivalent-fractions', title: 'Equivalent fractions', subject: 'Mathematics', summary: 'Different names for the same point.', prerequisites: ['fractions-on-line'], skill: 'math.compare-fractions' },
   { id: 'area-measurement', title: 'Measuring area', subject: 'Mathematics', summary: 'Area counts the unit squares a shape covers.', prerequisites: [], skill: 'math.area-by-rearranging' },
   { id: 'rectangle-area', title: 'Area of a rectangle', subject: 'Mathematics', summary: 'Width × height.', prerequisites: ['area-measurement'], skill: 'math.area-by-rearranging' },
   { id: 'area-perimeter', title: 'Area vs. perimeter', subject: 'Mathematics', summary: 'Same area, different outlines.', prerequisites: ['rectangle-area'], skill: 'math.area-perimeter' },
@@ -37,6 +41,7 @@ const RAW_CONCEPTS: Concept[] = [
 ];
 
 const RAW_COURSES: unknown[] = [
+  NUMBERS_ON_THE_LINE,
   MATHEMATICAL_THINKING,
   ELECTRIC_CIRCUITS,
   {

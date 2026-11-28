@@ -6,6 +6,7 @@ import type { Question } from './schema';
 import { areEquivalent, evalSafe, ExprError, parseExpr } from './expr';
 import { evaluateGoals, type ShapeState } from './geometry';
 import { evaluateCircuitGoals, type CircuitBoard } from './sim/circuit';
+import { evaluateNumberLineGoals, type NumberLineFormat, type NumberLinePoints } from './numberLine';
 
 export type Answer =
   | { kind: 'choice'; selected: string[] }
@@ -13,7 +14,8 @@ export type Answer =
   | { kind: 'expression'; value: string }
   | { kind: 'order'; order: number[] }
   | { kind: 'construction'; shapes: Record<string, ShapeState> }
-  | { kind: 'circuit'; board: CircuitBoard };
+  | { kind: 'circuit'; board: CircuitBoard }
+  | { kind: 'numberLine'; points: NumberLinePoints; format?: NumberLineFormat };
 
 /**
  * Feedback is returned twice: as English `feedback` (fallback, logs, tutor) and as
@@ -31,7 +33,8 @@ export type FeedbackCode =
   | 'construction.empty' | 'construction.correct'
   | 'goal.degenerate' | 'goal.metric'
   | 'circuit.empty' | 'circuit.correct' | 'circuit.short' | 'circuit.invalid' | 'circuit.dark' | 'circuit.lit'
-  | 'circuit.litBulbs' | 'circuit.total' | 'circuit.metric';
+  | 'circuit.litBulbs' | 'circuit.total' | 'circuit.metric'
+  | 'numberLine.empty' | 'numberLine.correct' | 'numberLine.unplaced' | 'numberLine.value' | 'numberLine.bound' | 'numberLine.compare';
 
 export type MessageParams = Record<string, string | number>;
 
@@ -131,6 +134,13 @@ export function checkAnswer(q: Question, a: Answer): CheckResult {
       const metCount = r.results.filter((x) => x.met).length;
       if (r.met) return result(true, 1, q.successFeedback ? custom(q.successFeedback) : msg('circuit.correct', 'Your circuit works!'));
       return result(false, metCount / r.results.length, r.results.find((x) => !x.met)!.feedback, r.solution.status === 'short' ? ['short-circuit'] : []);
+    }
+    case 'numberLine': {
+      if (a.kind !== 'numberLine') return result(false, 0, msg('numberLine.empty', 'Place the points on the line first.'), [], true);
+      const r = evaluateNumberLineGoals(q.goals, a.points, a.format);
+      const metCount = r.results.filter((x) => x.met).length;
+      if (r.met) return result(true, 1, q.successFeedback ? custom(q.successFeedback) : msg('numberLine.correct', 'Spot on!'));
+      return result(false, metCount / r.results.length, r.results.find((x) => !x.met)!.feedback);
     }
   }
 }

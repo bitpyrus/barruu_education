@@ -52,6 +52,7 @@ export const MISCONCEPTIONS: Misconception[] = [
     ['https://link.springer.com/doi/10.1007/BF00305619']),
 
   // ── Mathematics: classic, citation pending ─────────────────────────────────
+  M('counts-ticks-not-spaces', 'math.fractions-on-line', 'classic', 'Counts tick marks instead of equal spaces to find the denominator (calls the third of five spaces 3/4 or 3/6).'),
   M('negative-square-precedence', 'math.exponent-laws', 'classic', 'Reads −3² as (−3)² = 9.'),
   M('freshman-binomial', 'math.expanding', 'classic', 'Expands (a + b)² as a² + b².'),
   M('root-of-sum', 'math.surds', 'classic', 'Splits roots over addition: √(a + b) = √a + √b.'),

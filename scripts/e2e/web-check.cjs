@@ -3,7 +3,7 @@
  *   npm run build && npm run preview   # serves on :4173 (or set BASE_URL)
  *   node scripts/e2e/web-check.cjs
  * Covers: placement (weak vs strong learner), language switching incl. RTL,
- * localized lesson content, a construction answer, the circuit builder (incl. a short circuit), mobile layout.
+ * localized lesson content, a construction answer, the number line, the circuit builder (incl. a short circuit), mobile layout.
  */
 const { chromium } = require('playwright');
 const { execSync } = require('node:child_process');
@@ -48,6 +48,24 @@ async function runPlacement(p, mode) {
   console.log('placement (answers correctly):', strong);
   const rank = (s) => (/Before/.test(s) ? 8 : /Beyond/.test(s) ? 13 : Number(s.match(/\d+/)?.[0]));
   if (!(rank(strong) > rank(weak))) throw new Error(`strong learner should place higher (${strong} vs ${weak})`);
+
+  // Number line: place a point by keyboard, get fraction feedback, fix it.
+  await p.goto(B + '/courses/numbers-on-the-line/where-does-three-quarters-live', { waitUntil: 'networkidle' });
+  await p.getByRole('button', { name: /Continue/ }).click();
+  await p.getByRole('radio', { name: /Closer to 0/ }).click();
+  await p.getByRole('button', { name: 'Lock in' }).click();
+  for (let i = 0; i < 3; i++) await p.getByRole('button', { name: /Continue/ }).click();
+  await p.locator('[data-point=P]').focus();
+  for (let i = 0; i < 3; i++) await p.keyboard.press('ArrowRight'); // 0 → 2/4
+  await p.getByRole('button', { name: 'Check' }).click();
+  const nlFb = await p.getByRole('status').first().innerText();
+  if (!/P is at 2\/4, but it needs to be at 3\/4/.test(nlFb)) throw new Error('expected number-line feedback, got: ' + nlFb);
+  await p.getByRole('button', { name: 'Try again' }).click();
+  await p.locator('[data-point=P]').focus();
+  await p.keyboard.press('ArrowRight');
+  await p.getByRole('button', { name: 'Check' }).click();
+  await p.getByText('Three jumps of a quarter.').waitFor();
+  console.log('number line: keyboard placement + fraction feedback OK');
 
   // Circuit builder: complete a loop, flip a switch, fall into (and out of) a short circuit.
   await p.goto(B + '/courses/electric-circuits/complete-the-loop', { waitUntil: 'networkidle' });
@@ -108,6 +126,9 @@ async function runPlacement(p, mode) {
   console.log('es construction feedback:', fb.replace(/\s+/g, ' ').slice(0, 90));
   if (!/Exactamente 12/.test(fb)) throw new Error('expected Spanish success feedback');
   await shot(p, 'w4-lesson-es');
+  await p.goto(B + '/courses/numbers-on-the-line', { waitUntil: 'networkidle' });
+  await p.getByRole('heading', { level: 1, name: 'Números en la recta' }).waitFor();
+  console.log('es number-line course title OK');
 
   // Arabic: RTL
   await p.goto(B + '/', { waitUntil: 'networkidle' });

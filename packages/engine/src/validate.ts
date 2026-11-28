@@ -5,7 +5,8 @@
  * AI-generated and imported content (see docs/education/AI_CREATION.md).
  */
 import { courseLessons, type Course, type Lesson, type Question } from './schema';
-import { validateConfig, resizeRect, initialCircuitBoard, placePart, type GridBoardConfig, type CircuitBoardConfig } from './registry';
+import { validateConfig, resizeRect, initialCircuitBoard, placePart, numberLineFormat, type GridBoardConfig, type CircuitBoardConfig, type NumberLineConfig } from './registry';
+import { evaluateNumberLineGoals, type NumberLinePoints } from './numberLine';
 import { evaluateCircuitGoals, type CircuitBoard } from './sim/circuit';
 import { evaluateGoals, type Point } from './geometry';
 
@@ -74,6 +75,26 @@ export function findCircuitSolution(config: CircuitBoardConfig, q: Extract<Quest
   return null;
 }
 
+/** Searches every placement of the draggable points (on ticks) for one meeting every goal. */
+export function findNumberLineSolution(config: NumberLineConfig, q: Extract<Question, { kind: 'numberLine' }>): NumberLinePoints | null {
+  const lines = new Map(config.lines.map((l) => [l.id, l]));
+  const fixed: NumberLinePoints = Object.fromEntries(config.points.map((p) => [p.id, p.value ?? null]));
+  const movable = config.points.filter((p) => p.draggable).map((p) => {
+    const l = lines.get(p.line)!;
+    return { id: p.id, values: Array.from({ length: (l.max - l.min) * l.divisions + 1 }, (_, i) => l.min + i / l.divisions) };
+  });
+  const total = movable.reduce((n, m) => n * m.values.length, 1);
+  if (total > MAX_CIRCUITS) return null;
+  const fmt = numberLineFormat(config);
+  for (let i = 0; i < total; i++) {
+    const pts: NumberLinePoints = { ...fixed };
+    let rest = i;
+    for (const m of movable) { pts[m.id] = m.values[rest % m.values.length]; rest = Math.floor(rest / m.values.length); }
+    if (evaluateNumberLineGoals(q.goals, pts, fmt).met) return pts;
+  }
+  return null;
+}
+
 /** Problems that would make a lesson unplayable or wrongly assessed. */
 export function lintLesson(lesson: Lesson): ContentIssue[] {
   const issues: ContentIssue[] = [];
@@ -82,11 +103,13 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
     const spec = step.type === 'interactive' || step.type === 'question' ? step.interactive : undefined;
     let boardConfig: GridBoardConfig | undefined;
     let circuitConfig: CircuitBoardConfig | undefined;
+    let lineConfig: NumberLineConfig | undefined;
     if (spec) {
       const v = validateConfig<GridBoardConfig>(spec.kind, spec.config);
       if (!v.ok) { v.errors.forEach(at); continue; }
       if (spec.kind === 'gridBoard') boardConfig = v.config;
       if (spec.kind === 'circuitBoard') circuitConfig = v.config as unknown as CircuitBoardConfig;
+      if (spec.kind === 'numberLine') lineConfig = v.config as unknown as NumberLineConfig;
     }
     if (step.type !== 'question') continue;
     const q = step.question;
@@ -105,6 +128,14 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
       q.goals.forEach((g) => { if (g.part && !ids.has(g.part)) at(`goal refers to unknown part "${g.part}"`); });
       if (evaluateCircuitGoals(q.goals, initialCircuitBoard(circuitConfig)).met) at('the starting circuit already satisfies every goal');
       if (!findCircuitSolution(circuitConfig, q)) at('no reachable circuit satisfies every goal');
+    }
+    if (q.kind === 'numberLine') {
+      if (!lineConfig) { at('numberLine question needs a numberLine interactive'); continue; }
+      const ids = new Set(lineConfig.points.map((p) => p.id));
+      q.goals.forEach((g) => { [g.point, g.other].forEach((id) => { if (id && !ids.has(id)) at(`goal refers to unknown point "${id}"`); }); });
+      const start = Object.fromEntries(lineConfig.points.map((p) => [p.id, p.value ?? null]));
+      if (evaluateNumberLineGoals(q.goals, start, numberLineFormat(lineConfig)).met) at('the starting line already satisfies every goal');
+      if (!findNumberLineSolution(lineConfig, q)) at('no reachable placement satisfies every goal');
     }
     if (q.kind === 'choice' && !q.options.some((o) => o.correct)) at('choice question has no correct option');
     if (q.kind === 'order' && [...q.correctOrder].sort().join() !== q.items.map((_, i) => i).join()) at('correctOrder is not a permutation of the items');

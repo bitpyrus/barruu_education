@@ -238,5 +238,18 @@
   "metric.current": "التيار",
   "metric.voltage": "الجهد",
   "metric.power": "القدرة",
-  "metric.brightness": "السطوع"
+  "metric.brightness": "السطوع",
+  "ui.nl.aria": "خط الأعداد ({count} خطوط)",
+  "ui.nl.point": "النقطة",
+  "ui.nl.unplaced": "النقطة {label} ليست على الخط بعد. اضغط مفتاح سهم لوضعها.",
+  "ui.nl.placed": "النقطة {label} عند {value}. استخدم مفاتيح الأسهم لتحريكها.",
+  "ui.nl.fixed": "النقطة {label} عند {value}.",
+  "ui.nl.tray": "اسحب:",
+  "ui.nl.hint": "اسحب نقطة (أو استخدم الأسهم). تستقر على العلامات.",
+  "feedback.numberLine.empty": "ضع النقاط على الخط أولًا.",
+  "feedback.numberLine.correct": "في المكان تمامًا!",
+  "feedback.numberLine.unplaced": "ضع النقطة {point} على الخط أولًا.",
+  "feedback.numberLine.value": "النقطة {point} عند {actual}، لكن يجب أن تكون عند {value}.",
+  "feedback.numberLine.bound": "النقطة {point} عند {actual}؛ يجب أن تكون {op} {value}.",
+  "feedback.numberLine.compare": "يجب أن تكون النقطة {point} {op} {other}."
 }

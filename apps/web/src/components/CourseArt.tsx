@@ -19,6 +19,18 @@ export function CourseArt({ course, className }: { course: Pick<Course, 'illustr
 const W = '#ffffff';
 
 const ART: Record<string, () => React.ReactNode> = {
+  numberline: () => (
+    <g fill="none" stroke={W} strokeLinecap="round">
+      {/* A number line from 0 to 1 split into quarters, with a pin at 3/4 */}
+      <line x1="40" y1="130" x2="280" y2="130" strokeWidth="4" />
+      {[0, 1, 2, 3, 4].map((i) => <line key={i} x1={50 + i * 55} x2={50 + i * 55} y1={i % 4 === 0 ? 116 : 122} y2={i % 4 === 0 ? 144 : 138} strokeWidth={i % 4 === 0 ? 4 : 3} />)}
+      <line x1="50" x2="215" y1="130" y2="130" strokeWidth="14" opacity="0.35" />
+      <path d="M215 112 L207 98 A 16 16 0 1 1 223 98 Z" fill={W} stroke="none" />
+      <text x="50" y="172" fill={W} stroke="none" fontSize="18" fontWeight="700" textAnchor="middle">0</text>
+      <text x="270" y="172" fill={W} stroke="none" fontSize="18" fontWeight="700" textAnchor="middle">1</text>
+      <text x="215" y="60" fill={W} stroke="none" fontSize="26" fontWeight="800" textAnchor="middle">¾</text>
+    </g>
+  ),
   circuit: () => (
     <g fill="none" stroke={W} strokeLinecap="round" strokeLinejoin="round">
       {/* A battery lighting two bulbs in parallel */}
