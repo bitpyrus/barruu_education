@@ -1,0 +1,395 @@
+{
+ "locale": "es",
+ "contentId": "expressions-and-equations",
+ "status": "machine-draft",
+ "strings": {
+  "title": {
+   "text": "Expresiones y ecuaciones",
+   "source": "Expressions and Equations"
+  },
+  "tagline": {
+   "text": "Mantén el equilibrio. Encuentra la incógnita.",
+   "source": "Keep it balanced. Find the unknown."
+  },
+  "summary": {
+   "text": "Una ecuación es una balanza. Aprende qué significa de verdad «=», y luego despeja la incógnita haciendo lo mismo en ambos lados, primero con fichas en una balanza y después con símbolos.",
+   "source": "An equation is a balance. Learn what \"=\" really means, then solve for the unknown by doing the same thing to both sides, first with tiles on a scale, then with symbols."
+  },
+  "outcomes.0": {
+   "text": "Leer «=» como «los dos lados tienen el mismo valor»",
+   "source": "Read \"=\" as \"both sides have the same value\""
+  },
+  "outcomes.1": {
+   "text": "Mantener una ecuación equilibrada mientras la cambias",
+   "source": "Keep an equation balanced while changing it"
+  },
+  "outcomes.2": {
+   "text": "Resolver ecuaciones de uno y dos pasos",
+   "source": "Solve one- and two-step equations"
+  },
+  "prerequisites.0": {
+   "text": "Sumar y multiplicar números enteros",
+   "source": "Adding and multiplying whole numbers"
+  },
+  "chapters.#what-equals-means.title": {
+   "text": "Qué significa «=»",
+   "source": "What \"=\" means"
+  },
+  "chapters.#what-equals-means.summary": {
+   "text": "Igual significa equilibrado.",
+   "source": "Equal means balanced."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.title": {
+   "text": "¿Qué significa =?",
+   "source": "What does = mean?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.summary": {
+   "text": "Equilibra una balanza y luego encuentra un peso oculto sin inclinarla nunca.",
+   "source": "Balance a scale, then find a hidden weight without ever tipping it."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.objectives.0": {
+   "text": "Leer «=» como «mismo valor en ambos lados»",
+   "source": "Read \"=\" as \"same value on both sides\""
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.objectives.1": {
+   "text": "Resolver ecuaciones haciendo lo mismo en ambos lados",
+   "source": "Solve equations by doing the same thing to both sides"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.title": {
+   "text": "Completa la casilla",
+   "source": "Fill the box"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.question.prompt": {
+   "text": "$8 + 4 = \\square + 5$. ¿Qué va en la casilla?",
+   "source": "$8 + 4 = \\square + 5$. What goes in the box?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.question.options.#seven.text": {
+   "text": "7",
+   "source": "7"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.question.options.#seven.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.question.options.#twelve.text": {
+   "text": "12",
+   "source": "12"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.question.options.#twelve.feedback": {
+   "text": "Comprobémoslo.",
+   "source": "Let's check."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.question.options.#seventeen.text": {
+   "text": "17",
+   "source": "17"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict.question.options.#seventeen.feedback": {
+   "text": "Comprobémoslo en una balanza.",
+   "source": "Let's check on a scale."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#level.title": {
+   "text": "Nivélala",
+   "source": "Make it level"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#level.body": {
+   "text": "El platillo izquierdo tiene 8 + 4. El derecho tiene 5. Añade fichas de 1 a la derecha: el número que añadas es la casilla.",
+   "source": "The left pan holds 8 + 4. The right pan holds 5. Add 1-tiles to the right: the number you add is the box."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#level.question.prompt": {
+   "text": "Nivela la balanza. ¿Cuántas fichas añadiste?",
+   "source": "Make the scale level. How many tiles did you add?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#level.question.hints.0": {
+   "text": "¿Cuánto vale el platillo izquierdo?",
+   "source": "How much is the left pan worth?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#level.question.hints.1": {
+   "text": "Necesitas 12 a la derecha. Ya hay 5.",
+   "source": "You need 12 on the right. It already has 5."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#level.question.explanation": {
+   "text": "Los dos lados deben valer 12, así que la casilla es 7.",
+   "source": "Both sides must be worth 12, so the box is 7."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#level.question.successFeedback": {
+   "text": "5 + 7 = 12. La casilla es **7**, no 12 (ese es el lado izquierdo) ni 17 (eso suma todo).",
+   "source": "5 + 7 = 12. The box is **7**, not 12 (that's the left side) or 17 (that adds everything)."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#meaning.title": {
+   "text": "= significa equilibrio",
+   "source": "= means balanced"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#meaning.body": {
+   "text": "«=» dice que los dos lados valen **lo mismo**. No significa «ahora viene el resultado».",
+   "source": "\"=\" says both sides are worth **the same**. It does not mean \"the answer comes next\"."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.title": {
+   "text": "¿Verdadero o no?",
+   "source": "True or not?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.prompt": {
+   "text": "¿Cuáles son verdaderas? Elige todas.",
+   "source": "Which are true? Pick all."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.hints.0": {
+   "text": "Calcula cada lado por separado.",
+   "source": "Work out each side separately."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.explanation": {
+   "text": "Verdadero significa que los dos lados tienen el mismo valor. $7 = 3 + 4$ es verdadero aunque el número solo vaya primero. $3 + 4 = 7 + 2$ es falso: dice que 7 = 9.",
+   "source": "True means both sides have the same value. $7 = 3 + 4$ is true even with the single number first. $3 + 4 = 7 + 2$ is false: it says 7 = 9."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.options.#a.text": {
+   "text": "$7 = 3 + 4$",
+   "source": "$7 = 3 + 4$"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.options.#a.feedback": {
+   "text": "Verdadero. El «resultado» puede ir primero: los dos lados valen 7.",
+   "source": "True. The \"answer\" can come first: both sides are worth 7."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.options.#b.text": {
+   "text": "$5 + 2 = 2 + 5$",
+   "source": "$5 + 2 = 2 + 5$"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.options.#c.text": {
+   "text": "$3 + 4 = 7 + 2$",
+   "source": "$3 + 4 = 7 + 2$"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.options.#c.feedback": {
+   "text": "El lado derecho es 9, no 7. Los dos lados deben coincidir.",
+   "source": "The right side is 9, not 7. Both sides must match."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#true-or-not.question.options.#d.text": {
+   "text": "$3 + 4 = 7$",
+   "source": "$3 + 4 = 7$"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#mystery.title": {
+   "text": "Una ficha misteriosa",
+   "source": "A mystery tile"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#mystery.body": {
+   "text": "La **x** verde tiene un peso oculto. Solo puedes hacer **lo mismo en ambos lados**.",
+   "source": "The green **x** has a hidden weight. You can only do the **same thing to both sides**."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#mystery.interactive.goal": {
+   "text": "Deja la x sola. ¿Cuánto pesa?",
+   "source": "Get x alone. What does it weigh?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#rule.title": {
+   "text": "Lo mismo en ambos lados",
+   "source": "Same to both sides"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#rule.body": {
+   "text": "Haz lo mismo en ambos lados y la balanza sigue nivelada.\n\n$x + 3 = 7$ → quita 3 de ambos → $x = 4$.",
+   "source": "Do the same thing to both sides and the scale stays level.\n\n$x + 3 = 7$ → take 3 from both → $x = 4$."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#two-x.title": {
+   "text": "Dos de ellas",
+   "source": "Two of them"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#two-x.question.prompt": {
+   "text": "Resuelve $2x + 3 = 11$ en la balanza.",
+   "source": "Solve $2x + 3 = 11$ on the scale."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#two-x.question.hints.0": {
+   "text": "Primero quita las fichas de 1 que acompañan a las x.",
+   "source": "First get rid of the 1-tiles next to the x's."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#two-x.question.hints.1": {
+   "text": "Dos x pesan 8. Reparte ambos lados en 2.",
+   "source": "Two x's weigh 8. Share both sides into 2."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#two-x.question.explanation": {
+   "text": "Quita 3 de ambos lados ($2x = 8$) y luego reparte ambos lados en 2 ($x = 4$).",
+   "source": "Take 3 from both sides ($2x = 8$), then share both sides into 2 ($x = 4$)."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#two-x.question.successFeedback": {
+   "text": "$2x = 8$, así que $x = 4$.",
+   "source": "$2x = 8$, so $x = 4$."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict-x.title": {
+   "text": "Adivina y comprueba",
+   "source": "Guess, then check"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict-x.question.prompt": {
+   "text": "Antes de tocar la balanza: en $2x + 5 = 13$, ¿cuánto vale $x$?",
+   "source": "Before you touch the scale: in $2x + 5 = 13$, what is $x$?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict-x.question.hints.0": {
+   "text": "¿Qué puedes quitar de ambos lados para que a la izquierda solo queden x?",
+   "source": "What can you take from both sides so only x's are left on the left?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict-x.question.hints.1": {
+   "text": "Quita 5 de ambos: $2x = 8$.",
+   "source": "Take 5 from both: $2x = 8$."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict-x.question.hints.2": {
+   "text": "Reparte ambos lados en 2: $x = 4$.",
+   "source": "Share both sides into 2: $x = 4$."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#predict-x.question.explanation": {
+   "text": "$2x + 5 = 13$ → quita 5 de ambos → $2x = 8$ → reparte en 2 → $x = 4$. Usa la balanza para comprobarlo.",
+   "source": "$2x + 5 = 13$ → take 5 from both → $2x = 8$ → share into 2 → $x = 4$. Use the scale to check."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.title": {
+   "text": "Encuentra el error",
+   "source": "Spot the slip"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.prompt": {
+   "text": "Sam quitó 5 **solo del lado izquierdo** de $x + 5 = 9$ y obtuvo esto. ¿Qué falló?",
+   "source": "Sam took 5 from the **left side only** of $x + 5 = 9$ and got this. What went wrong?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.explanation": {
+   "text": "Cambiar un solo lado rompe el equilibrio. $x + 5 = 9$ → $x = 4$.",
+   "source": "Changing one side breaks the balance. $x + 5 = 9$ → $x = 4$."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.options.#both.text": {
+   "text": "Sam cambió solo un lado, así que los lados ya no son iguales. Quita 5 de ambos: $x = 4$.",
+   "source": "Sam changed one side only, so the sides are no longer equal. Take 5 from both: $x = 4$."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.options.#both.feedback": {
+   "text": "Sí. Lo que hagas, hazlo en ambos lados.",
+   "source": "Yes. Whatever you do, do it to both sides."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.options.#fine.text": {
+   "text": "Nada. Quitar 5 deja la x sola.",
+   "source": "Nothing. Taking 5 away gets x alone."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.options.#fine.feedback": {
+   "text": "Mira la balanza: se inclinó. Quitar 5 de un platillo hace que los lados sean distintos.",
+   "source": "Look at the scale: it tipped. Taking 5 from one pan makes the sides unequal."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.options.#add.text": {
+   "text": "Sam debería haber sumado 5 a la derecha.",
+   "source": "Sam should have added 5 to the right instead."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#slip.question.options.#add.feedback": {
+   "text": "Eso da x = 14, y sigue siendo en un solo lado. Quita 5 de ambos lados.",
+   "source": "That gives x = 14, still one-sided. Take 5 from both sides."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check.title": {
+   "text": "Prueba de dominio",
+   "source": "Mastery check"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check.question.prompt": {
+   "text": "Esta vez sin balanza. Resuelve $3x + 2 = 17$. $x = ?$",
+   "source": "No scale this time. Solve $3x + 2 = 17$. $x = ?$"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check.question.explanation": {
+   "text": "Quita 2 de ambos lados: $3x = 15$. Reparte ambos lados en 3: $x = 5$.",
+   "source": "Take 2 from both sides: $3x = 15$. Share both sides into 3: $x = 5$."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.title": {
+   "text": "Una más",
+   "source": "One more"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.question.prompt": {
+   "text": "$4 + 6 = \\square + 3$. ¿Qué va en la casilla?",
+   "source": "$4 + 6 = \\square + 3$. What goes in the box?"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.question.explanation": {
+   "text": "El lado izquierdo es 10, así que $\\square + 3 = 10$ y la casilla es 7.",
+   "source": "The left side is 10, so $\\square + 3 = 10$ and the box is 7."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.question.options.#a.text": {
+   "text": "7",
+   "source": "7"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.question.options.#b.text": {
+   "text": "10",
+   "source": "10"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.question.options.#b.feedback": {
+   "text": "10 es el lado izquierdo. El derecho también debe sumar 10: □ + 3 = 10.",
+   "source": "10 is the left side. The right side must also make 10: □ + 3 = 10."
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.question.options.#c.text": {
+   "text": "13",
+   "source": "13"
+  },
+  "chapters.#what-equals-means.lessons.#the-balance.steps.#check-box.question.options.#c.feedback": {
+   "text": "Eso suma todos los números. Los dos lados deben valer 10.",
+   "source": "That adds every number. Both sides must be worth 10."
+  },
+  "chapters.#equivalent-expressions.title": {
+   "text": "Expresiones equivalentes",
+   "source": "Equivalent expressions"
+  },
+  "chapters.#equivalent-expressions.summary": {
+   "text": "Distinto aspecto, mismo valor.",
+   "source": "Different-looking, same value."
+  },
+  "chapters.#equivalent-expressions.plannedLessons.0": {
+   "text": "Agrupar términos semejantes",
+   "source": "Collecting like terms"
+  },
+  "chapters.#equivalent-expressions.plannedLessons.1": {
+   "text": "La propiedad distributiva",
+   "source": "The distributive property"
+  },
+  "chapters.#two-step-equations.title": {
+   "text": "Ecuaciones de uno y dos pasos",
+   "source": "One- and two-step equations"
+  },
+  "chapters.#two-step-equations.summary": {
+   "text": "De las fichas a los símbolos.",
+   "source": "From tiles to symbols."
+  },
+  "chapters.#two-step-equations.plannedLessons.0": {
+   "text": "Deshacer en orden inverso",
+   "source": "Undo in reverse"
+  },
+  "chapters.#two-step-equations.plannedLessons.1": {
+   "text": "Fichas negativas",
+   "source": "Negative tiles"
+  },
+  "chapters.#both-sides.title": {
+   "text": "Incógnitas en ambos lados",
+   "source": "Variables on both sides"
+  },
+  "chapters.#both-sides.summary": {
+   "text": "x en los dos platillos.",
+   "source": "x on both pans."
+  },
+  "chapters.#both-sides.plannedLessons.0": {
+   "text": "Quita x de ambos",
+   "source": "Take x from both"
+  },
+  "chapters.#both-sides.plannedLessons.1": {
+   "text": "Sin solución o con todas las soluciones",
+   "source": "No solution or every solution"
+  },
+  "chapters.#inequalities.title": {
+   "text": "Desigualdades",
+   "source": "Inequalities"
+  },
+  "chapters.#inequalities.summary": {
+   "text": "Cuando la balanza debe inclinarse.",
+   "source": "When the scale is meant to tip."
+  },
+  "chapters.#inequalities.plannedLessons.0": {
+   "text": "¿Más pesado o más ligero?",
+   "source": "Heavier or lighter?"
+  },
+  "chapters.#inequalities.plannedLessons.1": {
+   "text": "Soluciones en la recta numérica",
+   "source": "Solutions on the number line"
+  },
+  "chapters.#writing-equations.title": {
+   "text": "Escribir ecuaciones",
+   "source": "Writing equations"
+  },
+  "chapters.#writing-equations.summary": {
+   "text": "De las historias a los símbolos.",
+   "source": "From stories to symbols."
+  },
+  "chapters.#writing-equations.plannedLessons.0": {
+   "text": "Dilo con x",
+   "source": "Say it with x"
+  },
+  "chapters.#writing-equations.plannedLessons.1": {
+   "text": "Comprueba que tiene sentido",
+   "source": "Check it makes sense"
+  }
+ }
+}

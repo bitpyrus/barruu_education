@@ -17,6 +17,7 @@ import { z } from 'zod';
 import { GoalSchema } from './geometry';
 import { CircuitGoalSchema } from './sim/circuit';
 import { NumberLineGoalSchema } from './numberLine';
+import { BalanceGoalSchema } from './balance';
 
 export const SCHEMA_VERSION = 1;
 
@@ -111,6 +112,12 @@ export const QuestionSchema = z.discriminatedUnion('kind', [
     /** The answer is where the learner puts the points on the step's number line. */
     kind: z.literal('numberLine'),
     goals: z.array(NumberLineGoalSchema).min(1),
+    successFeedback: z.string().optional(),
+  }),
+  QuestionBase.extend({
+    /** The answer is the state of the step's balance scale. */
+    kind: z.literal('balance'),
+    goals: z.array(BalanceGoalSchema).min(1),
     successFeedback: z.string().optional(),
   }),
 ]);

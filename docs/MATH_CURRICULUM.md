@@ -40,7 +40,7 @@ Further decisions:
 - **"Get ready" bridges** (short prerequisite refreshers) will be generated from the graph, not written by hand.
 
 ## Interactives (ranked by reach)
-Available now: grid board, function explorer, pendulum lab, circuit builder and **number line**.
+Available now: grid board, function explorer, pendulum lab, circuit builder, **number line** and **balance scale**.
 
 Planned, in this order:
 1. number line
@@ -90,7 +90,7 @@ These map onto the stages in docs/CONTENT_AND_LESSONS.md.
    - Still to do: seed the learner model from placement, extend placement items to grade 6.
 1. **The hinge.**
    - ✅ Number line (fractions and decimals); 🔶 F1 *Numbers on the line*: chapter 1 lesson 1 and chapter 2 (3 lessons).
-   - Balance/tiles, then F3 *Expressions and equations*.
+   - ✅ Balance scale; 🔶 F3 *Expressions and equations* chapter 1 (*What does = mean?*).
    - Function lab, then H1 *Linear relationships*.
 2. **Geometry spine.** Extend *Mathematical Thinking* (F4). Transformation board for H4/H5. Vector board with physics
    forces, so K4 ships early.

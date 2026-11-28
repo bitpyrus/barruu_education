@@ -1,6 +1,6 @@
 # Current state · capabilities · known issues · next task
 
-_Last updated: 2026-11-28 — branch `claude/comparing-fractions` (PR to `main`)._
+_Last updated: 2026-11-28 — branch `claude/balance-scale` (PR to `main`)._
 
 ## Snapshot
 The foundation is in place:
@@ -8,7 +8,7 @@ The foundation is in place:
 - A grade 9–12 science and engineering skill map, with an adaptive placement test ("Find your level").
 - Multilingual support: English, plus Spanish and Arabic as machine drafts, including right-to-left layout.
   Translation is overlay-based.
-- Six courses: *Numbers on the Line* (4 lessons: where fractions live; closer to 1; decimals; ordering), the flagships *Mathematical Thinking* and *Electric Circuits*, plus
+- Seven courses: *Expressions and Equations* (new: *What does = mean?*), *Numbers on the Line* (4 lessons: where fractions live; closer to 1; decimals; ordering), the flagships *Mathematical Thinking* and *Electric Circuits*, plus
   three previews.
 - A number line interactive (`numberLine`): stacked lines, snapping points, fraction feedback, keyboard.
 - A researched **mathematics curriculum** (docs/MATH_CURRICULUM.md, research in docs/research/): 27 courses and
@@ -26,6 +26,7 @@ The foundation is in place:
 |---|---|---|
 | Engine: assessment, geometry/constructions, learner model, sims, tutor contracts | ✅ | `packages/engine/test`, `packages/content/test` |
 | Content lint (solvable constructions and circuits, etc.) | ✅ | `npm run content:check`, catalog tests |
+| Balance scale: goals (balanced/solved), reachable-state lint, renderer, equation with ≠ | ✅ | `balance.test.ts`, `web-check.cjs` |
 | Number line: point goals, lint search, renderer (keyboard + touch), fraction feedback | ✅ | `numberLine.test.ts`, `web-check.cjs` |
 | *Numbers on the Line* 4 lessons + Spanish draft | ✅ en · 🔶 es machine draft (239/239) | content:check, reviewer agents |
 | Circuit builder: solver, goals, lint, renderer (keyboard + touch) | ✅ | `circuit.test.ts` (hand-computed values), `circuits.test.ts` (lesson physics), `web-check.cjs` |
@@ -70,11 +71,12 @@ The foundation is in place:
 
 ## Next task (do this next)
 **Phase 1 of the math plan continues (docs/MATH_CURRICULUM.md → Build order).**
-1. Build **balance scale → algebra tiles** (`balanceTiles`): an equation as a balance whose state is checked as
-   equivalent through `expr`, with the scaffold fading from tiles to symbols. Then F3 *Expressions and equations*,
-   chapter 1 *What "=" means* (`equals-means-compute`).
-2. Then F1 chapter 3, *Adding with a sense of size* (`add-tops-and-bottoms`). It reuses the number line with jumps.
-3. Finish the rest of Phase 0:
+1. Build the **function lab** (`functionLab`): a linked table ↔ graph ↔ equation view, plus a "drive the graph" motion mode
+   for covariation. Then H1 *Linear relationships*, chapter 1 (*Input–output machines*, *Slope as rate*). It targets
+   `slope-height-confusion` and `graph-as-picture`.
+2. F3 chapter 3, *One- and two-step equations*. It needs negative tiles (zero pairs) in `balanceTiles`.
+3. F1 chapter 3, *Adding with a sense of size*. It needs number-line jumps and targets `add-tops-and-bottoms`.
+4. Finish the rest of Phase 0:
    - seed the learner model from placement (known issue 5);
    - add grade 6–8 placement items.
 
@@ -97,6 +99,8 @@ Lesson style the owner asked for: **not verbose, interesting, like Brilliant**. 
 - Circuit boards: edge ids are `h:x,y` / `v:x,y` (x right, y down). A battery's `+` is end `a` (top/left) unless
   `positive: 'b'`. Bulbs are 6 Ω and reach full brightness at 1.5 W (3 V). Authors give learners **slots** (gaps
   with options) and toggleable switches; content lint enumerates every reachable board to prove a challenge solvable.
+- Balance scale: moves mode must start balanced (validated). The scale never reveals x's weight while tipped. Lint
+  explores every reachable state (BFS over moves; tile ranges in free mode).
 - Number line: goal values may be written as fractions (`'3/4'`) or decimals (`'0.25'`); `labels: 'decimals'` lines
   label tenths and show/feed back decimals. The lint search prunes each point by its own goals, so 4-point tasks stay fast.
 - Number line: goal values may be written as fractions (`'3/4'`). Point values must sit on a tick (validated). Feedback

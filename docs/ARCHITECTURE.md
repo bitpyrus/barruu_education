@@ -41,6 +41,7 @@ and `tsx` compile them. No build step per package. (ADR 0001.)
 
 | Primitive | Status | Where |
 |---|---|---|
+| Balance scale with algebra tiles: free (add/remove) and moves (same to both sides, share equally) modes, live equation with ≠, undo | ✅ | `ui/BalanceTiles`, engine `balanceTiles` kind + `balance.ts` |
 | Number line: stacked lines, draggable points snapping to ticks, shaded length, keyboard; point goals | ✅ | `ui/NumberLine`, engine `numberLine` kind + `numberLine.ts` |
 | Lattice board: resize rectangles, drag polygon corners, snapping, keyboard, unit-square tiles, live measures | ✅ | `ui/GridBoard`, engine `gridBoard` kind + `geometry.ts` goals |
 | Parameter sliders + function plots + derivative | ✅ | `ui/FunctionExplorer` |

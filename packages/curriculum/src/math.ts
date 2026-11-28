@@ -57,7 +57,7 @@ export const MATH_INTERACTIVES = {
   pendulumLab: { status: 'available', rank: 0 },
   circuitBoard: { status: 'available', rank: 0 },
   numberLine: { status: 'available', rank: 1 },
-  balanceTiles: { status: 'planned', rank: 2 },
+  balanceTiles: { status: 'available', rank: 2 },
   functionLab: { status: 'planned', rank: 3 },
   transformationBoard: { status: 'planned', rank: 4 },
   probabilitySimulator: { status: 'planned', rank: 5 },
@@ -129,7 +129,7 @@ export const MATH_COURSES: MathCourse[] = [
       ['math.linear-equations', 'Variables on both sides', 8, ['math.two-step-equations']],
       ['math.inequalities-1d', 'Inequalities on the number line', 7, ['math.two-step-equations']],
       ['math.writing-equations', 'Writing equations from situations', 7, ['math.two-step-equations']],
-    ]),
+    ], 'expressions-and-equations'),
   course('F4', 'shape-and-measure', 'Mathematical Thinking: shape and measure', ['G'], 'foundations',
     ['gridBoard'], { ccss: ['6.G', '7.G'], england: ['KS3 Geometry and measures'], singapore: ['Sec 1 Mensuration'], cambridge: ['IGCSE E5'] }, [
       ['math.area-by-rearranging', 'Area by covering and rearranging', 6],

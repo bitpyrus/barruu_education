@@ -117,7 +117,8 @@ describe('UI component strings', () => {
       'numeric.magnitude', 'numeric.incorrect', 'expression.empty', 'expression.unreadable', 'expression.equivalent', 'expression.notEquivalent',
       'order.empty', 'order.correct', 'order.partial', 'construction.empty', 'construction.correct', 'goal.degenerate', 'goal.metric',
       'circuit.empty', 'circuit.correct', 'circuit.short', 'circuit.invalid', 'circuit.dark', 'circuit.lit', 'circuit.litBulbs', 'circuit.total', 'circuit.metric',
-      'numberLine.empty', 'numberLine.correct', 'numberLine.unplaced', 'numberLine.value', 'numberLine.bound', 'numberLine.compare'];
+      'numberLine.empty', 'numberLine.correct', 'numberLine.unplaced', 'numberLine.value', 'numberLine.bound', 'numberLine.compare',
+      'balance.empty', 'balance.correct', 'balance.unbalanced', 'balance.tipped', 'balance.notSolved'];
     for (const l of LOCALES) for (const c of codes) expect(MESSAGES[l.code][`feedback.${c}`], `${l.code} feedback.${c}`).toBeTruthy();
     for (const l of LOCALES) for (const m of ['area', 'perimeter', 'width', 'height', 'axisAlignedSides', 'vertexCount', 'current', 'voltage', 'power', 'brightness']) expect(MESSAGES[l.code][`metric.${m}`]).toBeTruthy();
   });

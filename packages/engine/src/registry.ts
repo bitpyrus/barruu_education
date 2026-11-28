@@ -19,6 +19,7 @@ import { compile, derivative, parseExpr } from './expr';
 import { exactPeriod, PENDULUM_ASSUMPTIONS, smallAnglePeriod } from './sim/pendulum';
 import type { SortAlgorithm } from './sim/sorting';
 import { area, boundingBox, perimeter, rectPoints, type Point } from './geometry';
+import { allowedMoves, applyMove, equationText, isBalanced, isSolved, type BalanceSides } from './balance';
 import { FractionValue, formatDecimal, formatFraction, type NumberLineFormat, type NumberLinePoints } from './numberLine';
 import {
   CIRCUIT_ASSUMPTIONS, EdgeIdSchema, PART_KINDS, edgeInBounds, solveCircuit, type CircuitBoard, type CircuitPart,
@@ -487,9 +488,83 @@ const numberLine: InteractiveDescriptor<NumberLineConfig, NumberLineState> = {
   exampleConfig: { lines: [{ id: 'l', min: 0, max: 2, divisions: 4, labels: 'fractions' }], points: [{ id: 'p', label: 'P', line: 'l' }], showValues: true },
 };
 
+
+// ── Balance scale with algebra tiles ────────────────────────────────────────
+
+const PanSchema = z.object({ x: z.number().int().min(0).max(8).default(0), units: z.number().int().min(0).max(30).default(0) });
+
+export const BalanceTilesConfig = z.object({
+  left: PanSchema,
+  right: PanSchema,
+  /** What one x weighs (hidden from the learner unless they find it). */
+  xValue: z.number().int().min(1).max(12).default(1),
+  /** free: add/remove tiles on editable pans. moves: only do the same thing to both sides. */
+  mode: z.enum(['free', 'moves']).default('moves'),
+  /** Pans the learner may change in free mode (never below their starting tiles). */
+  editable: z.array(z.enum(['left', 'right'])).default([]),
+  /** Free mode: allow adding x-tiles too. */
+  allowX: z.boolean().default(false),
+  maxUnits: z.number().int().min(1).max(30).default(20),
+  /** Show the equation under the scale ("2x + 3 = 11", "≠" while tipped). */
+  showEquation: z.boolean().default(true),
+}).superRefine((c, ctx) => {
+  if (c.mode === 'free' && c.editable.length === 0) ctx.addIssue({ code: 'custom', path: ['editable'], message: 'free mode needs at least one editable pan' });
+  if (c.mode === 'moves' && c.left.x * c.xValue + c.left.units !== c.right.x * c.xValue + c.right.units) {
+    ctx.addIssue({ code: 'custom', path: ['xValue'], message: 'in moves mode the scale must start balanced' });
+  }
+  if (c.left.units > c.maxUnits || c.right.units > c.maxUnits) ctx.addIssue({ code: 'custom', path: ['maxUnits'], message: 'a pan starts with more than maxUnits' });
+});
+export type BalanceTilesConfig = z.infer<typeof BalanceTilesConfig>;
+export interface BalanceTilesState extends InteractiveState { left: BalanceSides['left']; right: BalanceSides['right']; past: BalanceSides[] }
+
+const balanceTiles: InteractiveDescriptor<BalanceTilesConfig, BalanceTilesState> = {
+  kind: 'balanceTiles',
+  label: 'Balance scale',
+  category: 'math',
+  description: 'An equation as a balance scale with x-tiles and 1-tiles; balance it, or solve for x by doing the same thing to both sides.',
+  configSchema: BalanceTilesConfig as z.ZodType<BalanceTilesConfig>,
+  initialState: (c) => ({ left: { ...c.left }, right: { ...c.right }, past: [] }),
+  parameters: () => [],
+  describeState(c, s) {
+    const sides = { left: s.left, right: s.right };
+    const state = isBalanced(sides, c.xValue) ? (isSolved(sides) ? 'balanced, with x alone' : 'balanced') : 'tipped';
+    const moves = c.mode === 'moves' ? ` Possible moves: ${allowedMoves(sides).map((m) => m.type === 'divide' ? `share into ${m.k}` : m.type).join(', ') || 'none'}.` : '';
+    return `Balance scale showing ${equationText(sides, c.xValue)}; it is ${state}.${moves}`;
+  },
+  exampleConfig: { left: { x: 2, units: 3 }, right: { units: 11 }, xValue: 4, mode: 'moves' },
+};
+
+/** Every state the learner can reach (free: tile counts within limits; moves: any sequence of moves). */
+export function reachableBalanceStates(c: BalanceTilesConfig, limit = 20000): BalanceSides[] {
+  const start: BalanceSides = { left: { ...c.left }, right: { ...c.right } };
+  if (c.mode === 'moves') {
+    const seen = new Map<string, BalanceSides>();
+    const queue = [start];
+    while (queue.length && seen.size < limit) {
+      const s = queue.shift()!;
+      const key = JSON.stringify(s);
+      if (seen.has(key)) continue;
+      seen.set(key, s);
+      for (const m of allowedMoves(s)) queue.push(applyMove(s, m));
+    }
+    return [...seen.values()];
+  }
+  const range = (side: 'left' | 'right', field: 'x' | 'units') => {
+    const min = c[side][field];
+    const max = !c.editable.includes(side) ? min : field === 'units' ? c.maxUnits : c.allowX ? 8 : min;
+    return Array.from({ length: max - min + 1 }, (_, i) => min + i);
+  };
+  const out: BalanceSides[] = [];
+  for (const lx of range('left', 'x')) for (const lu of range('left', 'units')) for (const rx of range('right', 'x')) for (const ru of range('right', 'units')) {
+    out.push({ left: { x: lx, units: lu }, right: { x: rx, units: ru } });
+    if (out.length >= limit) return out;
+  }
+  return out;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const REGISTRY = new Map<string, InteractiveDescriptor<any, any>>(
-  [functionExplorer, pendulumLab, sortingLab, gridBoard, circuitBoard, numberLine].map((d) => [d.kind, d]),
+  [functionExplorer, pendulumLab, sortingLab, gridBoard, circuitBoard, numberLine, balanceTiles].map((d) => [d.kind, d]),
 );
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
