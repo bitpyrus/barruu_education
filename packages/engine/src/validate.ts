@@ -138,6 +138,7 @@ export function lintLesson(lesson: Lesson): ContentIssue[] {
       if (!findNumberLineSolution(lineConfig, q)) at('no reachable placement satisfies every goal');
     }
     if (q.kind === 'choice' && !q.options.some((o) => o.correct)) at('choice question has no correct option');
+    if (q.kind === 'choice' && !q.multiple && q.options.filter((o) => o.correct).length > 1) at('single-answer choice question has more than one correct option');
     if (q.kind === 'order' && [...q.correctOrder].sort().join() !== q.items.map((_, i) => i).join()) at('correctOrder is not a permutation of the items');
     if (step.stage === 'assess' && q.hints.length > 0) at('assessment steps should not have hints (they are hidden)');
   }

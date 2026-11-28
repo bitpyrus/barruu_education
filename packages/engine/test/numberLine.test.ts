@@ -67,6 +67,12 @@ describe('number line', () => {
     expect(findNumberLineSolution(v.config, q)).toEqual({ p: 1 });
   });
 
+  it('lint flags a single-answer choice with two correct options', () => {
+    const lesson = LessonSchema.parse({ id: 'l', title: 't', steps: [{ id: 's', type: 'question', stage: 'practice',
+      question: { kind: 'choice', prompt: 'p', options: [{ id: 'a', text: 'a', correct: true }, { id: 'b', text: 'b', correct: true }] } }] });
+    expect(lintLesson(lesson).map((i) => i.message)).toContain('single-answer choice question has more than one correct option');
+  });
+
   it('describes its state in words', () => {
     const v = validateConfig<NumberLineConfig>('numberLine', cfg());
     if (!v.ok) throw new Error();
