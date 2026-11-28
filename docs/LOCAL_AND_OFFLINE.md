@@ -20,6 +20,8 @@
 Cloudflare build settings: build command `npm run build`, deploy command `npx wrangler deploy --config wrangler.jsonc`, both from the
 repository root, production branch `main`. The Worker `name` in `wrangler.jsonc` must match the Worker's name in the dashboard. Without this
 file Wrangler tries to auto-detect an app and refuses to in a monorepo root.
+Branches other than `main` are built as **Previews** with `npx wrangler preview`. That command requires the (empty)
+`previews` block in `wrangler.jsonc`; without it the build fails with "configuration is missing a `previews` block".
 
 ## Plan
 1. ~~Offline PWA~~ ✅ done (whole-app precache). Next: a web app manifest and icons for "install", an "available

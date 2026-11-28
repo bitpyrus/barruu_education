@@ -1,5 +1,6 @@
 // Cloudflare Workers deployment for the web app (static assets only, no server code).
 // Cloudflare build settings:  build command `npm run build`  ·  deploy command `npx wrangler deploy`
+// Non-production branches are built as Previews (`npx wrangler preview`), which requires the `previews` block below.
 // Both run from the repository root; this file tells Wrangler exactly what to deploy, so it
 // doesn't try (and refuse) to auto-detect an app inside the monorepo.
 {
@@ -11,5 +12,7 @@
     "directory": "./apps/web/dist",
     // Client-side routes (/courses/…, /placement) fall back to index.html.
     "not_found_handling": "single-page-application"
-  }
+  },
+  // Enables branch Previews. Empty on purpose: assets and compatibility settings above are inherited.
+  "previews": {}
 }
